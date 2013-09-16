@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Transform"
+    targetNamespace="clr-namespace:Integration.Transforms"
+    elementFormDefault="qualified"
+    xmlns="clr-namespace:Integration.Transforms"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!--   
+  Argument Definition -->
+  <xs:complexType name="argument">
+    <xs:annotation>
+      <xs:documentation>specifies an argument</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:Name" use="required">
+      <xs:annotation>
+        <xs:documentation>the name of the argument used in refrencing the argument</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="type" type="xs:QName" use="required">
+      <xs:annotation>
+        <xs:documentation>The type of the argument used in qualification. For .NET the type will be a WPF style clr-namespace declaration http://msdn.microsoft.com/en-us/library/ms747086.aspx </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <!--   
+  Source Definition -->
+  <xs:complexType name="source">
+    <xs:complexContent>
+      <xs:extension base="argument"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="sources">
+    <xs:sequence>
+      <xs:element name="source" type="source" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--   
+  Destination Definition -->
+  <xs:complexType name="destination">
+    <xs:complexContent>
+      <xs:extension base="argument"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="destinations">
+    <xs:sequence>
+      <xs:element name="destination" type="destination" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+  <!-- 
+  Transform Definition -->
+  <xs:complexType name="transform">
+    <xs:sequence >
+      <xs:choice >
+        <xs:annotation>
+          <xs:documentation>Define the source(s). These are the input(s) to the transformation.</xs:documentation>
+        </xs:annotation>
+        <xs:element name="sources" type="sources"/>
+        <xs:element name="source" type="source"/>
+      </xs:choice>
+      <xs:choice>
+        <xs:annotation>
+          <xs:documentation>Define the destination(s). These are the output(s) of the transformation.</xs:documentation>
+        </xs:annotation>
+        <xs:element name="destination" type="destination"/>
+        <xs:element name="destinations" type="destinations"/>
+      </xs:choice>
+      <xs:sequence>
+        <xs:element name="scope" type="scope"/>
+      </xs:sequence>
+    </xs:sequence>    
+  </xs:complexType>
+  <!-- 
+  Expressions -->
+  <xs:complexType name="expression">
+    <xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="binaryExpression">
+    <xs:sequence>
+      <xs:element name="left"/>
+      <xs:element name="right"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assign">
+    <xs:complexContent>      
+      <xs:extension base="binaryExpression">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!-- 
+  Iterators -->
+  <xs:complexType name="foreach">    
+      <xs:sequence>
+        <xs:element name="in" type="expression"/>
+        <xs:element name="scope" type="scope"/>
+      </xs:sequence>
+    <xs:attribute name="item" type="xs:Name"/>
+  </xs:complexType>
+  <!-- 
+  Selectors -->
+  <xs:complexType name="member">
+    <xs:sequence>
+      <xs:element name="assign" type="assign"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--
+  Scopes -->
+  <xs:complexType name="scope">
+    <xs:sequence>
+      <xs:element name="foreach" type="foreach" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="member" type="member" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- 
+  The document root -->
+  <xs:element name="transform" type="transform"/>
+</xs:schema>
