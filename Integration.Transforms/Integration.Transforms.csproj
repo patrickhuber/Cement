@@ -40,16 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITransform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Transform.xsd">
+    <None Include="playground\DgmlSample.dgml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="playground\Transform1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="schemas\Transform.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Transform.xml">
+    <Content Include="schemas\Transform.xml" />
+    <Content Include="playground\Transform1.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>

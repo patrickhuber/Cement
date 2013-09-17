@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="{1280D524-C9B7-4D33-9A2A-8309CC14F99C}" Label="FirstName" />
+    <Node Id="{1818525A-761F-46D7-9ABC-B6CCA417A4BE}" Label="FirstName" />
+    <Node Id="{1E806E4F-298B-48E4-8C01-6AAEA8C3EB97}" Label="LastName" />
+    <Node Id="{29077D7D-63BB-4B3F-B6FE-61580C97F071}" Group="Expanded" IsHub="True" Label="PersonDto" />
+    <Node Id="{37F8F325-44D2-46D5-858F-B9699C8FA0DC}" Group="Expanded" Label="Person" />
+    <Node Id="{382421AB-E33B-45FB-BD0F-A3B934BC7E5F}" Label="LastName" />
+    <Node Id="{53B0E662-C5C0-43C5-A939-ADED5FDF8D62}" Label="DateOfBirth" />
+  </Nodes>
+  <Links>
+    <Link Source="{1E806E4F-298B-48E4-8C01-6AAEA8C3EB97}" Target="{382421AB-E33B-45FB-BD0F-A3B934BC7E5F}" Category="None" />
+    <Link Source="{29077D7D-63BB-4B3F-B6FE-61580C97F071}" Target="{1818525A-761F-46D7-9ABC-B6CCA417A4BE}" Category="Contains" />
+    <Link Source="{29077D7D-63BB-4B3F-B6FE-61580C97F071}" Target="{382421AB-E33B-45FB-BD0F-A3B934BC7E5F}" Category="Contains" />
+    <Link Source="{37F8F325-44D2-46D5-858F-B9699C8FA0DC}" Target="{1280D524-C9B7-4D33-9A2A-8309CC14F99C}" Category="Contains" />
+    <Link Source="{37F8F325-44D2-46D5-858F-B9699C8FA0DC}" Target="{1E806E4F-298B-48E4-8C01-6AAEA8C3EB97}" Category="Contains" />
+    <Link Source="{37F8F325-44D2-46D5-858F-B9699C8FA0DC}" Target="{53B0E662-C5C0-43C5-A939-ADED5FDF8D62}" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="None" />
+  </Categories>
+  <Properties>
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.Progression.GraphModel.GroupStyle" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsHub" Label="Hub" Description="Node is in the top 25% of highly connected nodes.  Other nodes not directly connecting these hubs have been hidden to simplify the graph." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+  </Properties>
+</DirectedGraph>

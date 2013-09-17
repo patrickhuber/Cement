@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Transform"
-    targetNamespace="clr-namespace:Integration.Transforms"
+<xs:schema id="Transform1"
+    targetNamespace="clr-namespace:Integration.Transforms1"
     elementFormDefault="qualified"
-    xmlns="clr-namespace:Integration.Transforms"
+    xmlns="clr-namespace:Integration.Transforms1"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <!--   
