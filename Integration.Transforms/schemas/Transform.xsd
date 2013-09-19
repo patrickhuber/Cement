@@ -12,16 +12,21 @@
   </xs:simpleType>
   <!-- 
   Transform input and output models-->
-  <xs:complexType name="Node">
+  <xs:complexType name="NodeList">
     <xs:sequence>
       <xs:element name="Node" type="Node" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Node">
+    <xs:sequence>
+      <xs:element name="Nodes" type="NodeList" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attribute name="Id" type="GUID"/>
     <xs:attribute name="Name" type="xs:string"/>
   </xs:complexType>
   <xs:complexType name="Model">
     <xs:sequence>
-      <xs:element name="Node" type="Node" minOccurs="0" maxOccurs="unbounded"/>      
+      <xs:element name="Nodes" type="NodeList" minOccurs="0" maxOccurs="unbounded"/>      
     </xs:sequence>
     <xs:attribute name="Type" type="xs:anyURI"/>
   </xs:complexType>

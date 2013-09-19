@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EFB0B9AE-DB69-4CC8-A0B1-4A7673D7948B}</ProjectGuid>
+    <ProjectGuid>{E313FBC0-7DD9-4646-995A-8AB1EBD7B6AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Integration.Transforms.Xslt</RootNamespace>
-    <AssemblyName>Integration.Transforms.Xslt</AssemblyName>
+    <RootNamespace>Integration.Adapters</RootNamespace>
+    <AssemblyName>Integration.Adapters</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAdapter.cs" />
+    <Compile Include="IAdapterContext.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="IMessageHeader.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Integration.Transforms\Integration.Transforms.csproj">
-      <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
-      <Name>Integration.Transforms</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

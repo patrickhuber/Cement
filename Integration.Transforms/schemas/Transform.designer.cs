@@ -4,7 +4,8 @@
 //    <NameSpace>Integration.Transforms</NameSpace><Collection>List</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>False</IncludeSerializeMethod><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net40</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>False</GenerateXMLAttributes><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>False</ExcludeIncludedTypes><EnableInitializeFields>True</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Integration.Transforms {
+namespace Integration.Transforms
+{
     using System;
     using System.Diagnostics;
     using System.Xml.Serialization;
@@ -12,640 +13,833 @@ namespace Integration.Transforms {
     using System.Xml.Schema;
     using System.ComponentModel;
     using System.Collections.Generic;
-    
-    
-    public partial class Transform {
-        
+
+
+    public partial class Transform
+    {
+
         private List<Model> inputsField;
-        
+
         private List<Model> outputsField;
-        
+
         private List<Function> functionsField;
-        
+
         private OperationList operationsField;
-        
+
         private List<Link> linksField;
-        
-        public Transform() {
+
+        public Transform()
+        {
             this.linksField = new List<Link>();
             this.operationsField = new OperationList();
             this.functionsField = new List<Function>();
             this.outputsField = new List<Model>();
             this.inputsField = new List<Model>();
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Model> Inputs {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Model> Inputs
+        {
+            get
+            {
                 return this.inputsField;
             }
-            set {
+            set
+            {
                 this.inputsField = value;
             }
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Model> Outputs {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 1)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Model> Outputs
+        {
+            get
+            {
                 return this.outputsField;
             }
-            set {
+            set
+            {
                 this.outputsField = value;
             }
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Function> Functions {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 2)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Function> Functions
+        {
+            get
+            {
                 return this.functionsField;
             }
-            set {
+            set
+            {
                 this.functionsField = value;
             }
         }
-        
-        public OperationList Operations {
-            get {
+
+        public OperationList Operations
+        {
+            get
+            {
                 return this.operationsField;
             }
-            set {
+            set
+            {
                 this.operationsField = value;
             }
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Link> Links {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 4)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Link> Links
+        {
+            get
+            {
                 return this.linksField;
             }
-            set {
+            set
+            {
                 this.linksField = value;
             }
         }
     }
-    
-    public partial class Model {
-        
-        private List<Node> nodeField;
-        
+
+    public partial class Model
+    {
+
+        private List<Node> nodesField;
+
         private string typeField;
-        
-        public Model() {
-            this.nodeField = new List<Node>();
+
+        public Model()
+        {
+            this.nodesField = new List<Node>();
         }
-        
-        public List<Node> Node {
-            get {
-                return this.nodeField;
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(typeof(Node), IsNullable = false)]
+        public List<Node> Nodes
+        {
+            get
+            {
+                return this.nodesField;
             }
-            set {
-                this.nodeField = value;
+            set
+            {
+                this.nodesField = value;
             }
         }
-        
-        public string Type {
-            get {
+
+        public string Type
+        {
+            get
+            {
                 return this.typeField;
             }
-            set {
+            set
+            {
                 this.typeField = value;
             }
         }
     }
-    
-    public partial class Node {
-        
-        private List<Node> node1Field;
-        
+
+    public partial class Node
+    {
+
+        private List<Node> nodesField;
+
         private string idField;
-        
+
         private string nameField;
-        
-        public Node() {
-            this.node1Field = new List<Node>();
+
+        public Node()
+        {
+            this.nodesField = new List<Node>();
         }
-        
-        public List<Node> Node1 {
-            get {
-                return this.node1Field;
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(typeof(Node), IsNullable = false)]
+        public List<Node> Nodes
+        {
+            get
+            {
+                return this.nodesField;
             }
-            set {
-                this.node1Field = value;
+            set
+            {
+                this.nodesField = value;
             }
         }
-        
-        public string Id {
-            get {
+
+        public string Id
+        {
+            get
+            {
                 return this.idField;
             }
-            set {
+            set
+            {
                 this.idField = value;
             }
         }
-        
-        public string Name {
-            get {
+
+        public string Name
+        {
+            get
+            {
                 return this.nameField;
             }
-            set {
+            set
+            {
                 this.nameField = value;
             }
         }
     }
-    
-    public partial class Link {
-        
+
+    public partial class Link
+    {
+
         private string sourceField;
-        
+
         private string targetField;
-        
-        public string Source {
-            get {
+
+        public string Source
+        {
+            get
+            {
                 return this.sourceField;
             }
-            set {
+            set
+            {
                 this.sourceField = value;
             }
         }
-        
-        public string Target {
-            get {
+
+        public string Target
+        {
+            get
+            {
                 return this.targetField;
             }
-            set {
+            set
+            {
                 this.targetField = value;
             }
         }
     }
-    
-    public partial class Output {
-        
+
+    public partial class Output
+    {
+
         private string idField;
-        
-        public string Id {
-            get {
+
+        public string Id
+        {
+            get
+            {
                 return this.idField;
             }
-            set {
+            set
+            {
                 this.idField = value;
             }
         }
     }
-    
-    public partial class Input {
-        
+
+    public partial class Input
+    {
+
         private string idField;
-        
-        public string Id {
-            get {
+
+        public string Id
+        {
+            get
+            {
                 return this.idField;
             }
-            set {
+            set
+            {
                 this.idField = value;
             }
         }
     }
-    
+
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallFunction))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Assign))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(Concat))]
-    public abstract partial class Operation {
-        
+    public abstract partial class Operation
+    {
+
         private string idField;
-        
-        public string Id {
-            get {
+
+        public string Id
+        {
+            get
+            {
                 return this.idField;
             }
-            set {
+            set
+            {
                 this.idField = value;
             }
         }
     }
-    
-    public partial class CallFunction : Operation {
-        
+
+    public partial class CallFunction : Operation
+    {
+
         private List<Input> inputsField;
-        
+
         private Output outputField;
-        
+
         private string functionIdField;
-        
-        public CallFunction() {
+
+        public CallFunction()
+        {
             this.outputField = new Output();
             this.inputsField = new List<Input>();
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Input> Inputs {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Input> Inputs
+        {
+            get
+            {
                 return this.inputsField;
             }
-            set {
+            set
+            {
                 this.inputsField = value;
             }
         }
-        
-        public Output Output {
-            get {
+
+        public Output Output
+        {
+            get
+            {
                 return this.outputField;
             }
-            set {
+            set
+            {
                 this.outputField = value;
             }
         }
-        
-        public string FunctionId {
-            get {
+
+        public string FunctionId
+        {
+            get
+            {
                 return this.functionIdField;
             }
-            set {
+            set
+            {
                 this.functionIdField = value;
             }
         }
     }
-    
-    public partial class Assign : Operation {
-        
+
+    public partial class Assign : Operation
+    {
+
         private Output outputField;
-        
+
         private string valueField;
-        
-        public Assign() {
+
+        public Assign()
+        {
             this.outputField = new Output();
         }
-        
-        public Output Output {
-            get {
+
+        public Output Output
+        {
+            get
+            {
                 return this.outputField;
             }
-            set {
+            set
+            {
                 this.outputField = value;
             }
         }
-        
-        public string Value {
-            get {
+
+        public string Value
+        {
+            get
+            {
                 return this.valueField;
             }
-            set {
+            set
+            {
                 this.valueField = value;
             }
         }
     }
-    
-    public partial class Concat : Operation {
-        
+
+    public partial class Concat : Operation
+    {
+
         private List<Input> inputsField;
-        
+
         private Output outputField;
-        
-        public Concat() {
+
+        public Concat()
+        {
             this.outputField = new Output();
             this.inputsField = new List<Input>();
         }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Input> Inputs {
-            get {
+
+        [System.Xml.Serialization.XmlArrayAttribute(Order = 0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
+        public List<Input> Inputs
+        {
+            get
+            {
                 return this.inputsField;
             }
-            set {
+            set
+            {
                 this.inputsField = value;
             }
         }
-        
-        public Output Output {
-            get {
+
+        public Output Output
+        {
+            get
+            {
                 return this.outputField;
             }
-            set {
+            set
+            {
                 this.outputField = value;
             }
         }
     }
-    
-    public partial class OperationList {
-        
+
+    public partial class OperationList
+    {
+
         private Assign assignField;
-        
+
         private Concat concatField;
-        
+
         private CallFunction callFunctionField;
-        
-        public OperationList() {
+
+        public OperationList()
+        {
             this.callFunctionField = new CallFunction();
             this.concatField = new Concat();
             this.assignField = new Assign();
         }
-        
-        public Assign Assign {
-            get {
+
+        public Assign Assign
+        {
+            get
+            {
                 return this.assignField;
             }
-            set {
+            set
+            {
                 this.assignField = value;
             }
         }
-        
-        public Concat Concat {
-            get {
+
+        public Concat Concat
+        {
+            get
+            {
                 return this.concatField;
             }
-            set {
+            set
+            {
                 this.concatField = value;
             }
         }
-        
-        public CallFunction CallFunction {
-            get {
+
+        public CallFunction CallFunction
+        {
+            get
+            {
                 return this.callFunctionField;
             }
-            set {
+            set
+            {
                 this.callFunctionField = value;
             }
         }
     }
-    
-    public partial class Parameter {
-        
+
+    public partial class Parameter
+    {
+
         private string nameField;
-        
+
         private string typeField;
-        
+
         private ParameterDirection directionField;
-        
+
         private bool directionFieldSpecified;
-        
-        public string Name {
-            get {
+
+        public string Name
+        {
+            get
+            {
                 return this.nameField;
             }
-            set {
+            set
+            {
                 this.nameField = value;
             }
         }
-        
-        public string Type {
-            get {
+
+        public string Type
+        {
+            get
+            {
                 return this.typeField;
             }
-            set {
+            set
+            {
                 this.typeField = value;
             }
         }
-        
-        public ParameterDirection Direction {
-            get {
+
+        public ParameterDirection Direction
+        {
+            get
+            {
                 return this.directionField;
             }
-            set {
+            set
+            {
                 this.directionField = value;
             }
         }
-        
+
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DirectionSpecified {
-            get {
+        public bool DirectionSpecified
+        {
+            get
+            {
                 return this.directionFieldSpecified;
             }
-            set {
+            set
+            {
                 this.directionFieldSpecified = value;
             }
         }
     }
-    
-    public enum ParameterDirection {
-        
+
+    public enum ParameterDirection
+    {
+
         /// <remarks/>
         In,
-        
+
         /// <remarks/>
         Out,
-        
+
         /// <remarks/>
         InOut,
     }
-    
-    public partial class ParameterList {
-        
+
+    public partial class ParameterList
+    {
+
         private Parameter parameterField;
-        
-        public ParameterList() {
+
+        public ParameterList()
+        {
             this.parameterField = new Parameter();
         }
-        
-        public Parameter Parameter {
-            get {
+
+        public Parameter Parameter
+        {
+            get
+            {
                 return this.parameterField;
             }
-            set {
+            set
+            {
                 this.parameterField = value;
             }
         }
     }
-    
-    public partial class Function {
-        
+
+    public partial class Function
+    {
+
         private ParameterList parametersField;
-        
+
         private string bodyField;
-        
+
         private string idField;
-        
+
         private string nameField;
-        
+
         private string returnTypeField;
-        
+
         private ProgrammingLanguage languageField;
-        
+
         private bool languageFieldSpecified;
-        
-        public Function() {
+
+        public Function()
+        {
             this.parametersField = new ParameterList();
         }
-        
-        public ParameterList Parameters {
-            get {
+
+        public ParameterList Parameters
+        {
+            get
+            {
                 return this.parametersField;
             }
-            set {
+            set
+            {
                 this.parametersField = value;
             }
         }
-        
-        public string Body {
-            get {
+
+        public string Body
+        {
+            get
+            {
                 return this.bodyField;
             }
-            set {
+            set
+            {
                 this.bodyField = value;
             }
         }
-        
-        public string Id {
-            get {
+
+        public string Id
+        {
+            get
+            {
                 return this.idField;
             }
-            set {
+            set
+            {
                 this.idField = value;
             }
         }
-        
-        public string Name {
-            get {
+
+        public string Name
+        {
+            get
+            {
                 return this.nameField;
             }
-            set {
+            set
+            {
                 this.nameField = value;
             }
         }
-        
-        public string ReturnType {
-            get {
+
+        public string ReturnType
+        {
+            get
+            {
                 return this.returnTypeField;
             }
-            set {
+            set
+            {
                 this.returnTypeField = value;
             }
         }
-        
-        public ProgrammingLanguage Language {
-            get {
+
+        public ProgrammingLanguage Language
+        {
+            get
+            {
                 return this.languageField;
             }
-            set {
+            set
+            {
                 this.languageField = value;
             }
         }
-        
+
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool LanguageSpecified {
-            get {
+        public bool LanguageSpecified
+        {
+            get
+            {
                 return this.languageFieldSpecified;
             }
-            set {
+            set
+            {
                 this.languageFieldSpecified = value;
             }
         }
     }
-    
-    public enum ProgrammingLanguage {
-        
+
+    public enum ProgrammingLanguage
+    {
+
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("C#")]
         C,
     }
-    
-    public partial class TransformInputs {
-        
+
+    public partial class NodeList1
+    {
+
+        private List<Node> nodeField;
+
+        public NodeList1()
+        {
+            this.nodeField = new List<Node>();
+        }
+
+        public List<Node> Node
+        {
+            get
+            {
+                return this.nodeField;
+            }
+            set
+            {
+                this.nodeField = value;
+            }
+        }
+    }
+
+    public partial class TransformInputs
+    {
+
         private List<Model> modelField;
-        
-        public TransformInputs() {
+
+        public TransformInputs()
+        {
             this.modelField = new List<Model>();
         }
-        
-        public List<Model> Model {
-            get {
+
+        public List<Model> Model
+        {
+            get
+            {
                 return this.modelField;
             }
-            set {
+            set
+            {
                 this.modelField = value;
             }
         }
     }
-    
-    public partial class TransformOutputs {
-        
+
+    public partial class TransformOutputs
+    {
+
         private List<Model> modelField;
-        
-        public TransformOutputs() {
+
+        public TransformOutputs()
+        {
             this.modelField = new List<Model>();
         }
-        
-        public List<Model> Model {
-            get {
+
+        public List<Model> Model
+        {
+            get
+            {
                 return this.modelField;
             }
-            set {
+            set
+            {
                 this.modelField = value;
             }
         }
     }
-    
-    public partial class FunctionList {
-        
+
+    public partial class FunctionList
+    {
+
         private List<Function> functionField;
-        
-        public FunctionList() {
+
+        public FunctionList()
+        {
             this.functionField = new List<Function>();
         }
-        
-        public List<Function> Function {
-            get {
+
+        public List<Function> Function
+        {
+            get
+            {
                 return this.functionField;
             }
-            set {
+            set
+            {
                 this.functionField = value;
             }
         }
     }
-    
-    public partial class InputList {
-        
+
+    public partial class InputList
+    {
+
         private List<Input> inputField;
-        
-        public InputList() {
+
+        public InputList()
+        {
             this.inputField = new List<Input>();
         }
-        
-        public List<Input> Input {
-            get {
+
+        public List<Input> Input
+        {
+            get
+            {
                 return this.inputField;
             }
-            set {
+            set
+            {
                 this.inputField = value;
             }
         }
     }
-    
-    public partial class OutputList {
-        
+
+    public partial class OutputList
+    {
+
         private List<Output> outputField;
-        
-        public OutputList() {
+
+        public OutputList()
+        {
             this.outputField = new List<Output>();
         }
-        
-        public List<Output> Output {
-            get {
+
+        public List<Output> Output
+        {
+            get
+            {
                 return this.outputField;
             }
-            set {
+            set
+            {
                 this.outputField = value;
             }
         }
     }
-    
-    public partial class LinkList {
-        
+
+    public partial class LinkList
+    {
+
         private List<Link> linkField;
-        
-        public LinkList() {
+
+        public LinkList()
+        {
             this.linkField = new List<Link>();
         }
-        
-        public List<Link> Link {
-            get {
+
+        public List<Link> Link
+        {
+            get
+            {
                 return this.linkField;
             }
-            set {
+            set
+            {
                 this.linkField = value;
             }
         }
