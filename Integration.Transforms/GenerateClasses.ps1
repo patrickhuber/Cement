@@ -1,1 +1,0 @@
-﻿xsd Transform.xsd /classes /language:c# /namespace:Integration.Transforms /out:../

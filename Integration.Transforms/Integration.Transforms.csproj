@@ -56,7 +56,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="schemas\Transform.xml" />
+    <Content Include="schemas\Transform.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="playground\Transform1.xml">
       <SubType>Designer</SubType>
     </Content>
