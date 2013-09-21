@@ -46,6 +46,7 @@
     <Compile Include="NodeBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="schemas\Transform.designer.cs" />
+    <Compile Include="schemas\Transform.methods.cs" />
     <Compile Include="TransformBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

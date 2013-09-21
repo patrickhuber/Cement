@@ -9,8 +9,13 @@ namespace Integration.Adapters
     /// <summary>
     /// Adapter processes a particular protocol to produce a stream of bytes.
     /// </summary>
-    public interface IAdapter
+    public interface IInputAdapter
     {
-        IMessage Process(IAdapterContext context);
+        /// <summary>
+        /// Receives a message.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns></returns>
+        IMessage Receive(IAdapterContext context);
     }
 }

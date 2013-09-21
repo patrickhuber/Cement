@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAdapter.cs" />
+    <Compile Include="IInputAdapter.cs" />
     <Compile Include="IAdapterContext.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="IMessageHeader.cs" />
+    <Compile Include="IOutputAdapter.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
