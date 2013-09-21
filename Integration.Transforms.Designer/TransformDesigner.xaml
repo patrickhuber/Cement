@@ -5,25 +5,71 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             xmlns:t="clr-namespace:Integration.Transforms;assembly=Integration.Transforms">
+             xmlns:t="clr-namespace:Integration.Transforms;assembly=Integration.Transforms" 
+             xmlns:transforms="clr-namespace:Integration.Transforms.Designer">
     <UserControl.Resources>
         <HierarchicalDataTemplate x:Key="NodeTemplate" DataType="{x:Type t:Node}" ItemsSource="{Binding Nodes}">
             <TextBlock Text="{Binding Path=Name}"/>
         </HierarchicalDataTemplate>
-        <HierarchicalDataTemplate x:Key="ModelTemplate" DataType="{x:Type t:Model}" ItemsSource="{Binding Nodes}" ItemTemplate="{StaticResource NodeTemplate}">            
+        <HierarchicalDataTemplate x:Key="ModelTemplate" DataType="{x:Type t:Model}" ItemsSource="{Binding Nodes}" ItemTemplate="{StaticResource NodeTemplate}">
             <TextBlock Text="{Binding Path=Type}"/>
         </HierarchicalDataTemplate>
+        <DataTemplate x:Key="PortTemplate">
+            <Ellipse Stroke="DarkGray"
+                    Fill="LightGray"
+                    Height="5"
+                    Width="5"
+                    Margin="2">
+            </Ellipse>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>        
+        </Grid.ColumnDefinitions>
         <TreeView Grid.Column="0" Name="Source" ItemsSource="{Binding Inputs}" ItemTemplate="{StaticResource ModelTemplate}" FlowDirection="LeftToRight" />
-        <Canvas Grid.Column="1" Name="WorkSpace"/>
+        <ListBox ItemsSource="{Binding Operations}" Grid.Column="1" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox Grid.Column="0" 
+                                 Name="Inputs" 
+                                 ItemTemplate="{StaticResource PortTemplate}"
+                                 ItemsSource="{Binding Inputs}">
+                        </ListBox>
+                        <ListBox Grid.Column="2" 
+                                 Name="Outputs"  
+                                 ItemTemplate="{StaticResource PortTemplate}"
+                                 ItemsSource="{Binding Outputs}">
+                        </ListBox>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Template>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Canvas IsItemsHost="True" />
+                    </Border>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Canvas.Left" Value="{Binding Position.X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Position.Y}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         <TreeView Grid.Column="2" Name="Target" ItemsSource="{Binding Outputs}" ItemTemplate="{StaticResource ModelTemplate}" FlowDirection="RightToLeft">
         </TreeView>
     </Grid>
-    
+
 </UserControl>

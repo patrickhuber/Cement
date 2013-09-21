@@ -113,8 +113,11 @@ PersonDto
   </Functions>
   <Operations>
     <Assign Id="{13B1EE77-FE66-4E86-A4AB-45A066E1F4C9}"
-            Value=", ">
-      <Output Id="{4F48992B-F10E-4FAC-A8EB-684367CE9C26}"/>
+            Value=", ">      
+      <Outputs>
+        <Output Id="{4F48992B-F10E-4FAC-A8EB-684367CE9C26}"/>
+      </Outputs>
+      <Position X="50" Y="0"/>
     </Assign>
     <Concat Id="{AEA4B42C-944E-4758-B0CB-ED91201A2B4A}">
       <Inputs>
@@ -122,14 +125,20 @@ PersonDto
         <Input Id="{43786164-C134-44D7-8D77-9B6F0264F021}"/>
         <Input Id="{757EE13F-60CB-42C5-A1B8-50CCF35A6A07}"/>
       </Inputs>
-      <Output Id="{0C107CCE-3D56-4129-8A1B-D70FB44AC701}"/>
+      <Outputs>
+        <Output Id="{0C107CCE-3D56-4129-8A1B-D70FB44AC701}"/>
+      </Outputs>
+      <Position X="50" Y="100"/>
     </Concat>
     <CallFunction Id="{E377150B-8CC7-49D4-8554-BB9212833485}"
                   FunctionId="{6C508C28-8207-4BE6-A604-E2619F41E97C}">
       <Inputs>
         <Input Id="{8906D429-3DE9-4155-A922-CEFC2F36F916}"/>
       </Inputs>
-      <Output Id="{1FBED49B-891E-42AD-A69F-53CDBD73EC74}" />
+      <Outputs>
+        <Output Id="{1FBED49B-891E-42AD-A69F-53CDBD73EC74}" />
+      </Outputs>
+      <Position X="50" Y="200"/>
     </CallFunction>
   </Operations>
   <Links>

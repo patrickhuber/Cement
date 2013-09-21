@@ -83,20 +83,12 @@
   String Operations -->
   <xs:complexType name="Concat">
     <xs:complexContent>
-      <xs:extension base="Operation">
-        <xs:sequence>
-          <xs:element name="Inputs" type="InputList" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="Output" type="Output" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
-      </xs:extension>
+      <xs:extension base="Operation"/>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="Assign">
     <xs:complexContent>
       <xs:extension base="Operation">
-        <xs:sequence>
-          <xs:element name="Output" type="Output" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
         <xs:attribute name="Value" type="xs:string"/>
       </xs:extension>
     </xs:complexContent>
@@ -106,34 +98,57 @@
   <xs:complexType name="CallFunction">
     <xs:complexContent>
       <xs:extension base="Operation">
-        <xs:sequence>
-          <xs:element name="Inputs" type="InputList" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="Output" type="Output" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
         <xs:attribute name="FunctionId" type="GUID" use="required"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <!-- 
   Operations -->
+  <xs:complexType name="Position">
+    <xs:attribute name="X" type="xs:unsignedInt" use="required"/>
+    <xs:attribute name="Y" type="xs:unsignedInt" use ="required"/>
+  </xs:complexType>
   <xs:complexType name="Operation" abstract="true">
+    <xs:sequence>
+      <xs:element name="Inputs" type="InputList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of input terminals supported by this operation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Outputs" type="OutputList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of output terminals supported by this operation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Position" type="Position" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The relative X and Y position of this element within its container. X=0 at the top left, incrementing to the right. Y=0 at the top left, incrementing down.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
     <xs:attribute name="Id" type="GUID"/>
   </xs:complexType>
   <xs:complexType name="OperationList">
-    <xs:sequence>
-      <xs:element name="Assign" type="Assign"/>
-      <xs:element name="Concat" type="Concat"/>
-      <xs:element name="CallFunction" type="CallFunction"/>
-    </xs:sequence>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Assign" type="Assign" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Concat" type="Concat" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CallFunction" type="CallFunction" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
   </xs:complexType>  
   <xs:complexType name="InputList">
     <xs:sequence>
-      <xs:element name="Input" type="Input" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="Input" type="Input" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="OutputList">
     <xs:sequence>
-      <xs:element name="Output" type="Output" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="Output" type="Output" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Input">

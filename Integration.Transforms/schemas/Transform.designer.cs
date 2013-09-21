@@ -27,13 +27,13 @@ namespace Integration.Transforms {
         
         private List<Function> functionsField;
         
-        private OperationList operationsField;
+        private List<Operation> operationsField;
         
         private List<Link> linksField;
         
         public Transform() {
             this.linksField = new List<Link>();
-            this.operationsField = new OperationList();
+            this.operationsField = new List<Operation>();
             this.functionsField = new List<Function>();
             this.outputsField = new List<Model>();
             this.inputsField = new List<Model>();
@@ -72,8 +72,11 @@ namespace Integration.Transforms {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public OperationList Operations {
+        [System.Xml.Serialization.XmlArrayAttribute(Order=3)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(typeof(Assign), IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(typeof(CallFunction), IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(typeof(Concat), IsNullable=false)]
+        public List<Operation> Operations {
             get {
                 return this.operationsField;
             }
@@ -217,6 +220,38 @@ namespace Integration.Transforms {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="clr-namespace:Integration.Transforms")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
+    public partial class Position {
+        
+        private uint xField;
+        
+        private uint yField;
+        
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public uint X {
+            get {
+                return this.xField;
+            }
+            set {
+                this.xField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public uint Y {
+            get {
+                return this.yField;
+            }
+            set {
+                this.yField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18060")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="clr-namespace:Integration.Transforms")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
     public partial class Output {
         
         private string idField;
@@ -262,7 +297,51 @@ namespace Integration.Transforms {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
     public abstract partial class Operation {
         
+        private List<Input> inputsField;
+        
+        private List<Output> outputsField;
+        
+        private Position positionField;
+        
         private string idField;
+        
+        public Operation() {
+            this.positionField = new Position();
+            this.outputsField = new List<Output>();
+            this.inputsField = new List<Input>();
+        }
+        
+        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public List<Input> Inputs {
+            get {
+                return this.inputsField;
+            }
+            set {
+                this.inputsField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public List<Output> Outputs {
+            get {
+                return this.outputsField;
+            }
+            set {
+                this.outputsField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public Position Position {
+            get {
+                return this.positionField;
+            }
+            set {
+                this.positionField = value;
+            }
+        }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string Id {
@@ -282,37 +361,7 @@ namespace Integration.Transforms {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
     public partial class CallFunction : Operation {
         
-        private List<Input> inputsField;
-        
-        private Output outputField;
-        
         private string functionIdField;
-        
-        public CallFunction() {
-            this.outputField = new Output();
-            this.inputsField = new List<Input>();
-        }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Input> Inputs {
-            get {
-                return this.inputsField;
-            }
-            set {
-                this.inputsField = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public Output Output {
-            get {
-                return this.outputField;
-            }
-            set {
-                this.outputField = value;
-            }
-        }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string FunctionId {
@@ -332,23 +381,7 @@ namespace Integration.Transforms {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
     public partial class Assign : Operation {
         
-        private Output outputField;
-        
         private string valueField;
-        
-        public Assign() {
-            this.outputField = new Output();
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public Output Output {
-            get {
-                return this.outputField;
-            }
-            set {
-                this.outputField = value;
-            }
-        }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string Value {
@@ -367,86 +400,6 @@ namespace Integration.Transforms {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="clr-namespace:Integration.Transforms")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
     public partial class Concat : Operation {
-        
-        private List<Input> inputsField;
-        
-        private Output outputField;
-        
-        public Concat() {
-            this.outputField = new Output();
-            this.inputsField = new List<Input>();
-        }
-        
-        [System.Xml.Serialization.XmlArrayAttribute(Order=0)]
-        [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
-        public List<Input> Inputs {
-            get {
-                return this.inputsField;
-            }
-            set {
-                this.inputsField = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public Output Output {
-            get {
-                return this.outputField;
-            }
-            set {
-                this.outputField = value;
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18060")]
-    [System.SerializableAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="clr-namespace:Integration.Transforms")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
-    public partial class OperationList {
-        
-        private Assign assignField;
-        
-        private Concat concatField;
-        
-        private CallFunction callFunctionField;
-        
-        public OperationList() {
-            this.callFunctionField = new CallFunction();
-            this.concatField = new Concat();
-            this.assignField = new Assign();
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public Assign Assign {
-            get {
-                return this.assignField;
-            }
-            set {
-                this.assignField = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public Concat Concat {
-            get {
-                return this.concatField;
-            }
-            set {
-                this.concatField = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public CallFunction CallFunction {
-            get {
-                return this.callFunctionField;
-            }
-            set {
-                this.callFunctionField = value;
-            }
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18060")]
@@ -742,6 +695,32 @@ namespace Integration.Transforms {
             }
             set {
                 this.functionField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18060")]
+    [System.SerializableAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="clr-namespace:Integration.Transforms")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="clr-namespace:Integration.Transforms", IsNullable=true)]
+    public partial class OperationList {
+        
+        private List<Operation> itemsField;
+        
+        public OperationList() {
+            this.itemsField = new List<Operation>();
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("Assign", typeof(Assign), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("CallFunction", typeof(CallFunction), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("Concat", typeof(Concat), Order=0)]
+        public List<Operation> Items {
+            get {
+                return this.itemsField;
+            }
+            set {
+                this.itemsField = value;
             }
         }
     }

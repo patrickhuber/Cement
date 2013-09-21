@@ -15,24 +15,13 @@ using System.Windows.Shapes;
 namespace Integration.Transforms.Designer
 {
     /// <summary>
-    /// Interaction logic for TransformDesigner.xaml
+    /// Interaction logic for OperationControl.xaml
     /// </summary>
-    public partial class TransformDesigner : UserControl
+    public partial class OperationControl : UserControl
     {
-        private Transform transform;
-
-        public TransformDesigner()
+        public OperationControl()
         {
             InitializeComponent();
-            this.transform = new Transform();
-            this.DataContext = transform;            
-        }
-
-        public TransformDesigner(Transform transform)
-        {
-            InitializeComponent();
-            this.transform = transform;
-            this.DataContext = this.transform;
         }
     }
 }
