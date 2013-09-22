@@ -2,7 +2,8 @@
 
 ## Transformations
 
-### *TODO* Transformation UI
+### Transformation UI
+The transformation UI represents the trnasformation model as a visual graph between the source schemas and the destination schemas. 
 
 ### Transformation Modeling
 Transformations are modeled using directed graphs. The transformation file consists of:

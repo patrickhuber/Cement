@@ -1,0 +1,3 @@
+[WPF: Display items in a grid on a canvas] http://social.msdn.microsoft.com/Forums/vstudio/en-US/7a215def-fea3-4199-b427-71d20832e3ae/databinding-collection-for-display-in-canvas
+[WPF: Binding list of items to a ListBox] http://mmillies.wordpress.com/2008/07/12/wpf-binding-an-array-of-objects-to-a-listbox/
+[WPF: Drawing lines between containers] http://msdn.microsoft.com/en-us/magazine/ff646962.aspx

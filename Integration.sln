@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6DEDA3A-9B91-40DF-ABB1-C748C6F2C327}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		References.md = References.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Adapters", "Integration.Adapters\Integration.Adapters.csproj", "{E313FBC0-7DD9-4646-995A-8AB1EBD7B6AE}"

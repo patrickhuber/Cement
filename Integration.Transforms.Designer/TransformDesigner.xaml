@@ -15,12 +15,7 @@
             <TextBlock Text="{Binding Path=Type}"/>
         </HierarchicalDataTemplate>
         <DataTemplate x:Key="PortTemplate">
-            <Ellipse Stroke="DarkGray"
-                    Fill="LightGray"
-                    Height="5"
-                    Width="5"
-                    Margin="2">
-            </Ellipse>
+            <Rectangle Height="5" Width="5"  Margin="1" Stroke="DarkGray" Fill="LightGray" StrokeLineJoin="Round" />            
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
@@ -33,23 +28,26 @@
         <ListBox ItemsSource="{Binding Operations}" Grid.Column="1" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <ListBox Grid.Column="0" 
-                                 Name="Inputs" 
-                                 ItemTemplate="{StaticResource PortTemplate}"
-                                 ItemsSource="{Binding Inputs}">
-                        </ListBox>
-                        <ListBox Grid.Column="2" 
-                                 Name="Outputs"  
-                                 ItemTemplate="{StaticResource PortTemplate}"
-                                 ItemsSource="{Binding Outputs}">
-                        </ListBox>
-                    </Grid>
+                    <Border BorderBrush="DarkGray" BorderThickness="1">
+                        <Grid Width="75" MinHeight="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox Grid.Column="0" 
+                                     Name="Inputs" 
+                                     ItemTemplate="{StaticResource PortTemplate}"
+                                     ItemsSource="{Binding Inputs}">
+                            </ListBox>
+                            <Canvas Grid.Column="1" />
+                            <ListBox Grid.Column="2" 
+                                     Name="Outputs"  
+                                     ItemTemplate="{StaticResource PortTemplate}"
+                                     ItemsSource="{Binding Outputs}">
+                            </ListBox>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
             <ListBox.Template>
@@ -70,6 +68,17 @@
         </ListBox>
         <TreeView Grid.Column="2" Name="Target" ItemsSource="{Binding Outputs}" ItemTemplate="{StaticResource ModelTemplate}" FlowDirection="RightToLeft">
         </TreeView>
-    </Grid>
-
+        <ItemsControl Grid.ColumnSpan="3" ItemsSource="{Binding Links}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Line X1="100" Y1="100" X2="200" Y2="200" Stroke="Black" StrokeThickness="10"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>        
+    </Grid>    
 </UserControl>
