@@ -9,6 +9,9 @@ using System.Windows.Controls;
 using Integration.Transforms;
 using System.Xml.Serialization;
 using System.IO;
+using AutoMapper;
+using Integration.Transforms.Designer.AutoMapper;
+using Integration.Transforms.Designer.ViewModels;
 
 namespace Integration.ConsoleApplication
 {
@@ -19,6 +22,9 @@ namespace Integration.ConsoleApplication
         {
             Transform transform = new Transform();
             transform.Load("Transform.xml");
+
+            InitMapper();
+            TransformViewModel transformViewModel = Mapper.Map<Transform, TransformViewModel>(transform);
             
             Grid grid = new Grid();
             grid.Children.Add(new TransformDesigner(transform));
@@ -28,6 +34,14 @@ namespace Integration.ConsoleApplication
 
             Application app = new Application();            
             app.Run(window);
-        }        
+        }
+
+        static void InitMapper()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<DesignerProfile>();
+            });
+        }
     }
 }

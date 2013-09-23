@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8020DC45-478C-442B-AB6B-28CAE2353CB4}</ProjectGuid>
+    <ProjectGuid>{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Integration.Transforms.Designer</RootNamespace>
-    <AssemblyName>Integration.Transforms.Designer</AssemblyName>
+    <RootNamespace>Integration.Transforms.Designer.AutoMapper</RootNamespace>
+    <AssemblyName>Integration.Transforms.Designer.AutoMapper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,50 +33,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignerProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransformDesigner.xaml.cs">
-      <DependentUpon>TransformDesigner.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Transforms\TransformToTransformViewModel.cs" />
-    <Compile Include="ViewModels\FunctionViewModel.cs" />
-    <Compile Include="ViewModels\InputViewModel.cs" />
-    <Compile Include="ViewModels\LinkViewModel.cs" />
-    <Compile Include="ViewModels\NodeViewModel.cs" />
-    <Compile Include="ViewModels\OperationViewModel.cs" />
-    <Compile Include="ViewModels\OutputViewModel.cs" />
-    <Compile Include="ViewModels\ParameterViewModel.cs" />
-    <Compile Include="ViewModels\PositionViewModel.cs" />
-    <Compile Include="ViewModels\TransformModelViewModel.cs" />
-    <Compile Include="ViewModels\TransformViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Integration.Transforms.Designer\Integration.Transforms.Designer.csproj">
+      <Project>{8020DC45-478C-442B-AB6B-28CAE2353CB4}</Project>
+      <Name>Integration.Transforms.Designer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Integration.Transforms\Integration.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
       <Name>Integration.Transforms</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="TransformDesigner.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

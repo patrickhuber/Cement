@@ -17,7 +17,7 @@ namespace Integration.Transforms.Designer.Transforms
         /// <value>
         /// The transform view model factory.
         /// </value>
-        IObjectFactory<TransformViewModel> TransformViewModelFactory { get; protected set; }
+        public IObjectFactory<TransformViewModel> TransformViewModelFactory { get; protected set; }
 
         /// <summary>
         /// Gets or sets the transform model automatic transform model view model.
@@ -25,18 +25,49 @@ namespace Integration.Transforms.Designer.Transforms
         /// <value>
         /// The transform model automatic transform model view model.
         /// </value>
-        ITransform<Model, TransformModelViewModel> TransformModelToTransformModelViewModel { get; protected set; }
+        public ITransform<Model, TransformModelViewModel> TransformModelToTransformModelViewModel { get; protected set; }
+        
+        /// <summary>
+        /// Gets or sets the transform function automatic function view model.
+        /// </summary>
+        /// <value>
+        /// The transform function automatic function view model.
+        /// </value>
+        public ITransform<Function, FunctionViewModel> TransformFunctionToFunctionViewModel { get; protected set; }
+        
+        /// <summary>
+        /// Gets or sets the transform operation automatic operation view model.
+        /// </summary>
+        /// <value>
+        /// The transform operation automatic operation view model.
+        /// </value>
+        public ITransform<Operation, OperationViewModel> TransformOperationToOperationViewModel { get; protected set; }
+        
+        /// <summary>
+        /// Gets or sets the transform link automatic link view model.
+        /// </summary>
+        /// <value>
+        /// The transform link automatic link view model.
+        /// </value>
+        public ITransform<Link, LinkViewModel> TransformLinkToLinkViewModel { get; protected set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TransformToTransformViewModel"/> class.
         /// </summary>
         /// <param name="transformViewModelFactory">The transform view model factory.</param>
         /// <param name="transformModelToTransformModelViewModel">The transform model automatic transform model view model.</param>
-        public TransformToTransformViewModel(IObjectFactory<TransformViewModel> transformViewModelFactory,
-            ITransform<Model, TransformModelViewModel> transformModelToTransformModelViewModel)
+        public TransformToTransformViewModel(
+            IObjectFactory<TransformViewModel> transformViewModelFactory,
+            ITransform<Model, TransformModelViewModel> transformModelToTransformModelViewModel,
+            ITransform<Function, FunctionViewModel> transformFunctionToFunctionViewModel,
+            ITransform<Operation, OperationViewModel> transformOperationToOperationViewModel,
+            ITransform<Link, LinkViewModel> transformLinkToLinkViewModel)
         {
             this.TransformViewModelFactory = transformViewModelFactory;
             this.TransformModelToTransformModelViewModel = transformModelToTransformModelViewModel;
+            this.TransformFunctionToFunctionViewModel = transformFunctionToFunctionViewModel;
+            this.TransformOperationToOperationViewModel = transformOperationToOperationViewModel;
+            this.TransformLinkToLinkViewModel = transformLinkToLinkViewModel;
         }
 
         /// <summary>
@@ -44,7 +75,7 @@ namespace Integration.Transforms.Designer.Transforms
         /// </summary>
         public TransformToTransformViewModel()
             : this(new GenericObjectFactory<TransformViewModel>(),
-            null)
+            null, null, null, null)
         {
             throw new NotImplementedException("method is not implemented.");
         }

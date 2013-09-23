@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="GenericObjectFactory.cs" />
     <Compile Include="IObjectFactory.cs" />
+    <Compile Include="ITransform.cs" />
     <Compile Include="ModelBuilder.cs" />
     <Compile Include="NodeBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
