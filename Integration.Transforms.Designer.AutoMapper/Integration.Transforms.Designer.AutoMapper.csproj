@@ -48,7 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperContext.cs" />
+    <Compile Include="AutoMapperMapTransformToTransformViewModel.cs" />
     <Compile Include="DesignerProfile.cs" />
+    <Compile Include="IAutoMapperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

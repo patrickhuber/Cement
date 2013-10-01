@@ -23,8 +23,11 @@ namespace Integration.ConsoleApplication
             Transform transform = new Transform();
             transform.Load("Transform.xml");
 
-            InitMapper();
-            TransformViewModel transformViewModel = Mapper.Map<Transform, TransformViewModel>(transform);
+            IAutoMapperContext context = new AutoMapperContext();
+            context.Configure();
+
+            ITransform<Transform, TransformViewModel> mapper = new AutoMapperMapTransformToTransformViewModel(context);
+            TransformViewModel transformViewModel = mapper.Transform(transform);
             
             Grid grid = new Grid();
             grid.Children.Add(new TransformDesigner(transform));
@@ -34,14 +37,6 @@ namespace Integration.ConsoleApplication
 
             Application app = new Application();            
             app.Run(window);
-        }
-
-        static void InitMapper()
-        {
-            Mapper.Initialize(cfg =>
-            {
-                cfg.AddProfile<DesignerProfile>();
-            });
         }
     }
 }
