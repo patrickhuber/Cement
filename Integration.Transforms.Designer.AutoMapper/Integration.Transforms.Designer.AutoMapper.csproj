@@ -58,10 +58,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Integration.Transforms.Designer\Integration.Transforms.Designer.csproj">
-      <Project>{8020DC45-478C-442B-AB6B-28CAE2353CB4}</Project>
-      <Name>Integration.Transforms.Designer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Integration.Transforms\Integration.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
       <Name>Integration.Transforms</Name>

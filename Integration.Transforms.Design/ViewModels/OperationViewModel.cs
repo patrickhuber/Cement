@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Transforms.Designer.ViewModels
+namespace Integration.Transforms.Design.ViewModels
 {
     /// <summary>
-    /// Defines a link view model
+    /// Defines an operation view model
     /// </summary>
-    public class LinkViewModel : ViewModelBase
+    public class OperationViewModel : ViewModelBase
     {
     }
 }

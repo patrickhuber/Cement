@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Integration.Transforms.Designer.ViewModels;
+using Integration.Transforms.Design.ViewModels;
 
-namespace Integration.Transforms.Designer.Transforms
+namespace Integration.Transforms.Design.Transforms
 {
     /// <summary>
     /// Defines a transformation between the view model and the model.

@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Transforms", "Integration.Transforms\Integration.Transforms.csproj", "{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Transforms.Designer", "Integration.Transforms.Designer\Integration.Transforms.Designer.csproj", "{8020DC45-478C-442B-AB6B-28CAE2353CB4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.ConsoleApplication", "Integration.ConsoleApplication\Integration.ConsoleApplication.csproj", "{EDB0CC17-6133-4BE8-93AE-720C93F83F95}"
 EndProject
@@ -41,10 +41,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Transforms.Desi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Transforms.Designer.AutoMapper", "Integration.Transforms.Designer.AutoMapper\Integration.Transforms.Designer.AutoMapper.csproj", "{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Transforms.Design", "Integration.Transforms.Design\Integration.Transforms.Design.csproj", "{8020DC45-478C-442B-AB6B-28CAE2353CB4}"
+EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Integration.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -64,16 +63,6 @@ Global
 		{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}.Release|x86.ActiveCfg = Release|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|x86.ActiveCfg = Release|Any CPU
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -154,12 +143,21 @@ Global
 		{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}.Release|x86.ActiveCfg = Release|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8020DC45-478C-442B-AB6B-28CAE2353CB4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8020DC45-478C-442B-AB6B-28CAE2353CB4} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
 		{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
 		{41560562-2B53-4DA3-B6F0-1697BDA8D71D} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
 		{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
@@ -168,5 +166,8 @@ Global
 		{E233D2E6-CA65-4ED3-95C0-7C3004DA475F} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
 		{414CA6C7-42CF-4858-A566-C5D3A7BC40D5} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
 		{8A4B980F-37AD-461F-B17E-D5C3E1B98042} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Integration.vsmdi
 	EndGlobalSection
 EndGlobal

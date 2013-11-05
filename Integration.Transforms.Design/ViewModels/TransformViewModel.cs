@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace Integration.Transforms.Designer.ViewModels
+namespace Integration.Transforms.Design.ViewModels
 {
     /// <summary>
     /// The transform view model 
