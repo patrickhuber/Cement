@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Integration.Transforms.Designer.ViewModels;
+using Integration.Transforms.Design.ViewModels;
 
-namespace Integration.Transforms.Designer.AutoMapper
+namespace Integration.Transforms.AutoMapper.Design
 {
     /// <summary>
     /// Creates the designer automapper profile.

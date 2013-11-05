@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 using System.Windows;
-using Integration.Transforms.Designer;
 using System.Windows.Controls;
 using Integration.Transforms;
 using System.Xml.Serialization;
 using System.IO;
 using AutoMapper;
-using Integration.Transforms.Designer.AutoMapper;
-using Integration.Transforms.Designer.ViewModels;
+using Integration.Transforms.AutoMapper.Design;
+using Integration.Transforms.Design.ViewModels;
+using Integration.Transforms.Design;
 
 namespace Integration.ConsoleApplication
 {
