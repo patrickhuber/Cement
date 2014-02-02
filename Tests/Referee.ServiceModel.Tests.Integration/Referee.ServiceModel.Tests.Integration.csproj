@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Integration.ServiceModel\Referee.ServiceModel.csproj">
+    <ProjectReference Include="..\..\Referee.ServiceModel\Referee.ServiceModel.csproj">
       <Project>{0449d00e-71fa-4627-bda9-1c4e4702f30e}</Project>
       <Name>Referee.ServiceModel</Name>
     </ProjectReference>

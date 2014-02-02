@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Xslt", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6DEDA3A-9B91-40DF-ABB1-C748C6F2C327}"
 	ProjectSection(SolutionItems) = preProject
-		Referee.vsmdi = Referee.vsmdi
 		Local.testsettings = Local.testsettings
 		README.md = README.md
+		Referee.vsmdi = Referee.vsmdi
 		References.md = References.md
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
@@ -28,7 +28,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Adapters", "Referee
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7CA501A3-6945-4FF3-A316-CE7AD7F99693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.UnitTests", "Referee.Transforms.UnitTests\Referee.Transforms.UnitTests.csproj", "{414CA6C7-42CF-4858-A566-C5D3A7BC40D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Tests.Unit", "Referee.Transforms.UnitTests\Referee.Transforms.Tests.Unit.csproj", "{414CA6C7-42CF-4858-A566-C5D3A7BC40D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{61607DA8-4ABA-4BCC-A9BC-05B1A36E04FA}"
 	ProjectSection(SolutionItems) = preProject
@@ -43,11 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.AutoMapper.Designer", "Referee.Transforms.AutoMapper.Designer\Referee.Transforms.AutoMapper.Designer.csproj", "{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer.UnitTests", "Referee.Transforms.Designer.UnitTests\Referee.Transforms.Designer.UnitTests.csproj", "{8A4B980F-37AD-461F-B17E-D5C3E1B98042}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel.Tests.Int", "Tests\Referee.ServiceModel.Tests.Int\Referee.ServiceModel.Tests.Int.csproj", "{05E5F2C8-27BC-4D37-B74C-46426CA5F461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer.Tests.Unit", "Referee.Transforms.Designer.UnitTests\Referee.Transforms.Designer.Tests.Unit.csproj", "{8A4B980F-37AD-461F-B17E-D5C3E1B98042}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel", "Referee.ServiceModel\Referee.ServiceModel.csproj", "{0449D00E-71FA-4627-BDA9-1C4E4702F30E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel.Tests.Integration", "Tests\Referee.ServiceModel.Tests.Integration\Referee.ServiceModel.Tests.Integration.csproj", "{05E5F2C8-27BC-4D37-B74C-46426CA5F461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,16 +169,6 @@ Global
 		{8A4B980F-37AD-461F-B17E-D5C3E1B98042}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8A4B980F-37AD-461F-B17E-D5C3E1B98042}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8A4B980F-37AD-461F-B17E-D5C3E1B98042}.Release|x86.ActiveCfg = Release|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|x86.ActiveCfg = Release|Any CPU
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -189,6 +179,16 @@ Global
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0449D00E-71FA-4627-BDA9-1C4E4702F30E}.Release|x86.ActiveCfg = Release|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{05E5F2C8-27BC-4D37-B74C-46426CA5F461}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

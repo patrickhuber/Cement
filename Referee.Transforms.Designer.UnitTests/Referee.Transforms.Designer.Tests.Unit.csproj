@@ -9,8 +9,8 @@
     <ProjectGuid>{8A4B980F-37AD-461F-B17E-D5C3E1B98042}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Referee.Transforms.Designer.UnitTests</RootNamespace>
-    <AssemblyName>Referee.Transforms.Designer.UnitTests</AssemblyName>
+    <RootNamespace>Referee.Transforms.Designer.Tests.Unit</RootNamespace>
+    <AssemblyName>Referee.Transforms.Designer.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
