@@ -3,32 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms", "Integration.Transforms\Referee.Transforms.csproj", "{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms", "Referee.Transforms\Referee.Transforms.csproj", "{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ConsoleApplication", "Integration.ConsoleApplication\Referee.ConsoleApplication.csproj", "{EDB0CC17-6133-4BE8-93AE-720C93F83F95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ConsoleApplication", "Referee.ConsoleApplication\Referee.ConsoleApplication.csproj", "{EDB0CC17-6133-4BE8-93AE-720C93F83F95}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{CA98AAAD-A977-4916-BA76-D242D3E9BB33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.ValueInjector", "Integration.Transforms.ValueInjector\Referee.Transforms.ValueInjector.csproj", "{41560562-2B53-4DA3-B6F0-1697BDA8D71D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.ValueInjector", "Referee.Transforms.ValueInjector\Referee.Transforms.ValueInjector.csproj", "{41560562-2B53-4DA3-B6F0-1697BDA8D71D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.AutoMapper", "Integration.Transforms.AutoMapper\Referee.Transforms.AutoMapper.csproj", "{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.AutoMapper", "Referee.Transforms.AutoMapper\Referee.Transforms.AutoMapper.csproj", "{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Xslt", "Integration.Transforms.Xslt\Referee.Transforms.Xslt.csproj", "{EFB0B9AE-DB69-4CC8-A0B1-4A7673D7948B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Xslt", "Referee.Transforms.Xslt\Referee.Transforms.Xslt.csproj", "{EFB0B9AE-DB69-4CC8-A0B1-4A7673D7948B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6DEDA3A-9B91-40DF-ABB1-C748C6F2C327}"
 	ProjectSection(SolutionItems) = preProject
-		Integration.vsmdi = Integration.vsmdi
+		Referee.vsmdi = Referee.vsmdi
 		Local.testsettings = Local.testsettings
 		README.md = README.md
 		References.md = References.md
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Adapters", "Integration.Adapters\Referee.Adapters.csproj", "{E313FBC0-7DD9-4646-995A-8AB1EBD7B6AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Adapters", "Referee.Adapters\Referee.Adapters.csproj", "{E313FBC0-7DD9-4646-995A-8AB1EBD7B6AE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7CA501A3-6945-4FF3-A316-CE7AD7F99693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.UnitTests", "Integration.Transforms.UnitTests\Referee.Transforms.UnitTests.csproj", "{414CA6C7-42CF-4858-A566-C5D3A7BC40D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.UnitTests", "Referee.Transforms.UnitTests\Referee.Transforms.UnitTests.csproj", "{414CA6C7-42CF-4858-A566-C5D3A7BC40D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{61607DA8-4ABA-4BCC-A9BC-05B1A36E04FA}"
 	ProjectSection(SolutionItems) = preProject
@@ -37,17 +37,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{61607D
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Build", "Integration.Build\Referee.Build.csproj", "{F54FFBFC-1D57-47DE-8084-10D6EF8206A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Build", "Referee.Build\Referee.Build.csproj", "{F54FFBFC-1D57-47DE-8084-10D6EF8206A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer", "Integration.Transforms.Designer\Referee.Transforms.Designer.csproj", "{8020DC45-478C-442B-AB6B-28CAE2353CB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer", "Referee.Transforms.Designer\Referee.Transforms.Designer.csproj", "{8020DC45-478C-442B-AB6B-28CAE2353CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.AutoMapper.Designer", "Integration.Transforms.AutoMapper.Designer\Referee.Transforms.AutoMapper.Designer.csproj", "{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.AutoMapper.Designer", "Referee.Transforms.AutoMapper.Designer\Referee.Transforms.AutoMapper.Designer.csproj", "{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer.UnitTests", "Integration.Transforms.Designer.UnitTests\Referee.Transforms.Designer.UnitTests.csproj", "{8A4B980F-37AD-461F-B17E-D5C3E1B98042}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.Transforms.Designer.UnitTests", "Referee.Transforms.Designer.UnitTests\Referee.Transforms.Designer.UnitTests.csproj", "{8A4B980F-37AD-461F-B17E-D5C3E1B98042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel.Tests.Int", "Tests\Integration.ServiceModel.Tests.Int\Referee.ServiceModel.Tests.Int.csproj", "{05E5F2C8-27BC-4D37-B74C-46426CA5F461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel.Tests.Int", "Tests\Referee.ServiceModel.Tests.Int\Referee.ServiceModel.Tests.Int.csproj", "{05E5F2C8-27BC-4D37-B74C-46426CA5F461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel", "Integration.ServiceModel\Referee.ServiceModel.csproj", "{0449D00E-71FA-4627-BDA9-1C4E4702F30E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Referee.ServiceModel", "Referee.ServiceModel\Referee.ServiceModel.csproj", "{0449D00E-71FA-4627-BDA9-1C4E4702F30E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -208,6 +208,6 @@ Global
 		{05E5F2C8-27BC-4D37-B74C-46426CA5F461} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = Integration.vsmdi
+		CategoryFile = Referee.vsmdi
 	EndGlobalSection
 EndGlobal
