@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Integration.Adapters
+namespace Referee.Adapters
 {
     public interface IMessage
     {

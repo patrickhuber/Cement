@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}</ProjectGuid>
+    <ProjectGuid>{E233D2E6-CA65-4ED3-95C0-7C3004DA475F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Integration.Transforms.AutoMapper</RootNamespace>
-    <AssemblyName>Integration.Transforms.AutoMapper</AssemblyName>
+    <RootNamespace>Referee.Transforms.AutoMapper.Design</RootNamespace>
+    <AssemblyName>Referee.Transforms.AutoMapper.Design</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,15 +48,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperContext.cs" />
+    <Compile Include="AutoMapperMapTransformToTransformViewModel.cs" />
+    <Compile Include="DesignerProfile.cs" />
+    <Compile Include="IAutoMapperContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Integration.Transforms\Integration.Transforms.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Integration.Transforms.AutoMapper\Referee.Transforms.AutoMapper.csproj">
+      <Project>{063de755-5ab3-4e69-95bd-fbdd6c6c06e8}</Project>
+      <Name>Referee.Transforms.AutoMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Integration.Transforms.Designer\Referee.Transforms.Designer.csproj">
+      <Project>{8020dc45-478c-442b-ab6b-28cae2353cb4}</Project>
+      <Name>Referee.Transforms.Designer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Integration.Transforms\Referee.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
-      <Name>Integration.Transforms</Name>
+      <Name>Referee.Transforms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

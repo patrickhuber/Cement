@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="Transform"
-    targetNamespace="clr-namespace:Integration.Transforms"
+    targetNamespace="clr-namespace:Referee.Transforms"
     elementFormDefault="qualified"
-    xmlns="clr-namespace:Integration.Transforms"
+    xmlns="clr-namespace:Referee.Transforms"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <xs:simpleType name="GUID">

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Integration.ServiceModel.Tests.Int
+namespace Referee.ServiceModel.Tests.Int
 {
     [TestClass]
     public class NullOutputChannelTests

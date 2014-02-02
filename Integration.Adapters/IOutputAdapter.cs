@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Adapters
+namespace Referee.Adapters
 {
     /// <summary>
     /// 

@@ -5,15 +5,15 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
-using Integration.Transforms;
+using Referee.Transforms;
 using System.Xml.Serialization;
 using System.IO;
 using AutoMapper;
-using Integration.Transforms.AutoMapper.Designer;
-using Integration.Transforms.Designer.ViewModels;
-using Integration.Transforms.Designer;
+using Referee.Transforms.AutoMapper.Designer;
+using Referee.Transforms.Designer.ViewModels;
+using Referee.Transforms.Designer;
 
-namespace Integration.ConsoleApplication
+namespace Referee.ConsoleApplication
 {
     class Program
     {

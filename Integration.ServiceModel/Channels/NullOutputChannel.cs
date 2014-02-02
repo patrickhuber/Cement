@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Integration.ServiceModel.Channels
+namespace Referee.ServiceModel.Channels
 {
     public class NullOutputChannel : ChannelBase, IChannel, IOutputChannel
     {

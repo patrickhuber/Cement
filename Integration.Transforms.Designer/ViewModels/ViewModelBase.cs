@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace Integration.Transforms.Designer.ViewModels
+namespace Referee.Transforms.Designer.ViewModels
 {
     /// <summary>
     /// Defines a base model for view models

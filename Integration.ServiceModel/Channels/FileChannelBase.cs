@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Integration.ServiceModel.Channels
+namespace Referee.ServiceModel.Channels
 {
     public abstract class FileChannelBase : ChannelBase, IChannel
     {

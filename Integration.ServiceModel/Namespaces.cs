@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.ServiceModel
+namespace Referee.ServiceModel
 {
     public static class Namespaces
     {
-        public const string ServiceContract = "urn:integration:servicemodel";
+        public const string ServiceContract = "urn:Referee:servicemodel";
     }
 }

@@ -5,10 +5,10 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Integration.ServiceModel
+namespace Referee.ServiceModel
 {    
     [ServiceContract(Namespace=Namespaces.ServiceContract)]
-    public interface IIntegrationService
+    public interface IRefereeService
     {
         [OperationContract(Action="*", ReplyAction="*")]
         Message ProcessMessage(Message requestMessage);

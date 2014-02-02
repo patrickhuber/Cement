@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using AutoMapper;
 
-namespace Integration.Transforms.AutoMapper.Designer
+namespace Referee.Transforms.AutoMapper.Designer
 {
     public class AutoMapperContext : IAutoMapperContext
     {

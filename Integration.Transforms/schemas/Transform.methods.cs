@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace Integration.Transforms
+namespace Referee.Transforms
 {
     public partial class Transform
     {

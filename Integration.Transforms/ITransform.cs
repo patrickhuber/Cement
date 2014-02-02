@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Transforms
+namespace Referee.Transforms
 {
     /// <summary>
     /// defines a transformation between two types

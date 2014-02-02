@@ -25,10 +25,10 @@ PersonDto
   DateOfBirth  
   
  -->
-<Transform xmlns="clr-namespace:Integration.Transforms">
+<Transform xmlns="clr-namespace:Referee.Transforms">
   <!-- Define the input model as a simple hierarchy -->
   <Inputs>
-    <Model Type="clr-namespace:Integration.Sample.Person">
+    <Model Type="clr-namespace:Referee.Sample.Person">
       <Nodes>
         <Node Id="{AE18D9DC-3A32-496D-B399-12E79435DE2B}"
               Name="FirstName"/>
@@ -76,7 +76,7 @@ PersonDto
     </Model>
   </Inputs>
   <Outputs>
-    <Model Type="clr-namespace:Integration.Sample.PersonDto">
+    <Model Type="clr-namespace:Referee.Sample.PersonDto">
       <Nodes>
         <Node Id="{460914C7-ABA2-4973-A93D-62E42518D0C2}"
               Name="FirstName"/>

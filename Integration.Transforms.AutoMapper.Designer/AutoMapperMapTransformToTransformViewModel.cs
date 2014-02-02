@@ -1,10 +1,10 @@
-﻿using Integration.Transforms.Designer.ViewModels;
+﻿using Referee.Transforms.Designer.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Transforms.AutoMapper.Designer
+namespace Referee.Transforms.AutoMapper.Designer
 {
     /// <summary>
     /// 
