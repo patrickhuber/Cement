@@ -9,9 +9,9 @@ using Integration.Transforms;
 using System.Xml.Serialization;
 using System.IO;
 using AutoMapper;
-using Integration.Transforms.AutoMapper.Design;
-using Integration.Transforms.Design.ViewModels;
-using Integration.Transforms.Design;
+using Integration.Transforms.AutoMapper.Designer;
+using Integration.Transforms.Designer.ViewModels;
+using Integration.Transforms.Designer;
 
 namespace Integration.ConsoleApplication
 {
