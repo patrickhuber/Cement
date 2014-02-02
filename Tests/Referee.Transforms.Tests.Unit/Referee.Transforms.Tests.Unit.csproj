@@ -53,7 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Referee.Transforms\Referee.Transforms.csproj">
+    <ProjectReference Include="..\..\Referee.Transforms\Referee.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
       <Name>Referee.Transforms</Name>
     </ProjectReference>
