@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Transforms.Design.ViewModels
+namespace Integration.Transforms.Designer.ViewModels
 {
-    public class OutputViewModel
+    public class PositionViewModel : ViewModelBase
     {
     }
 }

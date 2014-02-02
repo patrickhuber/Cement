@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Integration.Transforms.Design
+namespace Integration.Transforms.Designer
 {
     /// <summary>
     /// Interaction logic for TransformDesigner.xaml

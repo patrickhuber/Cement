@@ -62,9 +62,9 @@
       <Project>{063de755-5ab3-4e69-95bd-fbdd6c6c06e8}</Project>
       <Name>Integration.Transforms.AutoMapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Integration.Transforms.Design\Integration.Transforms.Design.csproj">
+    <ProjectReference Include="..\Integration.Transforms.Designer\Integration.Transforms.Designer.csproj">
       <Project>{8020dc45-478c-442b-ab6b-28cae2353cb4}</Project>
-      <Name>Integration.Transforms.Design</Name>
+      <Name>Integration.Transforms.Designer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Integration.Transforms\Integration.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>

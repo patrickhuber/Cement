@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Integration.Transforms.Design.ViewModels
+namespace Integration.Transforms.Designer.ViewModels
 {
     /// <summary>
-    /// Defines a parameter view model.
+    /// Defines a function view model
     /// </summary>
-    public class ParameterViewModel : ViewModelBase
+    public class FunctionViewModel : ViewModelBase
     {
     }
 }
