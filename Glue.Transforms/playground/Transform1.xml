@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<t:transform xmlns:t="clr-namespace:Glue.Transforms1"
+             xmlns:s="clr-namespace:Glue.Tests.Input;assembly=Glue.Tests"
+             xmlns:d="clr-namespace:Glue.Tests.Output;assembly=Glue.Tests">
+  <t:source name="source" type="s:Person"/>
+  <t:destination name="destination" type="d:Person"/>
+  <t:scope>
+    <t:foreach item="myitem">
+      <t:in></t:in>
+      <t:scope>
+      </t:scope>
+    </t:foreach>
+  </t:scope>
+</t:transform>
