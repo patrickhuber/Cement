@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<t:transform xmlns:t="clr-namespace:Glue.Transforms1"
-             xmlns:s="clr-namespace:Glue.Tests.Input;assembly=Glue.Tests"
-             xmlns:d="clr-namespace:Glue.Tests.Output;assembly=Glue.Tests">
+<t:transform xmlns:t="clr-namespace:Cement.Transforms1"
+             xmlns:s="clr-namespace:Cement.Tests.Input;assembly=Cement.Tests"
+             xmlns:d="clr-namespace:Cement.Tests.Output;assembly=Cement.Tests">
   <t:source name="source" type="s:Person"/>
   <t:destination name="destination" type="d:Person"/>
   <t:scope>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Glue.Adapters
+namespace Cement.Adapters
 {
     public interface IAdapterContext
     {

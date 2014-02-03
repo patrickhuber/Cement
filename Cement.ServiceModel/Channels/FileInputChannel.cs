@@ -1,16 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel.Channels
+namespace Cement.ServiceModel.Channels
 {
     public class FileInputChannel : FileChannelBase, IInputChannel
     {
-        public FileInputChannel(ChannelManagerBase channelManager)
-            : base(channelManager)
+        public FileInputChannel(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
+            : base(bufferManager, encoderFactory, channelManager)
         { }
+        
+        public EndpointAddress LocalAddress
+        {
+            get;
+            private set;
+        }
 
         public IAsyncResult BeginReceive(TimeSpan timeout, AsyncCallback callback, object state)
         {
@@ -47,29 +55,52 @@ namespace Glue.ServiceModel.Channels
             throw new NotImplementedException();
         }
 
-        public System.ServiceModel.EndpointAddress LocalAddress
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public Message Receive(TimeSpan timeout)
         {
-            throw new NotImplementedException();
+            var message = ReadMessage(LocalAddress);
+            return message;
+        }
+
+        private Message ReadMessage(EndpointAddress localAddress)
+        {
+            return ReadMessage(localAddress.Uri);
+        }
+
+        private Message ReadMessage(Uri uri)
+        {
+            PathAndPattern pathAndPattern = ParseFileUri(uri);
+            var file = Directory.EnumerateFiles(pathAndPattern.Path, pathAndPattern.Pattern).FirstOrDefault();
+            if (file == null)
+                throw new IOException(
+                    string.Format("Unable to read file from path {0}", uri));
+            
         }
 
         public Message Receive()
         {
-            throw new NotImplementedException();
+            return Receive(DefaultReceiveTimeout);
         }
 
         public bool TryReceive(TimeSpan timeout, out Message message)
         {
-            throw new NotImplementedException();
+            message = null;
+            bool complete = WaitForMessage(timeout);
+            if (!complete)
+                return false;
+            message = Receive(timeout);
+            return true;
         }
-
+                
         public bool WaitForMessage(TimeSpan timeout)
         {
-            throw new NotImplementedException();
-        }
+            var localAddress = LocalAddress;
+            var pathAndPattern = ParseFileUri(localAddress.Uri);
+
+            var poller = new FileSystemPoller(pathAndPattern.Path, pathAndPattern.Pattern);
+            poller.IncludeSubDirectories = false;
+            var result = poller.WaitForFile(timeout);
+            
+            return !result.TimedOut;
+        }        
     }
 }

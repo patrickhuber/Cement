@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Glue.Adapters
+namespace Cement.Adapters
 {
     public interface IMessage
     {

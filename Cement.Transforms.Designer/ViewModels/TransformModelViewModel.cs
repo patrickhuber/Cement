@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Glue.Transforms.Designer.ViewModels
+namespace Cement.Transforms.Designer.ViewModels
 {
     /// <summary>
     /// Defines a transform model view model

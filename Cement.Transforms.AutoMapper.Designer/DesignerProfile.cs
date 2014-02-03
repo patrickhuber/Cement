@@ -1,10 +1,10 @@
-﻿using Glue.Transforms.Designer.ViewModels;
+﻿using Cement.Transforms.Designer.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Glue.Transforms.AutoMapper.Designer
+namespace Cement.Transforms.AutoMapper.Designer
 {
     /// <summary>
     /// Creates the designer automapper profile.

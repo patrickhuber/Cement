@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Glue.Adapters
+namespace Cement.Adapters
 {
     /// <summary>
     /// Adapter processes a particular protocol to produce a stream of bytes.

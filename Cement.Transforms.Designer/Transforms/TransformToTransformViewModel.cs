@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Glue.Transforms.Designer.ViewModels;
+using Cement.Transforms.Designer.ViewModels;
 
-namespace Glue.Transforms.Designer.Transforms
+namespace Cement.Transforms.Designer.Transforms
 {
     /// <summary>
     /// Defines a transformation between the view model and the model.

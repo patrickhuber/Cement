@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Glue.ServiceModel.Tests.Int
+namespace Cement.ServiceModel.Tests.Int
 {
     [TestClass]
     public class NullOutputChannelTests

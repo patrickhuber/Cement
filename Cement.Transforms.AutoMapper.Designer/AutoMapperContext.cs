@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using AutoMapper;
 
-namespace Glue.Transforms.AutoMapper.Designer
+namespace Cement.Transforms.AutoMapper.Designer
 {
     public class AutoMapperContext : IAutoMapperContext
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace Glue.Transforms.Designer.ViewModels
+namespace Cement.Transforms.Designer.ViewModels
 {
     /// <summary>
     /// The transform view model 

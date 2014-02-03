@@ -5,15 +5,15 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
-using Glue.Transforms;
+using Cement.Transforms;
 using System.Xml.Serialization;
 using System.IO;
 using AutoMapper;
-using Glue.Transforms.AutoMapper.Designer;
-using Glue.Transforms.Designer.ViewModels;
-using Glue.Transforms.Designer;
+using Cement.Transforms.AutoMapper.Designer;
+using Cement.Transforms.Designer.ViewModels;
+using Cement.Transforms.Designer;
 
-namespace Glue.ConsoleApplication
+namespace Cement.ConsoleApplication
 {
     class Program
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace Glue.Transforms
+namespace Cement.Transforms
 {
     public partial class Transform
     {

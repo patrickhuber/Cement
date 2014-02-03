@@ -43,9 +43,11 @@
     <Compile Include="Channels\FileChannelBase.cs" />
     <Compile Include="Channels\FileInputChannel.cs" />
     <Compile Include="Channels\FileOutputChannel.cs" />
+    <Compile Include="Channels\FileSystemPoller.cs" />
     <Compile Include="Channels\NullBindingElement.cs" />
     <Compile Include="Channels\NullChannelFactory.cs" />
     <Compile Include="Channels\NullOutputChannel.cs" />
+    <Compile Include="Channels\WaitForFileResult.cs" />
     <Compile Include="IIntegrationService.cs" />
     <Compile Include="Namespaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Glue.Adapters
+namespace Cement.Adapters
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Message : Glue.Adapters.IMessage
+    public class Message : Cement.Adapters.IMessage
     {
         /// <summary>
         /// Gets or sets the body.

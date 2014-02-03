@@ -1,50 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel.Channels
+namespace Cement.ServiceModel.Channels
 {
     public abstract class FileChannelBase : ChannelBase, IChannel
     {
-        protected FileChannelBase(ChannelManagerBase channelManager)
-            : base(channelManager)
-        { }
+        protected readonly MessageEncoder messageEncoder;
+        protected readonly BufferManager bufferManager;
 
+        protected FileChannelBase(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
+            : base(channelManager)
+        {
+            this.bufferManager = bufferManager;
+            this.messageEncoder = encoderFactory.CreateSessionEncoder();
+        }
+                
         protected override void OnAbort()
         {
-            throw new NotImplementedException();
         }
 
         protected override IAsyncResult OnBeginClose(TimeSpan timeout, AsyncCallback callback, object state)
         {
-            throw new NotImplementedException();
+            Action<TimeSpan> onCloseDelegate = new Action<TimeSpan>(OnClose);
+            return onCloseDelegate.BeginInvoke(timeout, callback, state);
         }
 
         protected override IAsyncResult OnBeginOpen(TimeSpan timeout, AsyncCallback callback, object state)
         {
-            throw new NotImplementedException();
+            Action<TimeSpan> onOpenDelegate = new Action<TimeSpan>(OnOpen);
+            return onOpenDelegate.BeginInvoke(timeout, callback, state);
         }
 
         protected override void OnClose(TimeSpan timeout)
-        {
-            throw new NotImplementedException();
+        {            
         }
 
         protected override void OnEndClose(IAsyncResult result)
-        {
-            throw new NotImplementedException();
+        {            
         }
 
         protected override void OnEndOpen(IAsyncResult result)
-        {
-            throw new NotImplementedException();
+        {            
         }
 
         protected override void OnOpen(TimeSpan timeout)
+        {            
+        }
+
+        protected PathAndPattern ParseFileUri(Uri uri)
         {
-            throw new NotImplementedException();
+            PathAndPattern pathAndPattern = new PathAndPattern();
+            if (!uri.IsFile)
+                throw new IOException(
+                    string.Format("The path {0} is not a file path.", uri.LocalPath));
+            pathAndPattern.Pattern = Path.GetFileName(uri.LocalPath);
+            pathAndPattern.Path = Path.GetDirectoryName(uri.LocalPath);
+            return pathAndPattern;
+        }
+
+        protected class PathAndPattern
+        {
+            public string Path { get; set; }
+            public string Pattern { get; set; }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel
+namespace Cement.ServiceModel
 {    
     [ServiceContract(Namespace=Namespaces.ServiceContract)]
     public interface IGlueService

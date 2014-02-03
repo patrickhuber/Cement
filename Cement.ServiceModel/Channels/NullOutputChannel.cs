@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel.Channels
+namespace Cement.ServiceModel.Channels
 {
     public class NullOutputChannel : ChannelBase, IChannel, IOutputChannel
     {

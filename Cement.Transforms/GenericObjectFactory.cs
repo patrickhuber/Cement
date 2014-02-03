@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Glue.Transforms
+namespace Cement.Transforms
 {
     /// <summary>
     /// Defines a generic object factory that can be used to call the default constructor.

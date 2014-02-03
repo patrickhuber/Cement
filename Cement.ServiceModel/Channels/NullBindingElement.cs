@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel.Channels
+namespace Cement.ServiceModel.Channels
 {
     public class NullBindingElement : TransportBindingElement
     {

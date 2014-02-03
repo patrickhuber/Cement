@@ -4,12 +4,12 @@ using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
 
-namespace Glue.ServiceModel.Channels
+namespace Cement.ServiceModel.Channels
 {
     public class FileOutputChannel : FileChannelBase, IOutputChannel
     {
-        public FileOutputChannel(ChannelManagerBase channelManager)
-            : base(channelManager)
+        public FileOutputChannel(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
+            : base(bufferManager, encoderFactory ,channelManager)
         { }
 
         public IAsyncResult BeginSend(Message message, TimeSpan timeout, AsyncCallback callback, object state)
