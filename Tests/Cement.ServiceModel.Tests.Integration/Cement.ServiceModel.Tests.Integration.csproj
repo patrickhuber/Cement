@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Glue.ServiceModel\Glue.ServiceModel.csproj">
+    <ProjectReference Include="..\..\Cement.ServiceModel\Cement.ServiceModel.csproj">
       <Project>{0449d00e-71fa-4627-bda9-1c4e4702f30e}</Project>
       <Name>Glue.ServiceModel</Name>
     </ProjectReference>

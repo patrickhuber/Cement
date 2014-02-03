@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{41560562-2B53-4DA3-B6F0-1697BDA8D71D}</ProjectGuid>
+    <ProjectGuid>{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.Transforms.ValueInjector</RootNamespace>
-    <AssemblyName>Glue.Transforms.ValueInjector</AssemblyName>
+    <RootNamespace>Glue.Transforms.AutoMapper</RootNamespace>
+    <AssemblyName>Glue.Transforms.AutoMapper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,7 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Glue.Transforms\Glue.Transforms.csproj">
+    <ProjectReference Include="..\Cement.Transforms\Cement.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
       <Name>Glue.Transforms</Name>
     </ProjectReference>
