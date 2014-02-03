@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cement.IO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,8 +12,13 @@ namespace Cement.ServiceModel.Channels
     {
         protected readonly MessageEncoder messageEncoder;
         protected readonly BufferManager bufferManager;
+        protected readonly IFileSystem fileSystem;
 
-        protected FileChannelBase(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
+        protected FileChannelBase(
+            BufferManager bufferManager, 
+            MessageEncoderFactory encoderFactory, 
+            ChannelManagerBase channelManager,
+            IFileSystem fileSystem)
             : base(channelManager)
         {
             this.bufferManager = bufferManager;

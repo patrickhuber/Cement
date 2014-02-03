@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cement.IO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,9 +11,18 @@ namespace Cement.ServiceModel.Channels
 {
     public class FileInputChannel : FileChannelBase, IInputChannel
     {
-        public FileInputChannel(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
-            : base(bufferManager, encoderFactory, channelManager)
-        { }
+        private readonly long maxReceivedMessageSize;
+
+        public FileInputChannel(
+            BufferManager bufferManager, 
+            MessageEncoderFactory encoderFactory, 
+            ChannelManagerBase channelManager, 
+            long maxReceivedMessageSize,
+            IFileSystem directory)
+            : base(bufferManager, encoderFactory, channelManager, directory)
+        {
+            this.maxReceivedMessageSize = maxReceivedMessageSize;
+        }
         
         public EndpointAddress LocalAddress
         {
@@ -69,11 +79,25 @@ namespace Cement.ServiceModel.Channels
         private Message ReadMessage(Uri uri)
         {
             PathAndPattern pathAndPattern = ParseFileUri(uri);
-            var file = Directory.EnumerateFiles(pathAndPattern.Path, pathAndPattern.Pattern).FirstOrDefault();
-            if (file == null)
-                throw new IOException(
-                    string.Format("Unable to read file from path {0}", uri));
-            
+            return ReadMessageFromFile(pathAndPattern);
+        }
+
+        private Message ReadMessageFromFile(PathAndPattern pathAndPattern)
+        {
+            var firstFile = fileSystem.GetFirstFile(
+                pathAndPattern.Path,
+                pathAndPattern.Pattern,
+                false);
+            using (Stream stream = fileSystem.OpenRead(firstFile))
+            {
+                return ReadMessageFromStream(stream);
+            }
+        }
+
+        private Message ReadMessageFromStream(Stream stream)
+        {
+            var messageReader = new MessageReader(stream, bufferManager, messageEncoder, maxReceivedMessageSize);
+            return messageReader.Read();
         }
 
         public Message Receive()
@@ -96,7 +120,10 @@ namespace Cement.ServiceModel.Channels
             var localAddress = LocalAddress;
             var pathAndPattern = ParseFileUri(localAddress.Uri);
 
-            var poller = new FileSystemPoller(pathAndPattern.Path, pathAndPattern.Pattern);
+            var poller = new FileSystemPoller(
+                pathAndPattern.Path, 
+                pathAndPattern.Pattern,
+                fileSystem);
             poller.IncludeSubDirectories = false;
             var result = poller.WaitForFile(timeout);
             

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cement.IO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Channels;
@@ -8,8 +9,12 @@ namespace Cement.ServiceModel.Channels
 {
     public class FileOutputChannel : FileChannelBase, IOutputChannel
     {
-        public FileOutputChannel(BufferManager bufferManager, MessageEncoderFactory encoderFactory, ChannelManagerBase channelManager)
-            : base(bufferManager, encoderFactory ,channelManager)
+        public FileOutputChannel(
+            BufferManager bufferManager, 
+            MessageEncoderFactory encoderFactory, 
+            ChannelManagerBase channelManager,
+            IFileSystem fileSystem)
+            : base(bufferManager, encoderFactory, channelManager, fileSystem)
         { }
 
         public IAsyncResult BeginSend(Message message, TimeSpan timeout, AsyncCallback callback, object state)

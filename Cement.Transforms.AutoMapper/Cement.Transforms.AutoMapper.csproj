@@ -8,8 +8,8 @@
     <ProjectGuid>{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.Transforms.AutoMapper</RootNamespace>
-    <AssemblyName>Glue.Transforms.AutoMapper</AssemblyName>
+    <RootNamespace>Cement.Transforms.AutoMapper</RootNamespace>
+    <AssemblyName>Cement.Transforms.AutoMapper</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cement.Transforms\Cement.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
-      <Name>Glue.Transforms</Name>
+      <Name>Cement.Transforms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

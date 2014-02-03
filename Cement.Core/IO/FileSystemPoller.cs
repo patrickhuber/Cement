@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Timers;
 
-namespace Cement.ServiceModel.Channels
+namespace Cement.IO
 {
     public class FileSystemPoller
     {
@@ -17,16 +17,18 @@ namespace Cement.ServiceModel.Channels
         public string Path {get; set; }
         public string Pattern {get; set;}
         public bool IncludeSubDirectories{get; set; }
-        
-        public FileSystemPoller(string path)
-            : this(path, DefaultPattern)
+        public IFileSystem FileSystem { get; set; }
+
+        public FileSystemPoller(string path, IFileSystem fileSystem)
+            : this(path, DefaultPattern, fileSystem)
         {        
         }
 
-        public FileSystemPoller(string path, string pattern)
+        public FileSystemPoller(string path, string pattern, IFileSystem fileSystem)
         {
             Path = path;
             Pattern = pattern;
+            FileSystem = fileSystem;
         }
 
         public WaitForFileResult WaitForFile()

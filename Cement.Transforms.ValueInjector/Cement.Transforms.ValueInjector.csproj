@@ -8,8 +8,8 @@
     <ProjectGuid>{41560562-2B53-4DA3-B6F0-1697BDA8D71D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.Transforms.ValueInjector</RootNamespace>
-    <AssemblyName>Glue.Transforms.ValueInjector</AssemblyName>
+    <RootNamespace>Cement.Transforms.ValueInjector</RootNamespace>
+    <AssemblyName>Cement.Transforms.ValueInjector</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cement.Transforms\Cement.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
-      <Name>Glue.Transforms</Name>
+      <Name>Cement.Transforms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,8 +6,8 @@
     <ProjectGuid>{05E5F2C8-27BC-4D37-B74C-46426CA5F461}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.ServiceModel.Tests.Int</RootNamespace>
-    <AssemblyName>Glue.ServiceModel.Tests.Int</AssemblyName>
+    <RootNamespace>Cement.ServiceModel.Tests.Int</RootNamespace>
+    <AssemblyName>Cement.ServiceModel.Tests.Int</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,7 +64,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Cement.ServiceModel\Cement.ServiceModel.csproj">
       <Project>{0449d00e-71fa-4627-bda9-1c4e4702f30e}</Project>
-      <Name>Glue.ServiceModel</Name>
+      <Name>Cement.ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

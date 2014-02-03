@@ -7,8 +7,8 @@
     <ProjectGuid>{0449D00E-71FA-4627-BDA9-1C4E4702F30E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.ServiceModel</RootNamespace>
-    <AssemblyName>Glue.ServiceModel</AssemblyName>
+    <RootNamespace>Cement.ServiceModel</RootNamespace>
+    <AssemblyName>Cement.ServiceModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,14 +43,19 @@
     <Compile Include="Channels\FileChannelBase.cs" />
     <Compile Include="Channels\FileInputChannel.cs" />
     <Compile Include="Channels\FileOutputChannel.cs" />
-    <Compile Include="Channels\FileSystemPoller.cs" />
+    <Compile Include="Channels\MessageReader.cs" />
     <Compile Include="Channels\NullBindingElement.cs" />
     <Compile Include="Channels\NullChannelFactory.cs" />
     <Compile Include="Channels\NullOutputChannel.cs" />
-    <Compile Include="Channels\WaitForFileResult.cs" />
     <Compile Include="IIntegrationService.cs" />
     <Compile Include="Namespaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cement.Core\Cement.Core.csproj">
+      <Project>{af638961-d9c9-43a2-9386-53b0d1321ec5}</Project>
+      <Name>Cement.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

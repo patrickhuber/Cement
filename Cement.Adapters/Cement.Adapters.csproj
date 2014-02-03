@@ -8,8 +8,8 @@
     <ProjectGuid>{E313FBC0-7DD9-4646-995A-8AB1EBD7B6AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Glue.Adapters</RootNamespace>
-    <AssemblyName>Glue.Adapters</AssemblyName>
+    <RootNamespace>Cement.Adapters</RootNamespace>
+    <AssemblyName>Cement.Adapters</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
