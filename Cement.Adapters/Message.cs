@@ -9,7 +9,7 @@ namespace Glue.Adapters
     /// <summary>
     /// 
     /// </summary>
-    public class Message : IMessage
+    public class Message : Glue.Adapters.IMessage
     {
         /// <summary>
         /// Gets or sets the body.
