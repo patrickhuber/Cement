@@ -1,5 +1,4 @@
-# Integration Framework
-
+# Glue Framework
 ## Transformations
 
 ### Transformation UI
