@@ -13,9 +13,9 @@ Transformations are modeled using directed graphs. The transformation file consi
 *	Composable Operations
 *	Links between the inputs, operations and outputs
 
-[Schema Reference] (Integration.Transforms/schemas/Transform.xsd)
+[Schema Reference] (Cement.Transforms/schemas/Transform.xsd)
 
-[Example Map] (Integration.Transforms/schemas/Transform.xml)
+[Example Map] (Cement.Transforms/schemas/Transform.xml)
 
 ### *TODO*: Generators
 
