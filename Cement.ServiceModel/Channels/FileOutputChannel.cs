@@ -10,11 +10,11 @@ namespace Cement.ServiceModel.Channels
     public class FileOutputChannel : FileChannelBase, IOutputChannel
     {
         public FileOutputChannel(
-            BufferManager bufferManager, 
-            MessageEncoderFactory encoderFactory, 
             ChannelManagerBase channelManager,
+            IBufferManager bufferManager, 
+            IMessageEncoderFactory encoderFactory, 
             IFileSystem fileSystem)
-            : base(bufferManager, encoderFactory, channelManager, fileSystem)
+            : base(channelManager, bufferManager, encoderFactory, fileSystem)
         { }
 
         public IAsyncResult BeginSend(Message message, TimeSpan timeout, AsyncCallback callback, object state)

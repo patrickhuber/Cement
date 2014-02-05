@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Channels\BufferManagerAdapter.cs" />
     <Compile Include="Channels\FileChannelBase.cs" />
     <Compile Include="Channels\FileInputChannel.cs" />
     <Compile Include="Channels\FileOutputChannel.cs" />
+    <Compile Include="Channels\IBindingContext.cs" />
+    <Compile Include="Channels\IBindingParameterCollection.cs" />
+    <Compile Include="Channels\IBufferManager.cs" />
+    <Compile Include="Channels\IChannelManager.cs" />
+    <Compile Include="Channels\IMessageEncoder.cs" />
+    <Compile Include="Channels\IMessageEncoderFactory.cs" />
     <Compile Include="Channels\MessageReader.cs" />
     <Compile Include="Channels\NullBindingElement.cs" />
     <Compile Include="Channels\NullChannelFactory.cs" />

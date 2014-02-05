@@ -11,14 +11,14 @@ namespace Cement.ServiceModel.Channels
     public class MessageReader
     {
         private Stream stream;
-        private BufferManager bufferManager;
-        private MessageEncoder messageEncoder;
+        private IBufferManager bufferManager;
+        private IMessageEncoder messageEncoder;
         private long maxReceivedMessageSize;
 
         public MessageReader(
             Stream stream, 
-            BufferManager bufferManager, 
-            MessageEncoder messageEncoder, 
+            IBufferManager bufferManager, 
+            IMessageEncoder messageEncoder, 
             long maxReceivedMessageSize)
         {
             this.stream = stream;
@@ -27,7 +27,7 @@ namespace Cement.ServiceModel.Channels
             this.maxReceivedMessageSize = maxReceivedMessageSize;
         }
 
-        public MessageReader(Stream stream, BufferManager bufferManager, MessageEncoderFactory messageEncoderFactory, long maxReceivedMessageSize)
+        public MessageReader(Stream stream, IBufferManager bufferManager, IMessageEncoderFactory messageEncoderFactory, long maxReceivedMessageSize)
             : this(stream, bufferManager, messageEncoderFactory.CreateSessionEncoder(), maxReceivedMessageSize)
         { }
 

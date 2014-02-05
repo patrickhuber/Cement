@@ -10,14 +10,14 @@ namespace Cement.ServiceModel.Channels
 {
     public abstract class FileChannelBase : ChannelBase, IChannel
     {
-        protected readonly MessageEncoder messageEncoder;
-        protected readonly BufferManager bufferManager;
+        protected readonly IMessageEncoder messageEncoder;
+        protected readonly IBufferManager bufferManager;
         protected readonly IFileSystem fileSystem;
 
         protected FileChannelBase(
-            BufferManager bufferManager, 
-            MessageEncoderFactory encoderFactory, 
             ChannelManagerBase channelManager,
+            IBufferManager bufferManager, 
+            IMessageEncoderFactory encoderFactory, 
             IFileSystem fileSystem)
             : base(channelManager)
         {

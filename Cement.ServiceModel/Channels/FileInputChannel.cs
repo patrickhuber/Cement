@@ -14,12 +14,12 @@ namespace Cement.ServiceModel.Channels
         private readonly long maxReceivedMessageSize;
 
         public FileInputChannel(
-            BufferManager bufferManager, 
-            MessageEncoderFactory encoderFactory, 
             ChannelManagerBase channelManager, 
+            IBufferManager bufferManager, 
+            IMessageEncoderFactory encoderFactory,
             long maxReceivedMessageSize,
             IFileSystem directory)
-            : base(bufferManager, encoderFactory, channelManager, directory)
+            : base(channelManager, bufferManager, encoderFactory, directory)
         {
             this.maxReceivedMessageSize = maxReceivedMessageSize;
         }
@@ -96,7 +96,11 @@ namespace Cement.ServiceModel.Channels
 
         private Message ReadMessageFromStream(Stream stream)
         {
-            var messageReader = new MessageReader(stream, bufferManager, messageEncoder, maxReceivedMessageSize);
+            var messageReader = new MessageReader(
+                stream, 
+                bufferManager, 
+                messageEncoder, 
+                maxReceivedMessageSize);
             return messageReader.Read();
         }
 
