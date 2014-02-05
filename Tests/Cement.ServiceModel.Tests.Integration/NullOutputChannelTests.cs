@@ -7,7 +7,7 @@ namespace Cement.ServiceModel.Tests.Int
     public class NullOutputChannelTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_NullOutputChannel_Swallows_Message()
         {
         }
     }
