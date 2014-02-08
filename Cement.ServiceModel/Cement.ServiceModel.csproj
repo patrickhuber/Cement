@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channels\BufferManagerAdapter.cs" />
+    <Compile Include="Channels\ChannelManagerAdapter.cs" />
     <Compile Include="Channels\FileChannelBase.cs" />
     <Compile Include="Channels\FileInputChannel.cs" />
     <Compile Include="Channels\FileOutputChannel.cs" />
