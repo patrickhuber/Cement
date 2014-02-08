@@ -3,15 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
+using Cement.Threading.Tasks;
+using System.Threading.Tasks;
 
 namespace Cement.ServiceModel.Channels
 {
     public class FileInputChannel : FileChannelBase, IInputChannel
     {
-        private readonly long maxReceivedMessageSize;
+        private long maxReceivedMessageSize;
+        private IChannelManager channelManager;
 
         public FileInputChannel(
             ChannelManagerBase channelManager, 
@@ -21,15 +25,28 @@ namespace Cement.ServiceModel.Channels
             IFileSystem directory)
             : base(channelManager, bufferManager, encoderFactory, directory)
         {
+            Initialize(new ChannelManagerAdapter(channelManager), bufferManager, encoderFactory, maxReceivedMessageSize, directory);
+        }
+
+        public void Initialize(
+            IChannelManager channelManager,
+            IBufferManager bufferManager,
+            IMessageEncoderFactory encoderFactory,
+            long maxReceivedMessageSize,
+            IFileSystem directory)
+        {
+            this.channelManager = channelManager;
             this.maxReceivedMessageSize = maxReceivedMessageSize;
         }
-        
+
         public EndpointAddress LocalAddress
         {
             get;
             private set;
         }
 
+        #region Receive 
+        
         public IAsyncResult BeginReceive(TimeSpan timeout, AsyncCallback callback, object state)
         {
             throw new NotImplementedException();
@@ -40,27 +57,7 @@ namespace Cement.ServiceModel.Channels
             throw new NotImplementedException();
         }
 
-        public IAsyncResult BeginTryReceive(TimeSpan timeout, AsyncCallback callback, object state)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IAsyncResult BeginWaitForMessage(TimeSpan timeout, AsyncCallback callback, object state)
-        {
-            throw new NotImplementedException();
-        }
-
         public Message EndReceive(IAsyncResult result)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EndTryReceive(IAsyncResult result, out Message message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool EndWaitForMessage(IAsyncResult result)
         {
             throw new NotImplementedException();
         }
@@ -69,6 +66,11 @@ namespace Cement.ServiceModel.Channels
         {
             var message = ReadMessage(LocalAddress);
             return message;
+        }
+
+        public Message Receive()
+        {
+            return Receive(DefaultReceiveTimeout);
         }
 
         private Message ReadMessage(EndpointAddress localAddress)
@@ -97,16 +99,31 @@ namespace Cement.ServiceModel.Channels
         private Message ReadMessageFromStream(Stream stream)
         {
             var messageReader = new MessageReader(
-                stream, 
-                bufferManager, 
-                messageEncoder, 
+                stream,
+                bufferManager,
+                messageEncoder,
                 maxReceivedMessageSize);
             return messageReader.Read();
         }
 
-        public Message Receive()
+        #endregion Receive
+
+        #region TryReceive
+
+        public Task<bool> TryReceiveAsync(TimeSpan timeout, out Message message)
         {
-            return Receive(DefaultReceiveTimeout);
+            throw new NotImplementedException();
+        }
+
+        public IAsyncResult BeginTryReceive(TimeSpan timeout, AsyncCallback callback, object state)
+        {
+            Message message;
+            return TryReceiveAsync(timeout, out message).AsApm(callback, state);
+        }
+
+        public bool EndTryReceive(IAsyncResult result, out Message message)
+        {            
+            throw new NotImplementedException();
         }
 
         public bool TryReceive(TimeSpan timeout, out Message message)
@@ -118,20 +135,36 @@ namespace Cement.ServiceModel.Channels
             message = Receive(timeout);
             return true;
         }
-                
+
+        #endregion TryReceive
+
+        #region WaitForMessage
+
+        public IAsyncResult BeginWaitForMessage(TimeSpan timeout, AsyncCallback callback, object state)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool EndWaitForMessage(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool WaitForMessage(TimeSpan timeout)
         {
             var localAddress = LocalAddress;
             var pathAndPattern = ParseFileUri(localAddress.Uri);
 
             var poller = new FileSystemPoller(
-                pathAndPattern.Path, 
+                pathAndPattern.Path,
                 pathAndPattern.Pattern,
                 fileSystem);
             poller.IncludeSubDirectories = false;
             var result = poller.WaitForFile(timeout);
-            
+
             return !result.TimedOut;
-        }        
+        }   
+
+        #endregion WaitForMessage  
     }
 }
