@@ -11,7 +11,7 @@ namespace Cement.ServiceModel.Channels
     {
         public FileOutputChannel(
             ChannelManagerBase channelManager,
-            IBufferManager bufferManager, 
+            BufferManager bufferManager, 
             IMessageEncoderFactory encoderFactory, 
             IFileSystem fileSystem)
             : base(channelManager, bufferManager, encoderFactory, fileSystem)

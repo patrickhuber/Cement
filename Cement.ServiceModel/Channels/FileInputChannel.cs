@@ -19,23 +19,13 @@ namespace Cement.ServiceModel.Channels
 
         public FileInputChannel(
             ChannelManagerBase channelManager, 
-            IBufferManager bufferManager, 
+            BufferManager bufferManager, 
             IMessageEncoderFactory encoderFactory,
             long maxReceivedMessageSize,
             IFileSystem directory)
             : base(channelManager, bufferManager, encoderFactory, directory)
         {
-            Initialize(new ChannelManagerAdapter(channelManager), bufferManager, encoderFactory, maxReceivedMessageSize, directory);
-        }
-
-        public void Initialize(
-            IChannelManager channelManager,
-            IBufferManager bufferManager,
-            IMessageEncoderFactory encoderFactory,
-            long maxReceivedMessageSize,
-            IFileSystem directory)
-        {
-            this.channelManager = channelManager;
+            this.channelManager = new ChannelManagerAdapter(channelManager);
             this.maxReceivedMessageSize = maxReceivedMessageSize;
         }
 
@@ -103,7 +93,7 @@ namespace Cement.ServiceModel.Channels
                 bufferManager,
                 messageEncoder,
                 maxReceivedMessageSize);
-            return messageReader.Read();
+            return messageReader.ReadBuffered();
         }
 
         #endregion Receive

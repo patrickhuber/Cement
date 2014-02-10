@@ -11,26 +11,21 @@ namespace Cement.ServiceModel.Tests.Unit.Channels
     [TestClass]
     public class MessageReaderTests
     {
-        Stream memoryStream;
-        IBufferManager bufferManager;
+        Stream stream;
+        BufferManager bufferManager;
         IMessageEncoder messageEncoder;
 
         [TestInitialize]
         public void Initialize_MessageReader_Tests()
-        {
+        {            
             var buffer = Encoding.ASCII.GetBytes("This is the text to encode.");
-            memoryStream = new MemoryStream(buffer);
+            stream = new MemoryStream(buffer);
 
-            bufferManager = new BufferManagerAdapter(
-                BufferManager.CreateBufferManager(524288, 65536));
+            bufferManager = BufferManager.CreateBufferManager(524288, 65536);
 
             var mockMessageEncoder = new Mock<IMessageEncoder>();
-            mockMessageEncoder
-                .Setup(x => x.ReadMessage(It.IsAny<ArraySegment<byte>>(), It.IsAny<IBufferManager>()))
-                .Returns<ArraySegment<byte>, IBufferManager>((a, bm) =>
-                {
-                    return Message.CreateMessage(MessageVersion.Soap11WSAddressing10, "Action", Encoding.ASCII.GetString(a.Array));
-                });
+            mockMessageEncoder.Setup(x=>x.ReadMessage(It.IsAny<Stream>(), It.IsAny<int>()))
+                .Returns(()=>new MockMessage());
             messageEncoder = mockMessageEncoder.Object;
         }
 
@@ -38,12 +33,13 @@ namespace Cement.ServiceModel.Tests.Unit.Channels
         public void Tests_MessageReader_Read_Streams_Data()
         {
             var messageReader = new MessageReader(
-                memoryStream,
+                stream,
                 bufferManager,
                 messageEncoder,
                 2000000000); 
-            var message = messageReader.Read();
+            var message = messageReader.ReadStreamed();            
             Assert.IsNotNull(message);
+            Assert.AreEqual(0, stream.Position);
         }
     }
 }

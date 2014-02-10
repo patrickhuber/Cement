@@ -54,6 +54,10 @@
     <Compile Include="Channels\IChannelManager.cs" />
     <Compile Include="Channels\IMessageEncoder.cs" />
     <Compile Include="Channels\IMessageEncoderFactory.cs" />
+    <Compile Include="Channels\IMessageReader.cs" />
+    <Compile Include="Channels\IMessageWriter.cs" />
+    <Compile Include="Channels\MessageEncoderAdapter.cs" />
+    <Compile Include="Channels\MessageEncoderFactoryAdapter.cs" />
     <Compile Include="Channels\MessageReader.cs" />
     <Compile Include="Channels\NullBindingElement.cs" />
     <Compile Include="Channels\NullChannelFactory.cs" />

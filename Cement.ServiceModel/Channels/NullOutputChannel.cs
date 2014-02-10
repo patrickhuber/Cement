@@ -21,14 +21,14 @@ namespace Cement.ServiceModel.Channels
 
         protected override IAsyncResult OnBeginClose(TimeSpan timeout, AsyncCallback callback, object state)
         {
-            var onCloseDelegate = new Action<TimeSpan>(OnClose);
-            return onCloseDelegate.BeginInvoke(timeout, callback, state);
+            var onBeginCloseDelegate = new Action<TimeSpan>((t) => { });
+            return onBeginCloseDelegate.BeginInvoke(timeout, callback, state);
         }
 
         protected override IAsyncResult OnBeginOpen(TimeSpan timeout, AsyncCallback callback, object state)
         {
-            var onOpenDelegate = new Action<TimeSpan>(OnOpen);
-            return onOpenDelegate.BeginInvoke(timeout, callback, state);
+            var onBeginOpenDelegate = new Action<TimeSpan>((t) => { });
+            return onBeginOpenDelegate.BeginInvoke(timeout, callback, state);            
         }
 
         protected override void OnClose(TimeSpan timeout)
@@ -53,14 +53,13 @@ namespace Cement.ServiceModel.Channels
 
         public IAsyncResult BeginSend(Message message, TimeSpan timeout, AsyncCallback callback, object state)
         {
-            var sendDelegate = new Action<Message, TimeSpan>(Send);
-            return sendDelegate.BeginInvoke(message, timeout, callback, state);            
+            var sendDelegate = new Action<Message, TimeSpan>((m, t) => { });
+            return sendDelegate.BeginInvoke(message, timeout, callback, state);
         }
 
         public IAsyncResult BeginSend(Message message, AsyncCallback callback, object state)
         {
-            var sendDelegate = new Action<Message>(Send);
-            return sendDelegate.BeginInvoke(message, callback, state);   
+            return BeginSend(message, DefaultSendTimeout, callback, state);
         }
 
         public void EndSend(IAsyncResult result)

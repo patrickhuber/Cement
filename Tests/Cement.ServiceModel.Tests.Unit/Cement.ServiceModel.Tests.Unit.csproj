@@ -65,6 +65,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Channels\MessageReaderTests.cs" />
+    <Compile Include="Channels\MockMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +76,10 @@
     <ProjectReference Include="..\..\Cement.ServiceModel\Cement.ServiceModel.csproj">
       <Project>{0449d00e-71fa-4627-bda9-1c4e4702f30e}</Project>
       <Name>Cement.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cement.Tests\Cement.Tests.csproj">
+      <Project>{3a738783-3442-4495-88e1-7276b808ca2b}</Project>
+      <Name>Cement.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

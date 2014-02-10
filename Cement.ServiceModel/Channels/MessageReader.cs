@@ -5,19 +5,23 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Cement.ServiceModel.Channels
 {
-    public class MessageReader
+    public class MessageReader : Cement.ServiceModel.Channels.IMessageReader
     {
+        const int MaxBufferSize = 64 * 1024;
+        const int MaxSizeOfHeaders = 4 * 1024;
+
         private Stream stream;
-        private IBufferManager bufferManager;
+        private BufferManager bufferManager;
         private IMessageEncoder messageEncoder;
         private long maxReceivedMessageSize;
 
         public MessageReader(
             Stream stream, 
-            IBufferManager bufferManager, 
+            BufferManager bufferManager, 
             IMessageEncoder messageEncoder, 
             long maxReceivedMessageSize)
         {
@@ -27,11 +31,28 @@ namespace Cement.ServiceModel.Channels
             this.maxReceivedMessageSize = maxReceivedMessageSize;
         }
 
-        public MessageReader(Stream stream, IBufferManager bufferManager, IMessageEncoderFactory messageEncoderFactory, long maxReceivedMessageSize)
+        public MessageReader(Stream stream, BufferManager bufferManager, IMessageEncoderFactory messageEncoderFactory, long maxReceivedMessageSize)
             : this(stream, bufferManager, messageEncoderFactory.CreateSessionEncoder(), maxReceivedMessageSize)
         { }
 
-        public Message Read()
+        public Message ReadStreamed()
+        {
+            long totalBytes;
+            try
+            {
+                totalBytes = stream.Length;
+                AssertSizeOfStreamIsNotTooLargeForBuffer(totalBytes);
+                AssertMessageBelowMaximumSize(totalBytes);
+
+                return this.messageEncoder.ReadMessage(stream, MaxSizeOfHeaders);
+            }
+            catch (Exception e)
+            {
+                throw ConvertException(e);
+            }
+        }
+
+        public Message ReadBuffered()
         {
             byte[] buffer;
             long totalBytes;
@@ -58,8 +79,7 @@ namespace Cement.ServiceModel.Channels
         {
             if(IsStreamTooLarge(totalBytes))
                 throw new CommunicationException(
-                               String.Format("Message of size {0} bytes is too large to buffer. Use a streamed transfer instead.", totalBytes)
-                            );
+                    string.Format("Message exceeds maximum size: {0} > {1}", totalBytes, maxReceivedMessageSize));
         }
 
         private static bool IsStreamTooLarge(long totalBytes)
