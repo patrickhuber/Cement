@@ -41,7 +41,7 @@ namespace Cement.ServiceModel.Tests.Unit.Channels
                 memoryStream,
                 bufferManager,
                 messageEncoder,
-                2000000000);
+                2000000000); 
             var message = messageReader.Read();
             Assert.IsNotNull(message);
         }
