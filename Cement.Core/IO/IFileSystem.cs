@@ -11,5 +11,6 @@ namespace Cement.IO
     {
         string GetFirstFile(string path, string pattern, bool recursive);
         Stream OpenRead(string path);
+        bool FileExists(string path);
     }
 }

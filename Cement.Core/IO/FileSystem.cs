@@ -20,5 +20,10 @@ namespace Cement.IO
                     .EnumerateFiles(path, pattern, recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
                     .FirstOrDefault();
         }
+
+        public bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
     }
 }
