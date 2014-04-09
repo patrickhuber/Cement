@@ -30,7 +30,13 @@ namespace Cement.VisualStudio.Project
     // This attribute is needed to let the shell know that this package exposes some menus.
     [ProvideMenuResource("Menus.ctmenu", 1)]
     // This attribute is needed to register the project factory
-    [ProvideProjectFactory(typeof(CementProjectFactory), "Cement Project", "Cement Integration Library (*.cmtproj);*.cmtproj", "cmtproj", "cmtproj", @"Templates\Projects\ClassLibrary", LanguageVsTemplate = "CementProject")]
+    [ProvideProjectFactory(
+        typeof(CementProjectFactory), 
+        "Cement Project",
+        "Cement Project Files (*.cmtproj);*.cmtproj", 
+        "cmtproj", "cmtproj",
+        @"Templates\Projects\ClassLibrary", 
+        LanguageVsTemplate = "CementClassLib")]    
     [Guid(GuidList.guidCement_VisualStudio_ProjectPkgString)]
     public sealed class CementProjectPackage : Package
     {

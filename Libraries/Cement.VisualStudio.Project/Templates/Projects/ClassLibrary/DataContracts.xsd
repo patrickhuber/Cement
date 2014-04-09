@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="RequestResponse"
-    targetNamespace="urn:$safeprojectname$.DataContracts"
+    targetNamespace="urn:$nameSpace$.DataContracts"
     elementFormDefault="qualified"
     xmlns="urn:$nameSpace$.DataContracts"
     xmlns:mstns="urn:$nameSpace$.DataContracts"
