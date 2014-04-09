@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RequestResponse"
+    targetNamespace="urn:$safeprojectname$.DataContracts"
+    elementFormDefault="qualified"
+    xmlns="urn:$nameSpace$.DataContracts"
+    xmlns:mstns="urn:$nameSpace$.DataContracts"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="Request">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element name="Message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Request" type="Request"/>  
+</xs:schema>
