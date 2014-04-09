@@ -5,12 +5,17 @@
     <AllowedAssemblyPrefix>$(AllowedAssemblyPrefix);Microsoft.Internal</AllowedAssemblyPrefix>
   </PropertyGroup>
   <ItemGroup>
+    <!--
     <Reference Include="EnvDTE80">
       <HintPath>EnvDTE80.dll</HintPath>
       <Name>EnvDTE80</Name>
       <SpecificVersion>False</SpecificVersion>
       <Aliases>global</Aliases>
     </Reference>
+    -->
+    <Reference Include="Microsoft.VisualStudio.Designer.Interfaces, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
     <Reference Include="Microsoft.Build">
       <Aliases>global</Aliases>
     </Reference>

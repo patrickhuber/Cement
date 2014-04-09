@@ -14,6 +14,8 @@ namespace Cement.VisualStudio.Project
     [Guid(GuidList.guidCement_VisualStudio_ProjectFactory)]
     public class CementProjectFactory : ProjectFactory
     {
+        public CementProjectFactory(Package package) :base(package)
+        {}
         protected override ProjectNode CreateProject()
         {
             throw new NotImplementedException();
