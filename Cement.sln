@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.Transforms.ValueInje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.Transforms.AutoMapper", "Cement.Transforms.AutoMapper\Cement.Transforms.AutoMapper.csproj", "{063DE755-5AB3-4E69-95BD-FBDD6C6C06E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6DEDA3A-9B91-40DF-ABB1-C748C6F2C327}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution items", ".solution items", "{E6DEDA3A-9B91-40DF-ABB1-C748C6F2C327}"
 	ProjectSection(SolutionItems) = preProject
 		Cement.vsmdi = Cement.vsmdi
 		Local.testsettings = Local.testsettings
@@ -62,6 +62,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.VisualStudio.Project", "Libraries\Microsoft.VisualStudio.Project\Microsoft.VisualStudio.Project.csproj", "{CACB60A9-1E76-4F92-8831-B134A658C695}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.Activities.Dataflow", "Libraries\Cement.Activities.Dataflow\Cement.Activities.Dataflow.csproj", "{C7D1FB9B-0039-470E-A52C-ED1572A78DA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{42EFB67D-8EA5-44DE-9BC1-2B22EFE19ED5}"
+	ProjectSection(SolutionItems) = preProject
+		build.root = build.root
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

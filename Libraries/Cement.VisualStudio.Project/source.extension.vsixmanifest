@@ -4,6 +4,8 @@
     <Identity Id="72427bba-d3d2-43be-a579-c538a1848572" Version="1.0" Language="en-US" Publisher="Cement" />
     <DisplayName>Cement.VisualStudio.Project</DisplayName>
     <Description>Information about my package</Description>
+    <Icon>Templates\Projects\ClassLibrary\_TemplateIcon.ico</Icon>
+    <PreviewImage>_TemplateIcon.ico</PreviewImage>
   </Metadata>
   <Installation InstalledByMsi="false">
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0]" />

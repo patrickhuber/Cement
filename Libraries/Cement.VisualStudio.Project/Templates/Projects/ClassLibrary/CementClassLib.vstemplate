@@ -12,11 +12,10 @@
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
   </TemplateData>
   <TemplateContent>
-    <Project File="CementClassLibrary.cmtproj" ReplaceParameters="true">
+    <Project File="CementDll.cmtproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">DataContracts.xsd</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapMessageToResponse.xslt</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapRequestToMessage.xslt</ProjectItem>
-      
+      <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapRequestToMessage.xslt</ProjectItem>      
     </Project>
   </TemplateContent>  
 </VSTemplate>

@@ -66,6 +66,7 @@ namespace Cement.VisualStudio.Project
         {
             Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
             base.Initialize();
+            this.RegisterProjectFactory(new CementProjectFactory(this));
 
             // Add our command handlers for menu (commands must exist in the .vsct file)
             OleMenuCommandService mcs = GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
@@ -102,7 +103,6 @@ namespace Cement.VisualStudio.Project
                        OLEMSGICON.OLEMSGICON_INFO,
                        0,        // false
                        out result));
-        }
-
+        }        
     }
 }

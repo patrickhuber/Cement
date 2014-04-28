@@ -26,7 +26,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Program.cs">
+    <Compile Include="DataContracts.xsd">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

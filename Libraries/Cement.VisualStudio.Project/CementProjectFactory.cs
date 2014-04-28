@@ -8,17 +8,25 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using IOleServiceProvider = Microsoft.VisualStudio.OLE.Interop.IServiceProvider;
 
 namespace Cement.VisualStudio.Project
 {
     [Guid(GuidList.guidCement_VisualStudio_ProjectFactory)]
     public class CementProjectFactory : ProjectFactory
     {
-        public CementProjectFactory(Package package) :base(package)
-        {}
+        private CementProjectPackage package;
+        public CementProjectFactory(CementProjectPackage package) 
+            : base(package)
+        {
+            this.package = package;
+        }
+
         protected override ProjectNode CreateProject()
         {
-            throw new NotImplementedException();
+            var project = new CementProjectNode(this.package);
+            project.SetSite((IOleServiceProvider)((IServiceProvider)this.package).GetService(typeof(IOleServiceProvider)));            
+            return project;
         }
     }
 }
