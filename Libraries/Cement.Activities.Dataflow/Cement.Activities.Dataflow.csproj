@@ -50,6 +50,7 @@
     <Compile Include="AsyncNativeActivityT.cs" />
     <Compile Include="BookmarkResumptionHandler.cs" />
     <Compile Include="Buffer.cs" />
+    <Compile Include="BufferPipeline.cs" />
     <Compile Include="TaskActivity.cs" />
     <Compile Include="TaskActivityT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
