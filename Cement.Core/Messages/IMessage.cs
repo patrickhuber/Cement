@@ -1,9 +1,9 @@
 ﻿using System;
-namespace Cement.Adapters
+namespace Cement.Messages
 {
     public interface IMessage
     {
         System.IO.Stream Body { get; set; }
-        IMessageHeader Header { get; set; }
+        IMessageContext Header { get; set; }
     }
 }

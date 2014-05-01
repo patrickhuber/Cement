@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Channels\IInputChannel.cs" />
+    <Compile Include="Channels\IOutputChannel.cs" />
     <Compile Include="ExceptionMessages.cs" />
     <Compile Include="IO\FileSystem.cs" />
     <Compile Include="IO\FileSystemPoller.cs" />
     <Compile Include="IO\IFileSystem.cs" />
     <Compile Include="IO\WaitForFileResult.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\IMessageContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\AsyncResult.cs" />
     <Compile Include="Threading\Tasks\TaskInteropExtensions.cs" />
