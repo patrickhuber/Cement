@@ -983,7 +983,7 @@ namespace Microsoft.VisualStudio.Project
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-        private void NotifyBuildEnd(MSBuildResult result, string buildTarget)
+        protected void NotifyBuildEnd(MSBuildResult result, string buildTarget)
         {
             int success = ((result == MSBuildResult.Successful) ? 1 : 0);
 

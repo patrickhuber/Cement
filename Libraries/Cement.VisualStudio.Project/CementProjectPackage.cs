@@ -36,7 +36,7 @@ namespace Cement.VisualStudio.Project
         "Cement Project Files (*.cmtproj);*.cmtproj", 
         "cmtproj", "cmtproj",
         @"Templates\Projects\ClassLibrary", 
-        LanguageVsTemplate = "CementClassLib")]    
+        LanguageVsTemplate = "CementDll")]    
     [Guid(GuidList.guidCement_VisualStudio_ProjectPkgString)]
     public sealed class CementProjectPackage : Package
     {

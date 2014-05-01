@@ -129,6 +129,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CementBuildableProjectConfig.cs" />
     <Compile Include="CementConfigProvider.cs" />
     <Compile Include="CementProjectConfig.cs" />
     <Compile Include="CementProjectFactory.cs" />
@@ -186,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Package.ico" />
-    <VSTemplate Include="Templates\Projects\ClassLibrary\CementClassLib.vstemplate">
+    <VSTemplate Include="Templates\Projects\ClassLibrary\CementDll.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
     <Content Include="Templates\Projects\ClassLibrary\MapMessageToResponse.xslt">
