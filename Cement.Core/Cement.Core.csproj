@@ -43,8 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Channels\FileSystemChannel.cs" />
-    <Compile Include="Channels\IAsyncInputChannel.cs" />
-    <Compile Include="Channels\IAsyncOutputChannel.cs" />
     <Compile Include="Channels\IInputChannel.cs" />
     <Compile Include="Channels\IOutputChannel.cs" />
     <Compile Include="ExceptionMessages.cs" />
