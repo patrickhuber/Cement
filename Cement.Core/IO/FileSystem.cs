@@ -25,5 +25,10 @@ namespace Cement.IO
         {
             return File.Exists(path);
         }
+        
+        public Stream OpenWrite(string path)
+        {
+            return File.OpenWrite(path);
+        }
     }
 }

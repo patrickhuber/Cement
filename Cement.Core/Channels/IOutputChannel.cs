@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Cement.Channels
 {
-    public interface IOutputChannel
+    public interface IOutputChannel : IChannel
     {
-        IMessage Send();
+        void Send(IMessage message);
     }
 }

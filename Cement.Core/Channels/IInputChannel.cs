@@ -8,6 +8,7 @@ namespace Cement.Channels
 {
     public interface IInputChannel
     {
-        void Receive(IMessage message);
+        string Protocol { get; }
+        IMessage Receive();
     }
 }

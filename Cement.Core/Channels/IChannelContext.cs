@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Cement.Messages
+namespace Cement.Channels
 {
-    public interface IMessageContext : IContext
+    public interface IChannelContext : IContext
     {
     }
 }
