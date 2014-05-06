@@ -42,6 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\DecimalMonoid.cs" />
+    <Compile Include="Categories\IMonoid.cs" />
+    <Compile Include="Categories\Int16Monoid.cs" />
+    <Compile Include="Categories\Int32Monoid.cs" />
+    <Compile Include="Categories\Int64Monoid.cs" />
+    <Compile Include="Categories\ListMonoid.cs" />
+    <Compile Include="Categories\StringMonoid.cs" />
+    <Compile Include="Categories\UInt16Monoid.cs" />
+    <Compile Include="Categories\UInt32Monoid.cs" />
+    <Compile Include="Categories\UInt64Monoid.cs" />
     <Compile Include="Channels\ChannelProperties.cs" />
     <Compile Include="Channels\FileSystemChannel.cs" />
     <Compile Include="Channels\FileSystemProperties.cs" />
@@ -64,7 +74,9 @@
     <Compile Include="Threading\AsyncResult.cs" />
     <Compile Include="Threading\Tasks\TaskInteropExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
