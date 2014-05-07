@@ -53,7 +53,9 @@
     <Compile Include="Categories\UInt32Monoid.cs" />
     <Compile Include="Categories\UInt64Monoid.cs" />
     <Compile Include="Channels\ChannelProperties.cs" />
-    <Compile Include="Channels\FileSystemChannel.cs" />
+    <Compile Include="Channels\FileSystemChannelBase.cs" />
+    <Compile Include="Channels\FileSystemInputChannel.cs" />
+    <Compile Include="Channels\FileSystemOutputChannel.cs" />
     <Compile Include="Channels\FileSystemProperties.cs" />
     <Compile Include="Channels\IAsyncInputChannel.cs" />
     <Compile Include="Channels\IAsyncOutputChannel.cs" />

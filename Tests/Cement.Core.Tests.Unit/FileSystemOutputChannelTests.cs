@@ -2,20 +2,20 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cement.Channels;
-using Moq;
 using Cement.IO;
+using Moq;
 using System.IO;
+using Cement.Channels;
 
 namespace Cement.Tests.Unit
 {
     /// <summary>
-    /// Summary description for FileSystemChannelTests
+    /// Summary description for FileSystemOutputChannelTests
     /// </summary>
     [TestClass]
-    public class FileSystemChannelTests
+    public class FileSystemOutputChannelTests
     {
-        public FileSystemChannelTests()
+        public FileSystemOutputChannelTests()
         {
             //
             // TODO: Add constructor logic here
@@ -61,35 +61,7 @@ namespace Cement.Tests.Unit
         // public void MyTestCleanup() { }
         //
         #endregion
-
-        [TestMethod]
-        public void Test_FileSystemChannel_Receive()
-        {
-            var mockFileSystem = new Mock<IFileSystem>();
-            mockFileSystem
-                .Setup(x=>x.OpenRead(It.IsAny<string>()))
-                .Returns<string>(s=> 
-                {
-                    var bytes = Encoding.ASCII.GetBytes("this is my message.");
-                    return new MemoryStream(bytes);
-                });
-            var mockChannelContext = new Mock<IChannelContext>();
-            mockChannelContext
-                .SetupGet(x => x.Attributes)
-                .Returns(new Dictionary<string, string>
-                {
-                    {Cement.Channels.ChannelProperties.Uri, "file:///c:/users/testuser/documents/myfile.txt"}
-                });
-            var fileSystemChannel = new FileSystemChannel(
-                mockChannelContext.Object, 
-                mockFileSystem.Object);
-            
-            var message = fileSystemChannel.Receive();
-            Assert.IsNotNull(message);
-            Assert.IsNotNull(message.Context);
-            Assert.IsNotNull(message.Body);
-        }
-
+        
         [TestMethod]
         public void Test_FileSystemChannel_Send()
         {

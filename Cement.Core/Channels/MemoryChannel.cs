@@ -36,7 +36,6 @@ namespace Cement.Channels
             get { return "memory"; }
         }
 
-
         public Messages.IMessage Receive()
         {
             return this.messageQueue.Dequeue();
