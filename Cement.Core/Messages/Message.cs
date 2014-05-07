@@ -10,11 +10,24 @@ namespace Cement.Messages
     {
         public System.IO.Stream Body { get; set; }
 
-        public IMessageContext Header { get; set; }
+        public IMessageContext Context { get; set; }
 
         public void Dispose()
         {
             Body.Dispose();
+        }
+
+        public void CopyTo(IMessage message)
+        {
+            Body.CopyTo(message.Body);
+            Context.CopyTo(message.Context);
+        }
+
+        public async Task CopyToAsync(IMessage message)
+        {
+            var bodyTask = Body.CopyToAsync(message.Body);
+            Context.CopyTo(message.Context);
+            await bodyTask;
         }
     }
 }

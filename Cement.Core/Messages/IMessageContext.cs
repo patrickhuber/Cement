@@ -7,5 +7,6 @@ namespace Cement.Messages
 {
     public interface IMessageContext : IContext
     {
+        void CopyTo(IMessageContext messageContext);
     }
 }

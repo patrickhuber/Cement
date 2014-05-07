@@ -10,7 +10,7 @@ namespace Cement.Categories
     {
         public ushort Append(ushort first, ushort second)
         {
-            return (ushort)(first + second);
+            return Convert.ToUInt16(first + second);
         }
 
         public ushort Identity

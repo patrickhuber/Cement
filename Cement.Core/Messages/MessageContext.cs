@@ -19,5 +19,11 @@ namespace Cement.Messages
         {
             get { return attributes; }
         }
+
+        public void CopyTo(IMessageContext messageContext)
+        {
+            foreach (var key in attributes.Keys)
+                messageContext.Attributes.Add(key, attributes[key]);
+        }
     }
 }

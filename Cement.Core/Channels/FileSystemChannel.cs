@@ -31,7 +31,7 @@ namespace Cement.Channels
             messageContext.Attributes.Add(MessageProperties.Id, Guid.NewGuid().ToString());
             messageContext.Attributes.Add(MessageProperties.ReceiveUri, uri.ToString());
 
-            message.Header = messageContext;
+            message.Context = messageContext;
             return message;
         }
 

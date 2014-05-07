@@ -55,10 +55,13 @@
     <Compile Include="Channels\ChannelProperties.cs" />
     <Compile Include="Channels\FileSystemChannel.cs" />
     <Compile Include="Channels\FileSystemProperties.cs" />
+    <Compile Include="Channels\IAsyncInputChannel.cs" />
+    <Compile Include="Channels\IAsyncOutputChannel.cs" />
     <Compile Include="Channels\IChannel.cs" />
     <Compile Include="Channels\IChannelContext.cs" />
     <Compile Include="Channels\IInputChannel.cs" />
     <Compile Include="Channels\IOutputChannel.cs" />
+    <Compile Include="Channels\MemoryChannel.cs" />
     <Compile Include="ExceptionMessages.cs" />
     <Compile Include="IContext.cs" />
     <Compile Include="IO\FileSystem.cs" />
