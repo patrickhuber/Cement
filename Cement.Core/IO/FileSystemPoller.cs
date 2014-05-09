@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 
 namespace Cement.IO
@@ -49,15 +50,33 @@ namespace Cement.IO
             }
         }
 
+        public async Task<WaitForFileResult> WaitForFileAsync()
+        {
+            return await WaitForFileAsync(TimeSpan.MaxValue);
+        }
+
+        public async Task<WaitForFileResult> WaitForFileAsync(TimeSpan timeout)
+        {
+            var started = DateTime.Now;
+            while (true)
+            {
+                if (TimeoutElapsed(started, DateTime.Now, timeout))
+                    return new WaitForFileResult(true);
+                if (FileExists(Path, Pattern, IncludeSubDirectories))
+                    return new WaitForFileResult(false);
+                await Task.Delay(PollTimeSpan);
+            }
+        }
+
         private static bool TimeoutElapsed(DateTime started, DateTime now, TimeSpan timeout)
         {
             return DateTime.Now.Subtract(started) >= timeout;
         }
 
-        private static bool FileExists(string path, string pattern, bool recursive)
+        private bool FileExists(string path, string pattern, bool recursive)
         {
-            return null != Directory
-                .EnumerateFiles(path, pattern, recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly)
+            return null != FileSystem
+                .EnumerateFiles(path, pattern, recursive)
                 .FirstOrDefault();
         }
     }

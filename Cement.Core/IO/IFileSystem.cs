@@ -13,5 +13,7 @@ namespace Cement.IO
         Stream OpenRead(string path);
         bool FileExists(string path);
         Stream OpenWrite(string path);
+        IEnumerable<string> EnumerateFiles(string path, string pattern, bool recursive);
+        IEnumerable<string> EnumerateFiles(string path, bool recursive);
     }
 }
