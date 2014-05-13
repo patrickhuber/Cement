@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\IAsyncSendAdapter.cs" />
     <Compile Include="Adapters\IReceiveAdapter.cs" />
     <Compile Include="Adapters\ISendAdapter.cs" />
     <Compile Include="Categories\DecimalMonoid.cs" />

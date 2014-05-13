@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Cement.Adapters
 {
 
-    public class FileSystemReceiveAdapter : FileSystemChannelBase, IReceiveAdapter
+    public class FileSystemReceiveAdapter : FileSystemAdapterBase, IReceiveAdapter
     {
         public FileSystemReceiveAdapter(IAdapterContext channelContext, IFileSystem fileSystem)
             : base(channelContext, fileSystem)

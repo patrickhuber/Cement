@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Cement.Adapters
 {
-    public abstract class FileSystemChannelBase : IAdapter
+    public abstract class FileSystemAdapterBase : IAdapter
     {
         protected IAdapterContext channelContext;
         protected IFileSystem fileSystem;
 
-        protected FileSystemChannelBase(IAdapterContext channelContext, IFileSystem fileSystem)
+        protected FileSystemAdapterBase(IAdapterContext channelContext, IFileSystem fileSystem)
         {
             this.channelContext = channelContext;
             this.fileSystem = fileSystem;

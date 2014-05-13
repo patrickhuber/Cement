@@ -80,12 +80,12 @@ namespace Cement.Tests.Unit.Adapters
                 { 
                     {Cement.Adapters.AdapterProperties.Uri, "file:///c:/users/testuser/documents/{330A2211-4E1C-4CA4-8ED7-FAE84C1E29A9}.txt"}
                 });
-            var fileSystemOutputChannel = new FileSystemOutputChannel(mockChannelContext.Object, mockFileSystem.Object);
+            var fileSystemSendAdapter = new FileSystemSendAdapter(mockChannelContext.Object, mockFileSystem.Object);
             using (var message = new Message())
             {
                 message.Body = new MemoryStream(Encoding.UTF8.GetBytes("this is the message body"));
                 message.Context = new MessageContext();
-                fileSystemOutputChannel.Send(message);
+                fileSystemSendAdapter.Send(message);
             }
         }
     }
