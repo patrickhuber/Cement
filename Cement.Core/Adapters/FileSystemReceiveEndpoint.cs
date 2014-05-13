@@ -32,9 +32,9 @@ namespace Cement.Adapters
 
         public void OnNext(string path)
         {
-            IAdapterContext fileChannelContext = CreateAdapterContext(path);
-            IReceiveAdapter inputChannel = CreateAdapter(fileChannelContext);
-            IMessage message = inputChannel.Receive();
+            IAdapterContext fileAdapterContext = CreateAdapterContext(path);
+            IReceiveAdapter receiveAdapter = CreateAdapter(fileAdapterContext);
+            IMessage message = receiveAdapter.Receive();
             Publish(message);
         }
 
