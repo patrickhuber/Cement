@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
-    public static class FileSystemProperties
+    public interface IAdapterContext : IContext
     {
-        public static readonly string Protocol = "file";
-
     }
 }

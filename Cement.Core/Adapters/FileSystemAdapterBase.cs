@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
-    public abstract class FileSystemChannelBase : IChannel
+    public abstract class FileSystemChannelBase : IAdapter
     {
-        protected IChannelContext channelContext;
+        protected IAdapterContext channelContext;
         protected IFileSystem fileSystem;
 
-        protected FileSystemChannelBase(IChannelContext channelContext, IFileSystem fileSystem)
+        protected FileSystemChannelBase(IAdapterContext channelContext, IFileSystem fileSystem)
         {
             this.channelContext = channelContext;
             this.fileSystem = fileSystem;
@@ -24,7 +24,7 @@ namespace Cement.Channels
         {
             string uriText;
             Uri uri;
-            if (!channelContext.Attributes.TryGetValue(Cement.Channels.ChannelProperties.Uri, out uriText))
+            if (!channelContext.Attributes.TryGetValue(Cement.Adapters.AdapterProperties.Uri, out uriText))
                 throw new InvalidDataException("Unable to locate uri, the channel is misconfigured. Please specify a Uri in the Channel Settings.");
             uri = default(Uri);
             try

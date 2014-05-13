@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\IReceiveAdapter.cs" />
+    <Compile Include="Adapters\ISendAdapter.cs" />
     <Compile Include="Categories\DecimalMonoid.cs" />
     <Compile Include="Categories\IMonoid.cs" />
     <Compile Include="Categories\Int16Monoid.cs" />
@@ -52,15 +54,19 @@
     <Compile Include="Categories\UInt16Monoid.cs" />
     <Compile Include="Categories\UInt32Monoid.cs" />
     <Compile Include="Categories\UInt64Monoid.cs" />
-    <Compile Include="Channels\ChannelProperties.cs" />
-    <Compile Include="Channels\FileSystemChannelBase.cs" />
-    <Compile Include="Channels\FileSystemInputChannel.cs" />
-    <Compile Include="Channels\FileSystemOutputChannel.cs" />
-    <Compile Include="Channels\FileSystemProperties.cs" />
+    <Compile Include="Adapters\AdapterContext.cs" />
+    <Compile Include="Adapters\AdapterProperties.cs" />
+    <Compile Include="Adapters\FileSystemAdapterBase.cs" />
+    <Compile Include="Adapters\FileSystemReceiveAdapter.cs" />
+    <Compile Include="Channels\FileSystemReceiveEndpoint.cs" />
+    <Compile Include="Channels\IChannel.cs" />
+    <Compile Include="IO\FileSystemMonitor.cs" />
+    <Compile Include="Adapters\FileSystemSendAdapter.cs" />
+    <Compile Include="Adapters\FileSystemProperties.cs" />
     <Compile Include="Channels\IAsyncInputChannel.cs" />
     <Compile Include="Channels\IAsyncOutputChannel.cs" />
-    <Compile Include="Channels\IChannel.cs" />
-    <Compile Include="Channels\IChannelContext.cs" />
+    <Compile Include="Adapters\IAdapter.cs" />
+    <Compile Include="Adapters\IAdapterContext.cs" />
     <Compile Include="Channels\IInputChannel.cs" />
     <Compile Include="Channels\IOutputChannel.cs" />
     <Compile Include="Channels\MemoryChannel.cs" />
@@ -70,14 +76,17 @@
     <Compile Include="IO\FileSystemPoller.cs" />
     <Compile Include="IO\IFileSystem.cs" />
     <Compile Include="IO\WaitForFileResult.cs" />
+    <Compile Include="Messages\ExceptionMessage.cs" />
     <Compile Include="Messages\IMessage.cs" />
     <Compile Include="Messages\IMessageContext.cs" />
     <Compile Include="Messages\Message.cs" />
     <Compile Include="Messages\MessageContext.cs" />
     <Compile Include="Messages\MessageProperties.cs" />
+    <Compile Include="Monitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\AsyncResult.cs" />
     <Compile Include="Threading\Tasks\TaskInteropExtensions.cs" />
+    <Compile Include="Unsubscriber.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

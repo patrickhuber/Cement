@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
-    public class FileSystemInputChannel : FileSystemChannelBase, IInputChannel
+
+    public class FileSystemReceiveAdapter : FileSystemChannelBase, IReceiveAdapter
     {
-        public FileSystemInputChannel(IChannelContext channelContext, IFileSystem fileSystem)
+        public FileSystemReceiveAdapter(IAdapterContext channelContext, IFileSystem fileSystem)
             : base(channelContext, fileSystem)
         { 
         }

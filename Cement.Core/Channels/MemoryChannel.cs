@@ -1,4 +1,5 @@
-﻿using Cement.Messages;
+﻿using Cement.Adapters;
+using Cement.Messages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,10 +11,10 @@ namespace Cement.Channels
 {
     public class MemoryChannel : IInputChannel, IOutputChannel
     {
-        private IChannelContext channelContext;
+        private IAdapterContext channelContext;
         private Queue<IMessage> messageQueue;
 
-        public MemoryChannel(IChannelContext channelContext, Queue<IMessage> messageQueue)
+        public MemoryChannel(IAdapterContext channelContext, Queue<IMessage> messageQueue)
         {
             this.channelContext = channelContext;
             this.messageQueue = messageQueue;

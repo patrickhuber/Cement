@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
-    public static class ChannelProperties
+    public static class AdapterProperties
     {
-        public static readonly string Uri = "Cement.Channels.Uri";
+        public static readonly string Uri = "Cement.Adapter.Uri";
     }
 }

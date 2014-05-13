@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
-    public class FileSystemOutputChannel : FileSystemChannelBase, IOutputChannel
+    public class FileSystemOutputChannel : FileSystemChannelBase, ISendAdapter
     {
-        public FileSystemOutputChannel(IChannelContext channelContext, IFileSystem fileSystem)
+        public FileSystemOutputChannel(IAdapterContext channelContext, IFileSystem fileSystem)
             : base(channelContext, fileSystem)
         { }
 

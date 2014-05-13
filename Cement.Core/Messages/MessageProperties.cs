@@ -11,6 +11,6 @@ namespace Cement.Messages
         public static readonly string Type = "Cement.Messages.Type";
         public static readonly string ReceiveUri = "Cement.Messages.ReceiveUri";
         public static readonly string SendUri = "Cement.Messages.SendUri";
-        public static readonly string DateTimeUtc = "Cement.Messages.DateTimeUtc";
+        public static readonly string DateTimeUtc = "Cement.Messages.DateTimeUtc";        
     }
 }
