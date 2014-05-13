@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Channels
+namespace Cement.Adapters
 {
     public class FileSystemReceiveEndpoint : Monitor<IMessage>, IObserver<string>, IObservable<IMessage>
     {

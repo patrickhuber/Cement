@@ -58,7 +58,7 @@
     <Compile Include="Adapters\AdapterProperties.cs" />
     <Compile Include="Adapters\FileSystemAdapterBase.cs" />
     <Compile Include="Adapters\FileSystemReceiveAdapter.cs" />
-    <Compile Include="Channels\FileSystemReceiveEndpoint.cs" />
+    <Compile Include="Adapters\FileSystemReceiveEndpoint.cs" />
     <Compile Include="Channels\IChannel.cs" />
     <Compile Include="IO\FileSystemMonitor.cs" />
     <Compile Include="Adapters\FileSystemSendAdapter.cs" />
