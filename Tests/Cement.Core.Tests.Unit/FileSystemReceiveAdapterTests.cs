@@ -2,21 +2,20 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Cement.IO;
+using Cement.Adapters;
 using Moq;
+using Cement.IO;
 using System.IO;
-using Cement.Channels;
-using Cement.Messages;
 
 namespace Cement.Tests.Unit
 {
     /// <summary>
-    /// Summary description for FileSystemOutputChannelTests
+    /// Summary description for FileSystemChannelTests
     /// </summary>
     [TestClass]
-    public class FileSystemOutputChannelTests
+    public class FileSystemReceiveAdapterTests
     {
-        public FileSystemOutputChannelTests()
+        public FileSystemReceiveAdapterTests()
         {
             //
             // TODO: Add constructor logic here
@@ -62,31 +61,33 @@ namespace Cement.Tests.Unit
         // public void MyTestCleanup() { }
         //
         #endregion
-        
+
         [TestMethod]
-        public void Test_FileSystemChannel_Send()
+        public void Test_FileSystemChannel_Receive()
         {
             var mockFileSystem = new Mock<IFileSystem>();
             mockFileSystem
-                .Setup(x => x.OpenWrite(It.IsAny<string>()))
-                .Returns<string>(s =>
+                .Setup(x=>x.OpenRead(It.IsAny<string>()))
+                .Returns<string>(s=> 
                 {
-                    return new MemoryStream();
+                    var bytes = Encoding.ASCII.GetBytes("this is my message.");
+                    return new MemoryStream(bytes);
                 });
-            var mockChannelContext = new Mock<IChannelContext>();
+            var mockChannelContext = new Mock<IAdapterContext>();
             mockChannelContext
                 .SetupGet(x => x.Attributes)
-                .Returns(new Dictionary<string, string> 
-                { 
-                    {Cement.Channels.ChannelProperties.Uri, "file:///c:/users/testuser/documents/{330A2211-4E1C-4CA4-8ED7-FAE84C1E29A9}.txt"}
+                .Returns(new Dictionary<string, string>
+                {
+                    {Cement.Adapters.AdapterProperties.Uri, "file:///c:/users/testuser/documents/myfile.txt"}
                 });
-            var fileSystemOutputChannel = new FileSystemOutputChannel(mockChannelContext.Object, mockFileSystem.Object);
-            using (var message = new Message())
-            {
-                message.Body = new MemoryStream(Encoding.UTF8.GetBytes("this is the message body"));
-                message.Context = new MessageContext();
-                fileSystemOutputChannel.Send(message);
-            }
+            var fileSystemChannel = new FileSystemReceiveAdapter(
+                mockChannelContext.Object, 
+                mockFileSystem.Object);
+            
+            var message = fileSystemChannel.Receive();
+            Assert.IsNotNull(message);
+            Assert.IsNotNull(message.Context);
+            Assert.IsNotNull(message.Body);
         }
     }
 }

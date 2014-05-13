@@ -55,8 +55,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FileSystemInputChannelTests.cs" />
-    <Compile Include="FileSystemOutputChannelTests.cs" />
+    <Compile Include="FileSystemReceiveAdapterTests.cs" />
+    <Compile Include="FileSystemSendAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

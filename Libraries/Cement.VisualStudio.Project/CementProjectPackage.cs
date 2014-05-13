@@ -51,8 +51,7 @@ namespace Cement.VisualStudio.Project
         {
             Debug.WriteLine(string.Format(CultureInfo.CurrentCulture, "Entering constructor for: {0}", this.ToString()));
         }
-
-
+                
 
         /////////////////////////////////////////////////////////////////////////////
         // Overridden Package Implementation

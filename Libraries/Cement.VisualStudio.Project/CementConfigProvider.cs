@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.Project;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,21 +12,29 @@ namespace Cement.VisualStudio.Project
     /// <summary>
     /// http://social.msdn.microsoft.com/Forums/en-US/9f5d3410-ac7c-43df-b7ab-8be6114d1735/vs-shell-question-about-extending-visual-studio-vspackage-using-mpfproj?forum=vsx
     /// </summary>
+    [ComVisible(true)]
+    [CLSCompliant(false)]
     public class CementConfigProvider : ConfigProvider
     {        
         private CementProjectNode _project;
+        private Dictionary<string,ProjectConfig> _configurationsList;
 
         public CementConfigProvider(CementProjectNode project)
             : base(project)
         {
             _project = project;
+            _configurationsList = new Dictionary<string, ProjectConfig>();
         }
 
         #region overridden methods
 
         protected override ProjectConfig CreateProjectConfiguration(string configName)
         {
-            return _project.MakeConfiguration(configName);
+            if (_configurationsList.ContainsKey(configName))
+                return _configurationsList[configName];
+            var projectConfig = new CementProjectConfig(_project, configName);
+            _configurationsList.Add(configName, projectConfig);
+            return projectConfig;
         }
 
         public override int GetPlatformNames(uint celt, string[] names, uint[] actual)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.Project;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Cement.VisualStudio.Project
         {
             get { return new Guid(GuidList.guidCement_VisualStudio_ProjectFactory); }
         }
-
+        
         public override string ProjectType
         {
             get { return "CementProjectType"; }
@@ -35,11 +36,6 @@ namespace Cement.VisualStudio.Project
         protected override ConfigProvider CreateConfigProvider()
         {
             return new CementConfigProvider(this);
-        }
-
-        public virtual CementProjectConfig MakeConfiguration(string activeConfigName)
-        {
-            return new CementProjectConfig(this, activeConfigName);
         }
 
         public IProjectLauncher GetLauncher()        

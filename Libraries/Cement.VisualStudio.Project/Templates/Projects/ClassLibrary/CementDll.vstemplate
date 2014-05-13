@@ -3,7 +3,7 @@
     <Name>Class Library</Name>
     <Description>A project for creating a Cement Integration Class Library (.dll)</Description>
     <Icon>_TemplateIcon.ico</Icon>
-    <ProjectType>Cement</ProjectType>
+    <ProjectType>CementDll</ProjectType>
     <SortOrder>60</SortOrder>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <CreateNewFolder>true</CreateNewFolder>
@@ -12,7 +12,7 @@
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
   </TemplateData>
   <TemplateContent>
-    <Project File="CementDll.cmtproj" ReplaceParameters="true">
+    <Project File="CementDll.cmtproj" TargetFileName="$fileinputname$.cmtproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">DataContracts.xsd</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapMessageToResponse.xslt</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapRequestToMessage.xslt</ProjectItem>      
