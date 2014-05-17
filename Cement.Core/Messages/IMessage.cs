@@ -5,8 +5,8 @@ namespace Cement.Messages
 {
     public interface IMessage : IDisposable
     {
-        Stream Body { get; set; }
-        IMessageContext Context { get; set; }
+        Stream Body { get; }
+        IMessageContext Context { get; }
         void CopyTo(IMessage message);
         Task CopyToAsync(IMessage message);
     }

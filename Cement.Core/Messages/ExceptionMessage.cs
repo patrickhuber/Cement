@@ -10,8 +10,8 @@ namespace Cement.Messages
     public class ExceptionMessage : Message, IMessage
     {
         public ExceptionMessage(Exception exception)
-        {
-            SetMessageBody(exception);
+            : base(GetMessageBody(exception), new MessageContext())
+        {            
             SetId();
             SetMessageType(exception);
         }
@@ -26,14 +26,11 @@ namespace Cement.Messages
             this.Context.Attributes[MessageProperties.Id] = Guid.NewGuid().ToString();
         }
 
-        private void SetMessageBody(Exception exception)
+        private static Stream GetMessageBody(Exception exception)
         {
             var exceptionBody = exception.ToString();
             var exceptionBytes = Encoding.UTF8.GetBytes(exceptionBody);
-
-            this.Body = new MemoryStream(exceptionBytes);
+            return new MemoryStream(exceptionBytes);
         }
-
-
     }
 }

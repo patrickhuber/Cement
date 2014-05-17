@@ -80,6 +80,8 @@
     <Compile Include="Messages\ExceptionMessage.cs" />
     <Compile Include="Messages\IMessage.cs" />
     <Compile Include="Messages\IMessageContext.cs" />
+    <Compile Include="Messages\IMessageFactory.cs" />
+    <Compile Include="Messages\InMemoryMessageFactory.cs" />
     <Compile Include="Messages\Message.cs" />
     <Compile Include="Messages\MessageContext.cs" />
     <Compile Include="Messages\MessageProperties.cs" />

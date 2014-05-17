@@ -13,11 +13,13 @@ namespace Cement.Adapters
     {
         IDisposable unsubscriber;
         IFileSystem fileSystem;
+        IMessageFactory messageFactory;
 
-        public FileSystemReceiveEndpoint(IObservable<string> observable, IFileSystem fileSystem)
+        public FileSystemReceiveEndpoint(IObservable<string> observable, IFileSystem fileSystem, IMessageFactory messageFactory)
         {
-            unsubscriber = observable.Subscribe(this);
+            this.unsubscriber = observable.Subscribe(this);
             this.fileSystem = fileSystem;
+            this.messageFactory = messageFactory;
         }
 
         public void OnCompleted()
@@ -40,7 +42,7 @@ namespace Cement.Adapters
 
         private IReceiveAdapter CreateAdapter(IAdapterContext fileChannelContext)
         {
-            return new FileSystemReceiveAdapter(fileChannelContext, fileSystem);
+            return new FileSystemReceiveAdapter(fileChannelContext, fileSystem, messageFactory);
         }
 
         private static IAdapterContext CreateAdapterContext(string path)

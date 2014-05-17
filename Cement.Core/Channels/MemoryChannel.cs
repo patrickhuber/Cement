@@ -13,23 +13,20 @@ namespace Cement.Channels
     {
         private IAdapterContext channelContext;
         private Queue<IMessage> messageQueue;
+        private IMessageFactory messageFactory;
 
-        public MemoryChannel(IAdapterContext channelContext, Queue<IMessage> messageQueue)
+        public MemoryChannel(IAdapterContext channelContext, Queue<IMessage> messageQueue, IMessageFactory messageFactory)
         {
             this.channelContext = channelContext;
             this.messageQueue = messageQueue;
+            this.messageFactory = messageFactory;
         }
 
         public void Send(Messages.IMessage message)
         {
-            var body = new MemoryStream();
-            var context = new MessageContext();
-            var memoryMessage = new Message
-            {
-                Body = body,
-                Context = context
-            };
-            this.messageQueue.Enqueue(memoryMessage);
+            var newMessage = messageFactory.Create();
+            message.CopyTo(newMessage);
+            this.messageQueue.Enqueue(message);
         }
 
         public string Protocol

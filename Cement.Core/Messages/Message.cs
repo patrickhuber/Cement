@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,15 @@ namespace Cement.Messages
 {
     public class Message : IMessage
     {
-        public System.IO.Stream Body { get; set; }
+        public Message(Stream body, IMessageContext context)
+        {
+            Body = body;
+            Context = context;
+        }
 
-        public IMessageContext Context { get; set; }
+        public System.IO.Stream Body { get; protected set; }
+
+        public IMessageContext Context { get; protected set; }
 
         public void Dispose()
         {
