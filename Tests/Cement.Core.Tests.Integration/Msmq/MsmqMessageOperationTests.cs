@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Cement.Core.Tests.Integration.Msmq
 {
     [TestClass]
-    public class TestMsmqMessageOperations
+    public class MsmqMessageOperationTests
     {
         const int MaxMessageSize = 4193849;
         const string PrivateQueueName = @".\private$\TestMessageStream";
@@ -118,6 +118,20 @@ namespace Cement.Core.Tests.Integration.Msmq
             var lastReceivedMessage = messageQueue.Receive();
             lastReceivedMessage.Formatter = new BinaryMessageFormatter();
             Assert.AreEqual(SecondMessageBody, lastReceivedMessage.Body);
+        }
+
+        [TestMethod]
+        public void Test_MsmqMessageOperations_Extension_Data_Unrelated_To_Max_Message_Size()
+        {
+            var messageWithExtension = new Message();
+            messageWithExtension.BodyStream.Write(new byte[MaxMessageSize], 0, MaxMessageSize);            
+            messageWithExtension.Formatter = new BinaryMessageFormatter();
+            messageQueue.Send(messageWithExtension);
+
+            var messageNoExtension = new Message();
+            messageNoExtension.BodyStream.Write(new byte[MaxMessageSize], 0, MaxMessageSize);         
+            messageNoExtension.Formatter = new BinaryMessageFormatter();
+            messageQueue.Send(messageNoExtension);
         }
 
         [ClassCleanup]

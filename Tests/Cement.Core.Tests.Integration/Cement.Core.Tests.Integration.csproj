@@ -51,7 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Msmq\TestMsmqMessageOperations.cs" />
+    <Compile Include="Msmq\MsmqMessageOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
