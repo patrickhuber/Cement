@@ -62,11 +62,11 @@
     <Compile Include="XmlSchemaTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Cement.Build\Cement.Build.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Build\Cement.Build.csproj">
       <Project>{f54ffbfc-1d57-47de-8084-10d6ef8206a1}</Project>
       <Name>Cement.Build</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Cement.Core\Cement.Core.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Core\Cement.Core.csproj">
       <Project>{af638961-d9c9-43a2-9386-53b0d1321ec5}</Project>
       <Name>Cement.Core</Name>
     </ProjectReference>

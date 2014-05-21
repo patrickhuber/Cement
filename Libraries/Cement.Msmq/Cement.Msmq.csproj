@@ -42,7 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Cement.Core\Cement.Core.csproj">
+    <ProjectReference Include="..\Cement.Core\Cement.Core.csproj">
       <Project>{af638961-d9c9-43a2-9386-53b0d1321ec5}</Project>
       <Name>Cement.Core</Name>
     </ProjectReference>

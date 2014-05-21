@@ -63,19 +63,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cement.Transforms.AutoMapper.Designer\Cement.Transforms.AutoMapper.Designer.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Transforms.AutoMapper.Designer\Cement.Transforms.AutoMapper.Designer.csproj">
       <Project>{e233d2e6-ca65-4ed3-95c0-7c3004da475f}</Project>
       <Name>Cement.Transforms.AutoMapper.Designer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cement.Transforms.AutoMapper\Cement.Transforms.AutoMapper.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Transforms.AutoMapper\Cement.Transforms.AutoMapper.csproj">
       <Project>{063de755-5ab3-4e69-95bd-fbdd6c6c06e8}</Project>
       <Name>Cement.Transforms.AutoMapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cement.Transforms.Designer\Cement.Transforms.Designer.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Transforms.Designer\Cement.Transforms.Designer.csproj">
       <Project>{8020dc45-478c-442b-ab6b-28cae2353cb4}</Project>
       <Name>Cement.Transforms.Designer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cement.Transforms\Cement.Transforms.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.Transforms\Cement.Transforms.csproj">
       <Project>{F024C9C1-C0B1-434A-BC19-D2D88B05DDBD}</Project>
       <Name>Cement.Transforms</Name>
     </ProjectReference>

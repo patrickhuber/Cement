@@ -65,7 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Cement.ServiceModel\Cement.ServiceModel.csproj">
+    <ProjectReference Include="..\..\Libraries\Cement.ServiceModel\Cement.ServiceModel.csproj">
       <Project>{0449d00e-71fa-4627-bda9-1c4e4702f30e}</Project>
       <Name>Cement.ServiceModel</Name>
     </ProjectReference>
