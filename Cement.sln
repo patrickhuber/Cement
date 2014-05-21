@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.Msmq", "Libraries\Ce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.ConsoleApplication", "Examples\Cement.ConsoleApplication\Cement.ConsoleApplication.csproj", "{EDB0CC17-6133-4BE8-93AE-720C93F83F95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cement.Msmq.Tests.Integration", "Tests\Cement.Msmq.Tests.Integration\Cement.Msmq.Tests.Integration.csproj", "{3A2F12BC-ED60-4F01-ADB7-146322F159F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -302,6 +304,16 @@ Global
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Release|Mixed Platforms.Build.0 = Release|x86
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Release|x86.ActiveCfg = Release|x86
 		{EDB0CC17-6133-4BE8-93AE-720C93F83F95}.Release|x86.Build.0 = Release|x86
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -328,6 +340,7 @@ Global
 		{9BE415A8-1664-4302-A4C2-2A49F801001C} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
 		{D7CCF997-0947-4E5E-AAA0-AA0F97AA40CA} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
 		{0CC873B9-1A84-410F-B59F-A0F55575DAF3} = {CA98AAAD-A977-4916-BA76-D242D3E9BB33}
+		{3A2F12BC-ED60-4F01-ADB7-146322F159F5} = {7CA501A3-6945-4FF3-A316-CE7AD7F99693}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Cement.vsmdi
