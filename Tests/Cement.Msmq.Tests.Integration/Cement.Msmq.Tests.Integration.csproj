@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D7CCF997-0947-4E5E-AAA0-AA0F97AA40CA}</ProjectGuid>
+    <ProjectGuid>{3A2F12BC-ED60-4F01-ADB7-146322F159F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cement.Core.Tests.Integration</RootNamespace>
-    <AssemblyName>Cement.Core.Tests.Integration</AssemblyName>
+    <RootNamespace>Cement.Msmq.Tests.Integration</RootNamespace>
+    <AssemblyName>Cement.Msmq.Tests.Integration</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -51,7 +51,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MsmqMessageOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Cement.Core\Cement.Core.csproj">
+      <Project>{af638961-d9c9-43a2-9386-53b0d1321ec5}</Project>
+      <Name>Cement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Cement.Msmq\Cement.Msmq.csproj">
+      <Project>{0cc873b9-1a84-410f-b59f-a0f55575daf3}</Project>
+      <Name>Cement.Msmq</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
