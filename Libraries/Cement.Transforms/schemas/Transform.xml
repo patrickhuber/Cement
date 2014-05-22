@@ -103,8 +103,8 @@ PersonDto
       <Body>
         <![CDATA[
       System.DateTime today = System.DateTime.Today;
-      int age = today.Year - bday.Year;
-      if (bday > today.AddYears(-age)) 
+      int age = today.Year - dateOfBirth.Year;
+      if (dateOfBirth > today.AddYears(-age)) 
         age--;
       return age;
       ]]>
