@@ -60,6 +60,7 @@
     <None Include="playground\Transform1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="schemas\Transform.json" />
     <None Include="schemas\Transform.xsd">
       <SubType>Designer</SubType>
     </None>
