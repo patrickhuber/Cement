@@ -8,6 +8,7 @@ using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Project;
 
 namespace Cement.VisualStudio.Project
 {
@@ -32,13 +33,13 @@ namespace Cement.VisualStudio.Project
     // This attribute is needed to register the project factory
     [ProvideProjectFactory(
         typeof(CementProjectFactory), 
-        "Cement Project",
+        null,
         "Cement Project Files (*.cmtproj);*.cmtproj", 
         "cmtproj", "cmtproj",
-        @"Templates\Projects\ClassLibrary", 
+        ".\\NullPath", 
         LanguageVsTemplate = "CementDll")]    
     [Guid(GuidList.guidCement_VisualStudio_ProjectPkgString)]
-    public sealed class CementProjectPackage : Package
+    public sealed class CementProjectPackage : ProjectPackage
     {
         /// <summary>
         /// Default constructor of the package.
@@ -102,6 +103,11 @@ namespace Cement.VisualStudio.Project
                        OLEMSGICON.OLEMSGICON_INFO,
                        0,        // false
                        out result));
-        }        
+        }
+
+        public override string ProductUserContext
+        {
+            get { return string.Empty; }
+        }
     }
 }

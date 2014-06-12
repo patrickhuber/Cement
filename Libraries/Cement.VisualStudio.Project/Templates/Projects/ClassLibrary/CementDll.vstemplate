@@ -15,7 +15,8 @@
     <Project File="CementDll.cmtproj" TargetFileName="$fileinputname$.cmtproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">DataContracts.xsd</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapMessageToResponse.xslt</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapRequestToMessage.xslt</ProjectItem>      
+      <ProjectItem ReplaceParameters="true" OpenInEditor="false">MapRequestToMessage.xslt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="false">AssemblyInfo.cs</ProjectItem>
     </Project>
   </TemplateContent>  
 </VSTemplate>

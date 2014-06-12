@@ -32,15 +32,5 @@ namespace Cement.VisualStudio.Project
             this.FileTemplateProcessor.UntokenFile(source, target);
             this.FileTemplateProcessor.Reset();
         }
-
-        protected override ConfigProvider CreateConfigProvider()
-        {
-            return new CementConfigProvider(this);
-        }
-
-        public IProjectLauncher GetLauncher()        
-        {
-            return new CementProjectLauncher();
-        }
     }
 }

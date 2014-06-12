@@ -128,10 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CementBuildableProjectConfig.cs" />
-    <Compile Include="CementConfigProvider.cs" />
-    <Compile Include="CementProjectConfig.cs" />
     <Compile Include="CementProjectFactory.cs" />
-    <Compile Include="CementProjectLauncher.cs" />
     <Compile Include="CementProjectNode.cs" />
     <Compile Include="Guids.cs" />
     <Compile Include="IProjectLauncher.cs" />
@@ -144,9 +141,7 @@
     <Compile Include="CementProjectPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PkgCmdID.cs" />
-    <Content Include="Templates\Projects\ClassLibrary\AssemblyInfo.cs">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    <ZipProject Include="Templates\Projects\ClassLibrary\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
@@ -163,14 +158,12 @@
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Templates\Projects\ClassLibrary\CementDll.cmtproj">
-      <IncludeInVSIX>true</IncludeInVSIX>
+    <ZipProject Include="Templates\Projects\ClassLibrary\CementDll.cmtproj">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Templates\Projects\ClassLibrary\DataContracts.xsd">
+    </ZipProject>
+    <ZipProject Include="Templates\Projects\ClassLibrary\DataContracts.xsd">
       <SubType>Designer</SubType>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    </ZipProject>
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
@@ -185,23 +178,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Package.ico" />
-    <VSTemplate Include="Templates\Projects\ClassLibrary\CementDll.vstemplate">
+    <ZipProject Include="Templates\Projects\ClassLibrary\CementDll.vstemplate">
       <SubType>Designer</SubType>
-    </VSTemplate>
-    <Content Include="Templates\Projects\ClassLibrary\MapMessageToResponse.xslt">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Templates\Projects\ClassLibrary\MapRequestToMessage.xslt">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Templates\Projects\ClassLibrary\CementDll.ico">
+    </ZipProject>
+    <ZipProject Include="Templates\Projects\ClassLibrary\MapMessageToResponse.xslt" />
+    <ZipProject Include="Templates\Projects\ClassLibrary\MapRequestToMessage.xslt" />
+    <ZipProject Include="Templates\Projects\ClassLibrary\CementDll.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Templates\Projects\ClassLibrary\_TemplateIcon.ico">
-      <IncludeInVSIX>true</IncludeInVSIX>
+    </ZipProject>
+    <ZipProject Include="Templates\Projects\ClassLibrary\_TemplateIcon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </ZipProject>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
