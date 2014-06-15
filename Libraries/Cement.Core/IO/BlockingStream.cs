@@ -10,8 +10,16 @@ namespace Cement.IO
     /// <summary>
     /// <see cref="http://msdn.microsoft.com/en-us/magazine/cc163290.aspx">msdn article on pipes and filters</see>
     /// </summary>
-    public class BufferedStream : Stream
+    public class BlockingStream : Stream
     {
+        private Queue<byte> _byteQueue;
+
+        public BlockingStream()
+            : base()
+        {
+            _byteQueue = new Queue<byte>();
+        }
+
         public override bool CanRead
         {
             get { throw new NotImplementedException(); }
