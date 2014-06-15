@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Adapters\FileSystemReceiveAdapterTests.cs" />
     <Compile Include="Adapters\FileSystemSendAdapterTests.cs" />
+    <Compile Include="Channels\PassThroughChannelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +69,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

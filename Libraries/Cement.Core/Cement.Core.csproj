@@ -61,6 +61,8 @@
     <Compile Include="Adapters\FileSystemReceiveAdapter.cs" />
     <Compile Include="Adapters\FileSystemReceiveEndpoint.cs" />
     <Compile Include="Channels\IChannel.cs" />
+    <Compile Include="Channels\PassThroughChannel.cs" />
+    <Compile Include="IO\BlockingStream.cs" />
     <Compile Include="IO\FileSystemMonitor.cs" />
     <Compile Include="Adapters\FileSystemSendAdapter.cs" />
     <Compile Include="Adapters\FileSystemProperties.cs" />
