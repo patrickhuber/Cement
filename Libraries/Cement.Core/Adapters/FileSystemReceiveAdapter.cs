@@ -35,5 +35,20 @@ namespace Cement.Adapters
                         
             return message;
         }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNext(IMessage value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

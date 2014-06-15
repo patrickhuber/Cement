@@ -16,14 +16,14 @@ namespace Cement
             observers = new List<IObserver<T>>();
         }
 
-        public IDisposable Subscribe(IObserver<T> observer)
+        public virtual IDisposable Subscribe(IObserver<T> observer)
         {
             if (!observers.Contains(observer))
                 observers.Add(observer);
             return new Unsubscriber<T>(observers, observer);
         }
 
-        protected void Publish(T argument)
+        public void Publish(T argument)
         {
             foreach (var observer in observers)
             {

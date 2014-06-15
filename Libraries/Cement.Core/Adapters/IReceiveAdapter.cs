@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cement.Adapters
 {
-    public interface IReceiveAdapter
+    public interface IReceiveAdapter : IObserver<IMessage>
     {
         IMessage Receive();
     }
