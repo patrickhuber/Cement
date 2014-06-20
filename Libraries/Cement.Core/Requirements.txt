@@ -1,0 +1,58 @@
+﻿ReceiveAdapter
+--------------
+* ReceiveAdapter Allocates Resources
+* ReceiveAdapter Creates New Message
+* ReceiveAdapter Publishes Message to Channel
+* ReceiveAdapter Writes to Message
+* ReceiveAdapter Closes Request Stream
+* ReceiveAdapter Cleans Up Resources
+
+Channel
+-------
+* Channel Receives Message
+* Channel Notifies Subscribers of Message
+* Channel Receives Stream of Data from Sender and forwards to subscribers
+
+Filter
+------
+* Filter Receives Message from Input Channel
+* Filter Requests Message from Output Channel
+* Filter Processes in bound data through 'Process' method and writes data to outbound message.
+
+SendAdapter
+-----------
+* SendAdapter Receives message from Input Channel
+* SendAdapter Creates Output Stream
+* SendAdapter Forwards Data to Output Stream
+* SendAdapter Closes Output Stream
+
+
+Implmentation Detail
+--------------------
+
+receiveLocation.Process(IContext context)
+{
+	var messageContext = new MessageContext();
+	var messageStream = File.OpenRead(context["FileUri"]);
+	var message = new Message(messageContext, messageStream);
+	OutputChannel.Publish(message);
+}
+
+channel1.Publish(IMessage message)
+{
+	foreach(var messageHandler in messageHandlers)
+	{
+		var messageProcessor = messageHandler.CreateMessageProcessor(IMessageContext context);
+		messageProcessorList.Add(messageProcessor);
+	}
+
+	do
+	{
+		byte[] buffer = new byte[1024];
+		ArraySegment<byte> segement = new ArraySegment<byte>(buffer, offset, length);
+		foreach(var messageProcessor in messageProcessors)
+		{		
+			messageProcessor.OnNext(segment);
+		}
+	} while(bytesRead > 0);
+}
