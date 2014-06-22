@@ -1,4 +1,5 @@
-﻿using Cement.IO;
+﻿using Cement.Channels;
+using Cement.IO;
 using Cement.Messages;
 using System;
 using System.Collections.Generic;
@@ -11,44 +12,25 @@ namespace Cement.Adapters
 
     public class FileSystemReceiveAdapter : FileSystemAdapterBase, IReceiveAdapter
     {
-        IMessageFactory messageFactory;
-
-        public FileSystemReceiveAdapter(IAdapterContext channelContext, IFileSystem fileSystem, IMessageFactory messageFactory)
+        public FileSystemReceiveAdapter(IAdapterContext channelContext, IFileSystem fileSystem, IChannel messageChannel)
             : base(channelContext, fileSystem)
         {
-            this.messageFactory = messageFactory;
+            OutChannel = messageChannel;
         }
 
-        public Messages.IMessage Receive()
+        public void Receive()
         {
             Uri uri = GetChannelUri();
 
-            var message = messageFactory.Create();
-            using (var stream = fileSystem.OpenRead(uri.LocalPath))
-            {
-                stream.CopyTo(message.Body);
-            }
-                        
-            message.Context.Attributes.Add(MessageProperties.DateTimeUtc, DateTime.UtcNow.ToString());
-            message.Context.Attributes.Add(MessageProperties.Id, Guid.NewGuid().ToString());
-            message.Context.Attributes.Add(MessageProperties.ReceiveUri, uri.ToString());
-                        
-            return message;
+            IMessageContext messageContext = new MessageContext();
+            messageContext.Attributes.Add(MessageProperties.DateTimeUtc, DateTime.UtcNow.ToString());
+            messageContext.Attributes.Add(MessageProperties.Id, Guid.NewGuid().ToString());
+            messageContext.Attributes.Add(MessageProperties.ReceiveUri, uri.ToString());
+
+            var message = new Message(fileSystem.OpenRead(uri.LocalPath), messageContext);
+            OutChannel.Publish(message);
         }
 
-        public void OnCompleted()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnError(Exception error)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnNext(IMessage value)
-        {
-            throw new NotImplementedException();
-        }
+        public IChannel OutChannel { get; private set; }
     }
 }

@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Cement.Adapters
 {
-    public interface ISendAdapter
+    public class NullSendAdapter : ISendAdapter
     {
-        IChannel InChannel { get; }
+        public IChannel InChannel
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

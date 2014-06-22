@@ -7,6 +7,7 @@ using Moq;
 using Cement.IO;
 using System.IO;
 using Cement.Messages;
+using Cement.Channels;
 
 namespace Cement.Tests.Unit.Adapters
 {
@@ -67,6 +68,7 @@ namespace Cement.Tests.Unit.Adapters
         public void Test_FileSystemChannel_Receive()
         {
             var inMemoryMessageFactory = new InMemoryMessageFactory();
+            var messageChannel = new PassThroughChannel();
             var mockFileSystem = new Mock<IFileSystem>();
             mockFileSystem
                 .Setup(x=>x.OpenRead(It.IsAny<string>()))
@@ -85,12 +87,8 @@ namespace Cement.Tests.Unit.Adapters
             var fileSystemChannel = new FileSystemReceiveAdapter(
                 mockChannelContext.Object, 
                 mockFileSystem.Object,
-                inMemoryMessageFactory);
+                messageChannel);
             
-            var message = fileSystemChannel.Receive();
-            Assert.IsNotNull(message);
-            Assert.IsNotNull(message.Context);
-            Assert.IsNotNull(message.Body);
         }
     }
 }

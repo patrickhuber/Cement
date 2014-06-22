@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cement
 {
-    public abstract class Monitor<T> : IObservable<T>
-        where T : class
+    public class Monitor<T> : IObservable<T>
     {
         protected IList<IObserver<T>> observers;
 
@@ -27,21 +26,13 @@ namespace Cement
         {
             foreach (var observer in observers)
             {
-                if (argument != null)
+                if (argument == null)
                     observer.OnError(new ArgumentNullException("argument is null"));
                 else
                     observer.OnNext(argument);
             }
         }
-
-        protected void Error(Exception exception)
-        {
-            foreach (var observer in observers.ToArray())
-                if (observers.Contains(observer))
-                    observer.OnError(exception);
-            observers.Clear();
-        }
-
+        
         protected void End()
         {
             foreach (var observer in observers.ToArray())
@@ -50,8 +41,5 @@ namespace Cement
 
             observers.Clear();
         }
-
-        public abstract Task StartAsync();
-        public abstract void Start();
     }
 }

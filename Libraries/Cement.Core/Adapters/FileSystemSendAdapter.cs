@@ -1,4 +1,5 @@
-﻿using Cement.IO;
+﻿using Cement.Channels;
+using Cement.IO;
 using Cement.Messages;
 using System;
 using System.Collections.Generic;
@@ -31,5 +32,7 @@ namespace Cement.Adapters
                 await message.Body.CopyToAsync(outputStream);
             }
         }
+
+        public IChannel InChannel { get; private set; }
     }
 }

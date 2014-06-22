@@ -1,4 +1,5 @@
-﻿using Cement.Messages;
+﻿using Cement.Channels;
+using Cement.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Cement.Adapters
 {
-    public interface IReceiveAdapter : IObserver<IMessage>
+    public interface IReceiveAdapter
     {
-        IMessage Receive();
+        void Receive();
+
+        IChannel OutChannel { get; }
     }
 }

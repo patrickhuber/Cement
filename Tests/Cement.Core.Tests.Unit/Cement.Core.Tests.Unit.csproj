@@ -58,6 +58,7 @@
     <Compile Include="Adapters\FileSystemReceiveAdapterTests.cs" />
     <Compile Include="Adapters\FileSystemSendAdapterTests.cs" />
     <Compile Include="Channels\PassThroughChannelTests.cs" />
+    <Compile Include="IO\BlockingStreamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

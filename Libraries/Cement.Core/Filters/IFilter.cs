@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cement.Adapters
+namespace Cement.Filters
 {
-    public interface ISendAdapter
+    public interface IFilter
     {
-        IChannel InChannel { get; }
+        IChannel OutChannel { get; }
     }
 }

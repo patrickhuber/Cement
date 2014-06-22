@@ -30,7 +30,7 @@ namespace Cement.Adapters
             this.timeout = TimeSpan.MaxValue;
         }
         
-        public async override Task StartAsync()
+        public async Task StartAsync()
         {
             var started = DateTime.Now;
             try
@@ -51,7 +51,12 @@ namespace Cement.Adapters
             }
         }
 
-        public override void Start()
+        private void Error(Exception ex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Start()
         {
             throw new NotImplementedException();
         }

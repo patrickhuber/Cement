@@ -16,8 +16,9 @@ Channel
 Filter
 ------
 * Filter Receives Message from Input Channel
-* Filter Requests Message from Output Channel
-* Filter Processes in bound data through 'Process' method and writes data to outbound message.
+* Filter Creates Function that Receives Byte Event and buffers input until it has enough information to step forward once
+* Filter Wraps Receive Message in New Message and applies function to Body
+* Filter Publishes new Message to Output Channel
 
 SendAdapter
 -----------
