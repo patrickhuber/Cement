@@ -40,5 +40,10 @@ namespace Cement.IO
         {
             return Directory.EnumerateFiles(path, pattern, recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
         }
+
+        public void Delete(string path)
+        {
+            File.Delete(path);
+        }
     }
 }

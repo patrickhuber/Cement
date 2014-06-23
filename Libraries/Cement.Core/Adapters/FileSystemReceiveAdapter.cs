@@ -27,8 +27,12 @@ namespace Cement.Adapters
             messageContext.Attributes.Add(MessageProperties.Id, Guid.NewGuid().ToString());
             messageContext.Attributes.Add(MessageProperties.ReceiveUri, uri.ToString());
 
-            var message = new Message(fileSystem.OpenRead(uri.LocalPath), messageContext);
-            OutChannel.Publish(message);
+            using (var fileStream = fileSystem.OpenRead(uri.LocalPath))
+            {
+                var message = new Message(fileStream, messageContext);
+                OutChannel.Publish(message);
+            }
+            fileSystem.Delete(uri.LocalPath);
         }
 
         public IChannel OutChannel { get; private set; }

@@ -63,6 +63,8 @@
     <Compile Include="Channels\IChannel.cs" />
     <Compile Include="Channels\PassThroughChannel.cs" />
     <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Filters\XsltFilter.cs" />
+    <Compile Include="IO\DelegateStream.cs" />
     <Compile Include="IO\MultiCastStream.cs" />
     <Compile Include="IO\FileSystemMonitor.cs" />
     <Compile Include="Adapters\FileSystemSendAdapter.cs" />

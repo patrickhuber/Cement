@@ -68,7 +68,7 @@ namespace Cement.Tests.Unit.Adapters
         public void Test_FileSystemChannel_Receive()
         {
             var inMemoryMessageFactory = new InMemoryMessageFactory();
-            var messageChannel = new PassThroughChannel();
+            var messageChannel = new PassThroughChannel(new InMemoryMessageFactory());
             var mockFileSystem = new Mock<IFileSystem>();
             mockFileSystem
                 .Setup(x=>x.OpenRead(It.IsAny<string>()))

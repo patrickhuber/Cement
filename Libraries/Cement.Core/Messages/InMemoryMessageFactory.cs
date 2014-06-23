@@ -11,9 +11,14 @@ namespace Cement.Messages
     {
         public IMessage Create()
         {
+            return Create(new MessageContext());
+        }
+        
+        public IMessage Create(IMessageContext messageContext)
+        {
             return new Message(
                 new MemoryStream(),
-                new MessageContext());
+                messageContext);
         }
     }
 }

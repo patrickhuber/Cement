@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cement.Filters
 {
-    public interface IFilter
+    public interface IFilter : IMessageHandler
     {
         IChannel OutChannel { get; }
     }

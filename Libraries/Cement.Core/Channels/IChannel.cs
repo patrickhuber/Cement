@@ -1,13 +1,17 @@
 ﻿using System;
 using Cement.Messages;
 using System.IO;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Cement.Channels
 {
     public interface IChannel
     {
-        IMessage CreateMessage(IMessageContext messageContext);
-
         void Publish(IMessage message);
+
+        Task PublishAsync(IMessage message);
+
+        Task PublishAsync(IMessage message, CancellationToken cancellationToken);
     }
 }

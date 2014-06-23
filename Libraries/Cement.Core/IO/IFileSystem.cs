@@ -10,10 +10,17 @@ namespace Cement.IO
     public interface IFileSystem
     {
         string GetFirstFile(string path, string pattern, bool recursive);
+
         Stream OpenRead(string path);
+
         bool FileExists(string path);
+
         Stream OpenWrite(string path);
+
         IEnumerable<string> EnumerateFiles(string path, string pattern, bool recursive);
+
         IEnumerable<string> EnumerateFiles(string path, bool recursive);
+
+        void Delete(string path);
     }
 }

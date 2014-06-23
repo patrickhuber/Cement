@@ -9,5 +9,7 @@ namespace Cement.Messages
     public interface IMessageFactory
     {
         IMessage Create();
+
+        IMessage Create(IMessageContext messageContext);
     }
 }
