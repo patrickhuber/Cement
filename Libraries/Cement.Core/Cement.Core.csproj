@@ -46,16 +46,6 @@
     <Compile Include="Adapters\IReceiveAdapter.cs" />
     <Compile Include="Adapters\ISendAdapter.cs" />
     <Compile Include="Adapters\NullSendAdapter.cs" />
-    <Compile Include="Categories\DecimalMonoid.cs" />
-    <Compile Include="Categories\IMonoid.cs" />
-    <Compile Include="Categories\Int16Monoid.cs" />
-    <Compile Include="Categories\Int32Monoid.cs" />
-    <Compile Include="Categories\Int64Monoid.cs" />
-    <Compile Include="Categories\ListMonoid.cs" />
-    <Compile Include="Categories\StringMonoid.cs" />
-    <Compile Include="Categories\UInt16Monoid.cs" />
-    <Compile Include="Categories\UInt32Monoid.cs" />
-    <Compile Include="Categories\UInt64Monoid.cs" />
     <Compile Include="Adapters\AdapterContext.cs" />
     <Compile Include="Adapters\AdapterProperties.cs" />
     <Compile Include="Adapters\FileSystemAdapterBase.cs" />
