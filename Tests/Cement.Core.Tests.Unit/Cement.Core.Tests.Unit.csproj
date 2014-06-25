@@ -60,9 +60,10 @@
     <Compile Include="Adapters\FileSystemReceiveAdapterTests.cs" />
     <Compile Include="Adapters\FileSystemSendAdapterTests.cs" />
     <Compile Include="Channels\PassThroughChannelTests.cs" />
-    <Compile Include="Filters\XsltCompiledTransformTests.cs" />
     <Compile Include="IO\BlockingStreamTests.cs" />
+    <Compile Include="IO\DelegateStreamTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\Tasks\LimitedConcurrencyLevelTaskSchedulerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Cement.Core\Cement.Core.csproj">
@@ -73,6 +74,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

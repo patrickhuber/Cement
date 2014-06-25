@@ -1,19 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Cement.IO;
+using Cement.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Xsl;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using System.IO;
-using Cement.IO;
+using System.Xml.Xsl;
 
-namespace Cement.Tests.Unit.Filters
+namespace Cement.Transforms.Tests.Unit
 {
     [TestClass]
-    public class XsltCompiledTransformTests
+    public class XslCompiledTransformTests
     {
         XDocument xslDocument;
 
@@ -37,36 +40,36 @@ namespace Cement.Tests.Unit.Filters
         public void Test_XsltCompiledTranform_Reads_Observable()
         {
             XslCompiledTransform transform = new XslCompiledTransform();
-            
-            transform.Load(xslDocument.CreateReader());            
+
+            transform.Load(xslDocument.CreateReader());
         }
 
         [TestMethod]
-        public void Test_XsltCompiledTransform_Pipelining()
-        {            
+        public void Test_XslCompiledTransform_Pipelining()
+        {
             var xsltTransform = new XslCompiledTransform();
             xsltTransform.Load(xslDocument.CreateReader());
-            
+
             string xmlInput = @"<nodes><node></node></nodes>";
             var inputStream = new MemoryStream(Encoding.ASCII.GetBytes(xmlInput));
             var xPathDocument = new XPathDocument(inputStream);
 
             var outputStream = new MemoryStream();
             var xsltArguments = new XsltArgumentList();
-            
+
             xsltTransform.Transform(
-                xPathDocument, 
-                xsltArguments, 
+                xPathDocument,
+                xsltArguments,
                 outputStream);
             outputStream.Flush();
-            
+
             var result = outputStream.ToArray();
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length > 0);
         }
 
         [TestMethod]
-        public void Test_XsltCompiledTransform_DelegateStream()
+        public void Test_XslCompiledTransform_DelegateStream()
         {
             var xsltTransform = new XslCompiledTransform();
             xsltTransform.Load(xslDocument.CreateReader());
@@ -77,8 +80,8 @@ namespace Cement.Tests.Unit.Filters
 
             var bufferQueue = new Queue<ArraySegment<byte>>();
             var outputStream = new DelegateStream(
-                null, 
-                (buffer, offset, count) => 
+                null,
+                (buffer, offset, count) =>
                 {
                     bufferQueue.Enqueue(
                         new ArraySegment<byte>(buffer, offset, count));
@@ -92,12 +95,12 @@ namespace Cement.Tests.Unit.Filters
             outputStream.Flush();
 
             Assert.IsTrue(bufferQueue.Count > 0);
-            
+
             var outputMemoryStream = new MemoryStream();
-            
+
             while (bufferQueue.Count > 0)
             {
-                var buffer = bufferQueue.Dequeue();                
+                var buffer = bufferQueue.Dequeue();
                 outputMemoryStream.Write(buffer.Array, buffer.Offset, buffer.Count);
             }
             outputMemoryStream.Seek(0, SeekOrigin.Begin);
@@ -106,9 +109,36 @@ namespace Cement.Tests.Unit.Filters
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Length > 0);
         }
+               
 
-        public void Test_XsltCompiledTransform_Async_Await_Delegates()
+        private class QueueWriter 
         {
+            Queue<byte[]> queue;
+            public QueueWriter(Queue<byte[]> queue)
+            {
+                queue = new Queue<byte[]>();
+            }
+
+            public void Start(Stream stream)
+            {
+                int[] positions = new int[2];
+
+                Task<byte[]> getDataTask;
+                var delegateStream = new DelegateStream(
+                    (b,o,c) => 
+                    {
+                        
+                        return 1; 
+                    }, 
+                    null);
+            }
+
+            private byte[] GetBuffer()
+            {
+                return null;
+            }
         }
+
+        private class QueueReader { }
     }
 }
