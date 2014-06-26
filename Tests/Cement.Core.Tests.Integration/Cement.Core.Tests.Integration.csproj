@@ -52,6 +52,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\Tasks\EchoProcessor.cs" />
+    <Compile Include="Threading\Tasks\MoreInThanOutProcessor.cs" />
+    <Compile Include="Threading\Tasks\MoreOutThanInProcessor.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -7,22 +7,21 @@ using System.Threading.Tasks;
 
 namespace Cement.Core.Tests.Integration.Threading.Tasks
 {
-    public class MoreOutThanInProcessor
+    public class MoreInThanOutProcessor
     {
         public void Process(Stream inStream, Stream outStream)
         {
-            byte[] buffer = new byte[1024];
-            byte[] writeBuffer = new byte[2048];
+            byte[] readBuffer = new byte[2048];
+            byte[] writeBuffer = new byte[1024];
 
             int bytesRead = 0;
             do
             {
-                var count = buffer.Length - bytesRead;
-                bytesRead = inStream.Read(buffer, 0, count);
-                for(int i=0; i < writeBuffer.Length; i+=2)
+                var count = readBuffer.Length - bytesRead;
+                bytesRead = inStream.Read(readBuffer, 0, count);
+                for (int i = 0; i < writeBuffer.Length; i += 2)
                 {
-                    writeBuffer[i] = buffer[i / 2];
-                    writeBuffer[i + 1] = buffer[i / 2];
+                    writeBuffer[i] = readBuffer[i * 2];
                 }
             } while (bytesRead > 0);
         }
