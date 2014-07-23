@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cement.Core.Tests.Integration.Threading.Tasks
 {
-    public class MoreOutThanInProcessor
+    public class MoreOutThanInProcessor : IProcessor
     {
         public void Process(Stream inStream, Stream outStream)
         {

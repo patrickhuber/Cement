@@ -37,11 +37,42 @@ namespace Cement.Transforms.Tests.Unit
         }
 
         [TestMethod]
-        public void Test_XsltCompiledTranform_Reads_Observable()
+        public void Test_XsltCompiledTransform_Wrapped_In_Task()
         {
-            XslCompiledTransform transform = new XslCompiledTransform();
+            var transform = new XslCompiledTransform();
+            string xmlInput = @"<nodes><node></node></nodes>";
 
+            var readStream = new MemoryStream(Encoding.UTF8.GetBytes(xmlInput));
+            var xmlReader = XmlReader.Create(readStream);
+            
+            var writeStream = new MemoryStream();
+
+            Task transformTask = new Task(() => 
+            {
+                var xsltArguments = new XsltArgumentList();
+                transform.Transform(xmlReader, xsltArguments, writeStream);
+            });
+        }
+
+
+        [TestMethod]
+        public void Test_XsltCompiledTranform_One_Byte_Reads_With_Multiple_Calls()
+        {
+            var transform = new XslCompiledTransform();
+            string xmlInput = @"<nodes><node></node></nodes>";
+            var readStream = new MemoryStream(Encoding.UTF8.GetBytes(xmlInput));
+            var delegateStream = new DelegateStream(
+                (b,o,c) => 
+                {
+                    return readStream.Read(b,o,1);
+                }, 
+                null);
+            var xmlReader = XmlReader.Create(delegateStream);
             transform.Load(xslDocument.CreateReader());
+            
+            var xsltArguments = new XsltArgumentList();
+            var memoryStream = new MemoryStream();
+            transform.Transform(xmlReader, xsltArguments, memoryStream);
         }
 
         [TestMethod]

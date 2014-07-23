@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cement.Core.Tests.Integration.Threading.Tasks
 {
-    class EchoProcessor
+    public class EchoProcessor : IProcessor
     {
+        public void Process(System.IO.Stream inStream, System.IO.Stream outStream)
+        {
+            inStream.CopyTo(outStream);
+        }
     }
 }

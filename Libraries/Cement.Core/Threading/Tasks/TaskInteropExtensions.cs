@@ -70,6 +70,7 @@ namespace Cement.Threading.Tasks
         /// </summary>
         /// <param name="millisecondsTimeout"></param>
         /// <returns></returns>
+        [Obsolete("This method is deprecated. In .NET 4.5. use 4.5 features for Delay.")]
         public static Task<DateTimeOffset> Delay(int millisecondsTimeout)
         {
             var tcs = new TaskCompletionSource<DateTimeOffset>();

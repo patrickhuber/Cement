@@ -53,8 +53,20 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\Tasks\EchoProcessor.cs" />
+    <Compile Include="Threading\Tasks\IProcessor.cs" />
     <Compile Include="Threading\Tasks\MoreInThanOutProcessor.cs" />
     <Compile Include="Threading\Tasks\MoreOutThanInProcessor.cs" />
+    <Compile Include="Threading\Tasks\TaskTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Cement.Core\Cement.Core.csproj">
+      <Project>{af638961-d9c9-43a2-9386-53b0d1321ec5}</Project>
+      <Name>Cement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cement.Tests\Cement.Tests.csproj">
+      <Project>{3a738783-3442-4495-88e1-7276b808ca2b}</Project>
+      <Name>Cement.Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
