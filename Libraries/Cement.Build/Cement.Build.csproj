@@ -56,6 +56,7 @@
     <Compile Include="ICodeDomProviderFactory.cs" />
     <Compile Include="CodeDomProviderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SvcUtilTask.cs" />
     <Compile Include="XsdTask.cs" />
   </ItemGroup>
   <ItemGroup>
