@@ -1,41 +1,18 @@
-# Cement Framework
-## Transformations
+# Cyrus Framework
 
-### Transformation UI
-The transformation UI represents the trnasformation model as a visual graph between the source schemas and the destination schemas. 
+Named after Cyrus the Great who created the first real postal system.
 
-### Transformation Modeling
-Transformations are modeled using directed graphs. The transformation file consists of:
+## Overview
 
-*	1..N Input Models
-*	1..N Output Models
-*	User Defined Functions
-*	Composable Operations
-*	Links between the inputs, operations and outputs
+Cyrus is a implementation of Enterprise Integration Patterns. 
 
-[Schema Reference] (Cement.Transforms/schemas/Transform.xsd)
+## Adapters
 
-[Example Map] (Cement.Transforms/schemas/Transform.xml)
+Adapters provide interfaces to Applications in order to abstract the origination and destination of messages. 
 
-### *TODO*: Generators
+Two main Adapter interfaces exist:
 
-*	AutoMapper
-*	ValueInjector
-*	Xslt
+* ISendAdapter - Pulls a message from a channel and sends it to the target.
+* IReceiveAdapter - Receives a message from the source and sends it to a channel.
 
-## *TODO*: Services
-
-### *TODO*: Workflows (WF4)
-### *TODO*: Activities
-
-## *TODO*: Adapters
-
-### *TODO*: Files
-
-### *TODO*: Soap
-
-### *TODO*: Rest
-
-### *TODO*: MQ
-
-### *TODO*: Quartz
+## Channels
