@@ -41,15 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdapter.cs" />
-    <Compile Include="IMessageHeader.cs" />
     <Compile Include="IMessageSink.cs" />
     <Compile Include="IMessageSource.cs" />
     <Compile Include="IO\FileReceiveChannel.cs" />
+    <Compile Include="IO\FileReceiveProperties.cs" />
+    <Compile Include="IO\FileSendChannel.cs" />
     <Compile Include="IO\FileSystem.cs" />
     <Compile Include="IO\FileReceiveAdapter.cs" />
     <Compile Include="IO\IFileSystem.cs" />
     <Compile Include="IReceiveChannel.cs" />
     <Compile Include="ISendChannel.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="MessageProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

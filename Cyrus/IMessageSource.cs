@@ -1,8 +1,14 @@
-﻿namespace Cyrus
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace Cyrus
 {
-    public interface IMessageSource
+    public interface IMessageSource : IDisposable
     {
-        IMessageHeader MessageHeader { get; }
-        int Read(byte[] data, int offset, int length);
+        IDictionary<string, string> MessageHeader { get; }
+        int Read(byte[] buffer, int offset, int count);
+        Task<int> ReadAsync(byte[] buffer, int offset, int count);
+        void Close();
     }
 }

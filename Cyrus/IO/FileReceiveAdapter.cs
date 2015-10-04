@@ -12,11 +12,9 @@ namespace Cyrus.IO
 
         public ISendChannel SendChannel { get; private set; }
 
-        public IFileSystem FileSystem { get; private set; }
-
-        public FileReceiveAdapter(IFileSystem fileSystem, ISendChannel sendChannel)
+        public FileReceiveAdapter(IFileSystem fileSystem, string path, string filter, ISendChannel sendChannel)
         {
-            ReceiveChannel = new FileReceiveChannel();
+            ReceiveChannel = new FileReceiveChannel(fileSystem, path, filter);
         }
     }
 }
