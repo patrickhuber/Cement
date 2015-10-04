@@ -52,7 +52,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="InMemoryChannelTests.cs" />
     <Compile Include="IO\FileSystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

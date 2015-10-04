@@ -40,21 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IChannel.cs" />
-    <Compile Include="IMessage.cs" />
-    <Compile Include="InMemoryChannel.cs" />
-    <Compile Include="IO\FileReceiveAdapter.cs" />
-    <Compile Include="IO\FileReceiveAdapterSettings.cs" />
-    <Compile Include="IO\FileReceiveMessageProperties.cs" />
-    <Compile Include="IO\FileSendAdapter.cs" />
-    <Compile Include="IO\FileSendAdapterSettings.cs" />
+    <Compile Include="IAdapter.cs" />
+    <Compile Include="IMessageHeader.cs" />
+    <Compile Include="IMessageSink.cs" />
+    <Compile Include="IMessageSource.cs" />
+    <Compile Include="IO\FileReceiveChannel.cs" />
     <Compile Include="IO\FileSystem.cs" />
+    <Compile Include="IO\FileReceiveAdapter.cs" />
     <Compile Include="IO\IFileSystem.cs" />
-    <Compile Include="IReceiveAdapter.cs" />
-    <Compile Include="ISendAdapter.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="IReceiveChannel.cs" />
+    <Compile Include="ISendChannel.cs" />
     <Compile Include="MessageProperties.cs" />
-    <Compile Include="NullSendAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
