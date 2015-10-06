@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace Cyrus
 {
-    public interface IMessageSource : IDisposable
+    public interface IMessageWriter : IDisposable
     {
         IDictionary<string, string> MessageHeader { get; }
-        int Read(byte[] buffer, int offset, int count);
-        Task<int> ReadAsync(byte[] buffer, int offset, int count);
+        void Write(byte[] buffer, int offset, int count);
+        Task WriteAsync(byte[] buffer, int offset, int count);
         void Close();
     }
 }

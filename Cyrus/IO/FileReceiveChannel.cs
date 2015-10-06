@@ -20,7 +20,11 @@ namespace Cyrus.IO
             FileSystem = fileSystem;
         }
 
-        public IMessageSource Receive()
+        /// <summary>
+        /// Receives a file by creating opening the file for read and creating a new Message that encapsulates the stream.
+        /// </summary>
+        /// <returns>the message reader that contains the message.</returns>
+        public IMessageReader Receive()
         {
             var file = GetFirstFile();
             if (file == null)
@@ -41,18 +45,22 @@ namespace Cyrus.IO
             };
         }
 
-        public void Receive(IMessageSink sink)
+        /// <summary>
+        /// Receives a message by writing the message to the given message writer.
+        /// </summary>
+        /// <param name="writer"></param>
+        public void Receive(IMessageWriter writer)
         {
             var file = GetFirstFile();
             if (file == null)
                 return;
             using (var fileStream = FileSystem.OpenFile(file, FileMode.Open))
             {
-                Receive(sink, fileStream);
+                Receive(writer, fileStream);
             }
         }
 
-        private static void Receive(IMessageSink sink, Stream stream)
+        private static void Receive(IMessageWriter writer, Stream stream)
         {
             byte[] buffer = new byte[1024];
             int bytesRead = 0;
@@ -60,16 +68,16 @@ namespace Cyrus.IO
             do
             {
                 bytesRead = stream.Read(buffer, 0, buffer.Length);
-                sink.Write(buffer, 0, bytesRead);
+                writer.Write(buffer, 0, bytesRead);
             } while (bytesRead > 0);
         }
 
         /// <summary>
         /// Given a message sink, the receive async method reads from the first file that matches the filter and path and writes the data to the message sink.
         /// </summary>
-        /// <param name="sink">The message sink from which to write the data.</param>
+        /// <param name="writer">The message sink from which to write the data.</param>
         /// <returns>The message sink.</returns>
-        public async Task ReceiveAsync(IMessageSink sink)
+        public async Task ReceiveAsync(IMessageWriter writer)
         {
             var file = GetFirstFile();
             if (file == null)
@@ -77,11 +85,11 @@ namespace Cyrus.IO
 
             using (var fileStream = FileSystem.OpenFile(file, FileMode.Open))
             {
-                await ReceiveAsync(sink, fileStream);
+                await ReceiveAsync(writer, fileStream);
             }
         }
 
-        private static async Task ReceiveAsync(IMessageSink sink, Stream stream)
+        private static async Task ReceiveAsync(IMessageWriter writer, Stream stream)
         {
             byte[] buffer = new byte[1024];
             int bytesRead = 0;
@@ -89,7 +97,7 @@ namespace Cyrus.IO
             do
             {
                 bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-                await sink.WriteAsync(buffer, 0, bytesRead);
+                await writer.WriteAsync(buffer, 0, bytesRead);
             } while (bytesRead > 0);
         }
 

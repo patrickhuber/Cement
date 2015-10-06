@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdapter.cs" />
-    <Compile Include="IMessageSink.cs" />
-    <Compile Include="IMessageSource.cs" />
+    <Compile Include="IMessageWriter.cs" />
+    <Compile Include="IMessageReader.cs" />
     <Compile Include="IO\FileReceiveChannel.cs" />
     <Compile Include="IO\FileReceiveProperties.cs" />
     <Compile Include="IO\FileSendChannel.cs" />
@@ -53,6 +53,7 @@
     <Compile Include="ISendChannel.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageProperties.cs" />
+    <Compile Include="NullSendChannel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,19 +11,19 @@ namespace Cyrus
         /// The Send method will return a message sink for the caller to populate and close.
         /// </summary>
         /// <returns></returns>
-        IMessageSink Send();
+        IMessageWriter Send();
         
         /// <summary>
-        /// The Send method receives a <see cref="IMessageSource">Message Source</see> from which this method reads.
+        /// The Send method receives a <see cref="IMessageReader">Message Source</see> from which this method reads.
         /// </summary>
-        /// <param name="sink">The message sink from which the send method will read.</param>
-        void Send(IMessageSource sink);
+        /// <param name="reader">The message sink from which the send method will read.</param>
+        void Send(IMessageReader reader);
 
         /// <summary>
-        /// The SendAsync method receives a <see cref="IMessageSource">Message Source </see> from which this method reads.
+        /// The SendAsync method receives a <see cref="IMessageReader">Message Source </see> from which this method reads.
         /// </summary>
-        /// <param name="sink"></param>
+        /// <param name="reader"></param>
         /// <returns>An awaitable task.</returns>
-        Task SendAsync(IMessageSource sink);
+        Task SendAsync(IMessageReader reader);
     }
 }

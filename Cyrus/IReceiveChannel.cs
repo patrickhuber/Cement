@@ -11,19 +11,19 @@ namespace Cyrus
         /// The Receive method will return a message source for the caller to read from and close.
         /// </summary>
         /// <returns>A message source from which to read.</returns>
-        IMessageSource Receive();
+        IMessageReader Receive();
                 
         /// <summary>
-        /// The Receive method receives a <see cref="IMessageSink">Message Sink</see> to which this method writes. 
+        /// The Receive method receives a <see cref="IMessageWriter">Message Sink</see> to which this method writes. 
         /// </summary>
-        /// <param name="sink">The message sink to which this method will write.</param>
-        void Receive(IMessageSink sink);
+        /// <param name="writer">The message sink to which this method will write.</param>
+        void Receive(IMessageWriter writer);
 
         /// <summary>
-        /// The Receive method receives a <see cref="IMessageSink">Message Sink </see> to which this method writes asynchronously.
+        /// The Receive method receives a <see cref="IMessageWriter">Message Sink </see> to which this method writes asynchronously.
         /// </summary>
-        /// <param name="sink">The message sink to which this method writes.</param>
+        /// <param name="writer">The message sink to which this method writes.</param>
         /// <returns>The task representing the asynchronous work this method performs.</returns>
-        Task ReceiveAsync(IMessageSink sink);
+        Task ReceiveAsync(IMessageWriter writer);
     }
 }

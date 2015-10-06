@@ -1,24 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cyrus.IO
 {
     public class FileSendChannel : ISendChannel
     {
-        public IMessageSink Send()
+        public FileSystem FileSystem { get; private set; }
+
+        public FileSendChannel(FileSystem fileSystem)
+        {
+            FileSystem = fileSystem;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IMessageWriter Send()
         {
             throw new NotImplementedException();
         }
 
-        public void Send(IMessageSource sink)
+        public void Send(IMessageReader reader)
         {
             throw new NotImplementedException();
         }
 
-        public Task SendAsync(IMessageSource sink)
+        public Task SendAsync(IMessageReader reader)
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Cyrus
 {
-    public class Message : IMessageSource, IMessageSink
+    public class Message : IMessageReader, IMessageWriter
     {
         public IDictionary<string, string> MessageHeader { get; private set; }
         public Stream Body { get; private set; }
