@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus", "Cyrus\Cyrus.csproj", "{C49F3899-5F48-4D0A-9D79-88146C00614F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus", "libraries\Cyrus\Cyrus.csproj", "{972AAB91-CF69-43DF-9A6D-1CB0D703F466}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Tests.Unit", "Cyrus.Tests.Unit\Cyrus.Tests.Unit.csproj", "{12DA9C33-4572-40B0-940A-C2933ACD8D52}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libraries", "libraries", "{04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Tests.Unit", "tests\Cyrus.Tests.Unit\Cyrus.Tests.Unit.csproj", "{6335169D-9D46-47A3-84C2-F558EA0FC888}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{039D58A7-00A3-4B1E-B491-ABDD9EA72A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Tests.Integration", "tests\Cyrus.Tests.Integration\Cyrus.Tests.Integration.csproj", "{A4200E3C-D6BF-4104-B282-E8B2537A7487}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +19,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C49F3899-5F48-4D0A-9D79-88146C00614F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C49F3899-5F48-4D0A-9D79-88146C00614F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C49F3899-5F48-4D0A-9D79-88146C00614F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C49F3899-5F48-4D0A-9D79-88146C00614F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12DA9C33-4572-40B0-940A-C2933ACD8D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12DA9C33-4572-40B0-940A-C2933ACD8D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12DA9C33-4572-40B0-940A-C2933ACD8D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12DA9C33-4572-40B0-940A-C2933ACD8D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972AAB91-CF69-43DF-9A6D-1CB0D703F466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972AAB91-CF69-43DF-9A6D-1CB0D703F466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972AAB91-CF69-43DF-9A6D-1CB0D703F466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972AAB91-CF69-43DF-9A6D-1CB0D703F466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6335169D-9D46-47A3-84C2-F558EA0FC888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6335169D-9D46-47A3-84C2-F558EA0FC888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6335169D-9D46-47A3-84C2-F558EA0FC888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6335169D-9D46-47A3-84C2-F558EA0FC888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4200E3C-D6BF-4104-B282-E8B2537A7487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4200E3C-D6BF-4104-B282-E8B2537A7487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4200E3C-D6BF-4104-B282-E8B2537A7487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4200E3C-D6BF-4104-B282-E8B2537A7487}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{972AAB91-CF69-43DF-9A6D-1CB0D703F466} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
+		{6335169D-9D46-47A3-84C2-F558EA0FC888} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
+		{A4200E3C-D6BF-4104-B282-E8B2537A7487} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
 	EndGlobalSection
 EndGlobal

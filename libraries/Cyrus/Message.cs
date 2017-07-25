@@ -11,7 +11,7 @@ namespace Cyrus
 
         public Message(Stream body, IDictionary<string, string> properties)
         {
-            MessageHeader = new Dictionary<string, string>();
+            MessageHeader = properties;
             Body = body;
         }
 
@@ -34,12 +34,7 @@ namespace Cyrus
         {
             await Body.WriteAsync(buffer, offset, count);
         }
-
-        public void Close()
-        {
-            Body.Close();
-        }
-
+        
         public void Dispose()
         {
             Body.Dispose();

@@ -23,7 +23,7 @@ namespace Cyrus.IO
 
         public void DeleteFile(string path)
         {
-            File.Delete(path);
+            File.Delete(path);            
         }
 
         public bool FileExists(string path)

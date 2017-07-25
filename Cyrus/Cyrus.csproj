@@ -40,17 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAdapter.cs" />
+    <Compile Include="Adapters\IReceiveAdapter.cs" />
+    <Compile Include="Adapters\ISendAdapter.cs" />
+    <Compile Include="Channels\InMemoryChannel.cs" />
     <Compile Include="IMessageWriter.cs" />
     <Compile Include="IMessageReader.cs" />
-    <Compile Include="IO\FileReceiveChannel.cs" />
     <Compile Include="IO\FileReceiveProperties.cs" />
     <Compile Include="IO\FileSendChannel.cs" />
     <Compile Include="IO\FileSystem.cs" />
     <Compile Include="IO\FileReceiveAdapter.cs" />
     <Compile Include="IO\IFileSystem.cs" />
-    <Compile Include="IReceiveChannel.cs" />
-    <Compile Include="ISendChannel.cs" />
+    <Compile Include="Channels\IReceiveChannel.cs" />
+    <Compile Include="Channels\ISendChannel.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageProperties.cs" />
     <Compile Include="NullSendChannel.cs" />

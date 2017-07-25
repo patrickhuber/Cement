@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Channels\InMemoryChannelTests.cs" />
     <Compile Include="IO\FileSystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,12 +66,6 @@
     <Content Include="IO\1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cyrus\Cyrus.csproj">
-      <Project>{c49f3899-5f48-4d0a-9d79-88146c00614f}</Project>
-      <Name>Cyrus</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,18 +1,12 @@
 ﻿using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Channels
 {
     /// <summary>
     /// Defines a channel specificly for sending messages.
     /// </summary>
     public interface ISendChannel
-    {
-        /// <summary>
-        /// The Send method will return a message sink for the caller to populate and close.
-        /// </summary>
-        /// <returns></returns>
-        IMessageWriter Send();
-        
+    {        
         /// <summary>
         /// The Send method receives a <see cref="IMessageReader">Message Source</see> from which this method reads.
         /// </summary>
