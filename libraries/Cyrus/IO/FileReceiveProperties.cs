@@ -12,6 +12,7 @@ namespace Cyrus.IO
         public static readonly string CreationTimeUtc = Namespace + "CreationTimeUtc";
         public static readonly string LastWriteTimeUtc = Namespace + "LastModifiedTimeUtc";
         public static readonly string Path = Namespace + "Path";
+        public static readonly string SourceFileName = Namespace + "SourceFileName";
         public static readonly string Filter = Namespace + "Filter";
     }
 }

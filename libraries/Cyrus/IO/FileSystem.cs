@@ -45,5 +45,15 @@ namespace Cyrus.IO
         {
             return File.GetLastWriteTimeUtc(path);
         }
+
+        public string GetFileName(string path)
+        {
+            return Path.GetFileName(path);
+        }
+
+        public Stream CreateFile(string path)
+        {
+            return File.Create(path);
+        }
     }
 }

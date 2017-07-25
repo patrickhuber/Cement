@@ -36,7 +36,8 @@ namespace Cyrus.IO
                 { FileReceiveProperties.Path, file },
                 { FileReceiveProperties.Filter, Filter },
                 { FileReceiveProperties.LastWriteTimeUtc, FileSystem.GetFileLastWriteTimeUtc(file).ToString() },
-                { FileReceiveProperties.CreationTimeUtc, FileSystem.GetFileCreationTimeUtc(file).ToString() }
+                { FileReceiveProperties.CreationTimeUtc, FileSystem.GetFileCreationTimeUtc(file).ToString() },
+                { FileReceiveProperties.SourceFileName, FileSystem.GetFileName(file) }
             };
         }
 

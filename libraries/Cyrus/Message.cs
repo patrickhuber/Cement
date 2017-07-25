@@ -39,5 +39,53 @@ namespace Cyrus
         {
             Body.Dispose();
         }
+
+        public static async Task CopyToAsync(IMessageReader message, Stream stream)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = await message.ReadAsync(buffer, 0, buffer.Length);
+                await stream.WriteAsync(buffer, 0, bytesRead);
+            } while (bytesRead > 0);
+        }
+
+        public static void CopyTo(IMessageReader message, Stream stream)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = message.Read(buffer, 0, buffer.Length);
+                stream.Write(buffer, 0, bytesRead);
+            } while (bytesRead > 0);
+        }
+
+        public static async Task CopyFromAsync(Stream stream, IMessageWriter message)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                await message.WriteAsync(buffer, 0, bytesRead);
+            } while (bytesRead > 0);
+        }
+
+        public static void CopyFrom(Stream stream, IMessageWriter message)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = stream.Read(buffer, 0, buffer.Length);
+                message.Write(buffer, 0, bytesRead);
+            } while (bytesRead > 0);
+        }
     }
 }

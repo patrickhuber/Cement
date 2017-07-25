@@ -62,28 +62,16 @@ namespace Cyrus.Channels
 
         private static MemoryStream CopyMessageBodyToMemoryStream(IMessageReader reader)
         {
-            int bytesRead = 0;
-            byte[] buffer = new byte[1024];
             var memoryStream = new MemoryStream();
-            do
-            {
-                bytesRead = reader.Read(buffer, 0, buffer.Length);
-                memoryStream.Write(buffer, 0, bytesRead);
-            } while (bytesRead > 0);
+            Message.CopyTo(reader, memoryStream);
             memoryStream.Seek(0, SeekOrigin.Begin);
             return memoryStream;
         }
 
         private static async Task<MemoryStream> CopyMessageBodyToMemoryStreamAsync(IMessageReader reader)
         {
-            int bytesRead = 0;
-            byte[] buffer = new byte[1024];
             var memoryStream = new MemoryStream();
-            do
-            {
-                bytesRead = await reader.ReadAsync(buffer, 0, buffer.Length);
-                await memoryStream.WriteAsync(buffer, 0, bytesRead);
-            } while (bytesRead > 0);
+            await Message.CopyToAsync(reader, memoryStream);
             memoryStream.Seek(0, SeekOrigin.Begin);
             return memoryStream;
         }
