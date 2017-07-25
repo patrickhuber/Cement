@@ -15,7 +15,7 @@ namespace Cyrus.Tests.Unit
     public class FileSystemTests
     {  
         [TestMethod]
-        public void TestFileSystemEnumerateFilesShouldEnumerateDirectory()
+        public void FileSystemEnumerateFilesShouldEnumerateDirectory()
         {
             var fileSystem = new FileSystem();
             var files = fileSystem.EnumerateFiles(
@@ -25,7 +25,7 @@ namespace Cyrus.Tests.Unit
         }
 
         [TestMethod]
-        public void TestFileSystemEnumerateFilesGivenFilterShouldReturnSubsetOfFiles()
+        public void FileSystemEnumerateFilesGivenFilterShouldReturnSubsetOfFiles()
         {
             var fileSystem = new FileSystem();
             var path = Path.Combine(Directory.GetCurrentDirectory(), "IO");
@@ -38,7 +38,7 @@ namespace Cyrus.Tests.Unit
         }
 
         [TestMethod]
-        public void TestFileSystemOpenShouldOpenFile()
+        public void FileSystemOpenShouldOpenFile()
         {
             var fileSystem = new FileSystem();
             using (var fileStream = fileSystem.OpenFile(
@@ -52,7 +52,7 @@ namespace Cyrus.Tests.Unit
         }
 
         [TestMethod]
-        public void TestFileSystemFileExistsShouldReturnTrueWhenFileExists()
+        public void FileSystemFileExistsShouldReturnTrueWhenFileExists()
         {
             var fileSystem = new FileSystem();
             var path = Path.Combine(Directory.GetCurrentDirectory(), @"IO\1.txt");
@@ -60,7 +60,7 @@ namespace Cyrus.Tests.Unit
         }
 
         [TestMethod]
-        public void TestFileSystemDeleteFileShouldDeleteFile()
+        public void FileSystemDeleteFileShouldDeleteFile()
         {
             var fileSystem = new FileSystem();
             var path = Path.Combine(Directory.GetCurrentDirectory(), @"IO\1.txt");
