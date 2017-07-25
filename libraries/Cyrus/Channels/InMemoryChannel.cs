@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Cyrus.Channels
 {
+    /// <summary>
+    /// Represents an in memory message channel
+    /// </summary>
     public class InMemoryChannel : IReceiveChannel, ISendChannel
     {
         private Queue<Message> _queue;
