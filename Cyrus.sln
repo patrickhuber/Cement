@@ -13,7 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{039D58A7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Tests.Integration", "tests\Cyrus.Tests.Integration\Cyrus.Tests.Integration.csproj", "{A4200E3C-D6BF-4104-B282-E8B2537A7487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.AzureKeyVault", "libraries\Cyrus.AzureKeyVault\Cyrus.AzureKeyVault.csproj", "{A2A96669-4AE7-4384-B622-08C1DEB387A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.AzureKeyVault", "libraries\Cyrus.AzureKeyVault\Cyrus.AzureKeyVault.csproj", "{A2A96669-4AE7-4384-B622-08C1DEB387A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Http", "libraries\Cyrus.Http\Cyrus.Http.csproj", "{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http.Integration", "tests\Cyrus.Http.Tests.Integration\Cyrus.Http.Integration.csproj", "{5D41D115-8ABC-4923-997D-12071E63475E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{A2A96669-4AE7-4384-B622-08C1DEB387A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2A96669-4AE7-4384-B622-08C1DEB387A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2A96669-4AE7-4384-B622-08C1DEB387A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D41D115-8ABC-4923-997D-12071E63475E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D41D115-8ABC-4923-997D-12071E63475E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D41D115-8ABC-4923-997D-12071E63475E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D41D115-8ABC-4923-997D-12071E63475E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +58,7 @@ Global
 		{6335169D-9D46-47A3-84C2-F558EA0FC888} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
 		{A4200E3C-D6BF-4104-B282-E8B2537A7487} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
 		{A2A96669-4AE7-4384-B622-08C1DEB387A5} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
+		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
+		{5D41D115-8ABC-4923-997D-12071E63475E} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
 	EndGlobalSection
 EndGlobal

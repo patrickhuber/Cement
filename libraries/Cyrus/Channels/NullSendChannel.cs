@@ -1,4 +1,5 @@
 ﻿using Cyrus.Channels;
+using Cyrus.Messages;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

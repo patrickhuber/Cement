@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Cyrus.Channels;
+using Cyrus.Messages;
 
 namespace Cyrus.Tests.Unit.Channels
 {

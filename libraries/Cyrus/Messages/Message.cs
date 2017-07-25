@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Messages
 {
     public class Message : IMessageReader, IMessageWriter
     {

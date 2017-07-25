@@ -1,5 +1,6 @@
 ﻿using Cyrus.Channels;
 using Cyrus.IO;
+using Cyrus.Messages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;

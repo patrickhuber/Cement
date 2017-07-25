@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Cyrus.Messages;
+using System.Threading.Tasks;
 
 namespace Cyrus.Channels
 {

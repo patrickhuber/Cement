@@ -3,6 +3,7 @@ using Cyrus.Adapters;
 using Cyrus.Channels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cyrus.Messages;
 
 namespace Cyrus.IO
 {
@@ -33,6 +34,7 @@ namespace Cyrus.IO
         {
             return new Dictionary<string, string>()
             {
+                { MessageProperties.Id, Guid.NewGuid().ToString() },
                 { FileReceiveProperties.Path, file },
                 { FileReceiveProperties.Filter, Filter },
                 { FileReceiveProperties.LastWriteTimeUtc, FileSystem.GetFileLastWriteTimeUtc(file).ToString() },

@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cyrus.Channels;
 using System.IO;
+using Cyrus.Messages;
 
 namespace Cyrus.IO
 {
