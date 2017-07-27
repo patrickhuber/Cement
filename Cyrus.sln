@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Tests.Integration", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.AzureKeyVault", "libraries\Cyrus.AzureKeyVault\Cyrus.AzureKeyVault.csproj", "{A2A96669-4AE7-4384-B622-08C1DEB387A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Http", "libraries\Cyrus.Http\Cyrus.Http.csproj", "{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http", "libraries\Cyrus.Http\Cyrus.Http.csproj", "{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http.Integration", "tests\Cyrus.Http.Tests.Integration\Cyrus.Http.Integration.csproj", "{5D41D115-8ABC-4923-997D-12071E63475E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http.Tests.Integration", "tests\Cyrus.Http.Tests.Integration\Cyrus.Http.Tests.Integration.csproj", "{5D41D115-8ABC-4923-997D-12071E63475E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
