@@ -12,7 +12,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\libraries\Cyrus.File\Cyrus.File.csproj" />
     <ProjectReference Include="..\..\libraries\Cyrus\Cyrus.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="3.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

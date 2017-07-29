@@ -1,5 +1,4 @@
-﻿using Cyrus.Secrets;
-using Microsoft.Azure.KeyVault;
+﻿using Microsoft.Azure.KeyVault;
 using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;

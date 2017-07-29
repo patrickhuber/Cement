@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http", "libraries\Cyr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.Http.Tests.Integration", "tests\Cyrus.Http.Tests.Integration\Cyrus.Http.Tests.Integration.csproj", "{5D41D115-8ABC-4923-997D-12071E63475E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.File.Tests.Integration", "tests\Cyrus.File.Tests.Integration\Cyrus.File.Tests.Integration.csproj", "{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.File", "libraries\Cyrus.File\Cyrus.File.csproj", "{C731834D-CD61-4A22-AA81-77438E189174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{5D41D115-8ABC-4923-997D-12071E63475E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D41D115-8ABC-4923-997D-12071E63475E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D41D115-8ABC-4923-997D-12071E63475E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C731834D-CD61-4A22-AA81-77438E189174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C731834D-CD61-4A22-AA81-77438E189174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C731834D-CD61-4A22-AA81-77438E189174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C731834D-CD61-4A22-AA81-77438E189174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +72,7 @@ Global
 		{A2A96669-4AE7-4384-B622-08C1DEB387A5} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
 		{B5B352D9-7FE9-4CA1-A729-5CB7A175ACA0} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
 		{5D41D115-8ABC-4923-997D-12071E63475E} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
+		{2BFCFA61-A5BB-4A49-AB0A-1F4380F8FC38} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
+		{C731834D-CD61-4A22-AA81-77438E189174} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
 	EndGlobalSection
 EndGlobal
