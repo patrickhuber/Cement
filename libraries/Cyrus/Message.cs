@@ -52,6 +52,21 @@ namespace Cyrus
             } while (bytesRead > 0);
         }
 
+        public static async Task CopyToAsync(IMessageReader message, IEnumerable<Stream> streams)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = message.Read(buffer, 0, buffer.Length);
+                foreach (var stream in streams)
+                {
+                    await stream.WriteAsync(buffer, 0, bytesRead);
+                }
+            } while (bytesRead > 0);
+        }
+
         public static void CopyTo(IMessageReader message, Stream stream)
         {
             var buffer = new byte[1024];
@@ -61,6 +76,21 @@ namespace Cyrus
             {
                 bytesRead = message.Read(buffer, 0, buffer.Length);
                 stream.Write(buffer, 0, bytesRead);
+            } while (bytesRead > 0);
+        }
+
+        public static void CopyTo(IMessageReader message, IEnumerable<Stream> streams)
+        {
+            var buffer = new byte[1024];
+            var bytesRead = 0;
+
+            do
+            {
+                bytesRead = message.Read(buffer, 0, buffer.Length);
+                foreach (var stream in streams)
+                {
+                    stream.Write(buffer, 0, bytesRead);
+                }
             } while (bytesRead > 0);
         }
 
