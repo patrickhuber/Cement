@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace Cyrus
 {
+    /// <summary>
+    /// Pulls a message from a receive channel, disposing of the message and reading its body.
+    /// </summary>
     public class NullSink : ISink
     {
         public IReceiveChannel ReceiveChannel { get; }
