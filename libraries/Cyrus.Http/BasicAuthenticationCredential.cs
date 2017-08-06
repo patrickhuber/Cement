@@ -1,6 +1,6 @@
 ﻿namespace Cyrus.Http
 {
-    public class BasicAuthenticationCredential
+    public class BasicAuthenticationCredential : CredentialBase
     {
         public string UserName { get; }
         public string Password { get; }

@@ -1,6 +1,6 @@
 ﻿namespace Cyrus.Http
 {
-    class OAuth2ClientCredential
+    public class OAuth2ClientCredential : CredentialBase
     {
         public string ClientSecret { get; }
         public string ClientId { get; }

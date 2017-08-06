@@ -1,6 +1,6 @@
 ﻿namespace Cyrus.Http
 {
-    public class TokenCredential
+    public class TokenCredential : CredentialBase
     {
         public string Token { get; private set; }
 

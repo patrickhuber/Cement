@@ -3,7 +3,7 @@
 namespace Cyrus
 {
     /// <summary>
-    /// Creates a correlated relationship between send and reply
+    /// Creates a correlated relationship between request and reply
     /// </summary>
     public interface IProcessor
     {

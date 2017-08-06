@@ -14,12 +14,14 @@ namespace Cyrus.Http.Tests.Integration.Adapters
     public class HttpProcessorTests
     {
         IConfiguration Configuration { get; set; }
+        ConfigurationSecretStore SecretStore { get; set; }
 
         public HttpProcessorTests()
         {
             var builder = new ConfigurationBuilder()
                 .AddUserSecrets<HttpProcessorTests>();
             Configuration = builder.Build();
+            SecretStore = new ConfigurationSecretStore(Configuration);
         }
 
         [TestMethod]
@@ -37,14 +39,16 @@ namespace Cyrus.Http.Tests.Integration.Adapters
 
         [TestMethod]
         public async Task HttpRequestReplySendShouldWorkWithTokenAuthorization()
-        {            
-            var tokenValue = Configuration["/HttpRequestReplyAdapterTests/PivotalNetworkToken"];
-
+        {
+            var tokenPath = "/HttpRequestReplyAdapterTests/PivotalNetworkToken";
+            var tokenCredentialStore = new TokenCredentialStore(SecretStore);
+            var tokenAuthenticationProvider = new TokenAuthenticationProvider();
             var settings = new HttpRequestReplyAdapterSettings(
                     "https://network.pivotal.io/api/v2/authentication",
                     HttpMethod.Get,
                     "application/json",
-                    new AuthenticationHeaderValue("Token", tokenValue));            
+                    tokenAuthenticationProvider.Handle(
+                        await tokenCredentialStore.GetAsync(tokenPath)));
 
             await TestAsync(settings, m=> 
             {
@@ -58,14 +62,14 @@ namespace Cyrus.Http.Tests.Integration.Adapters
             var username = "username";
             var password = "password";
 
+            var authenticationProvider = new BasicAuthenticationProvider();
+
             var settings = new HttpRequestReplyAdapterSettings(
                 $"http://httpbin.org/basic-auth/{username}/{password}",
                 HttpMethod.Get,
-                "text/xml",
-                new AuthenticationHeaderValue(
-                    "Basic", 
-                    Convert.ToBase64String(
-                        Encoding.ASCII.GetBytes($"{username}:{password}")))
+                "text/xml",               
+                    authenticationProvider.Handle(
+                        new BasicAuthenticationCredential(username, password))
                 );
             await TestAsync(settings, m =>
             {
@@ -77,8 +81,6 @@ namespace Cyrus.Http.Tests.Integration.Adapters
         {
             var requestChannel = new InMemoryChannel();
             var replyChannel = new InMemoryChannel();
-
-            var tokenValue = Configuration["/HttpRequestReplyAdapterTests/PivotalNetworkToken"];
 
             var httpRequestReplyAdapter = new HttpRequestReplyAdapter(
                 new HttpClient(),
