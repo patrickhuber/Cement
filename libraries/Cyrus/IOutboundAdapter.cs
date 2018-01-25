@@ -5,9 +5,9 @@ namespace Cyrus
     /// <summary>
     /// Reads a message from the channel and writes it to the sink
     /// </summary>
-    public interface ISink
+    public interface IOutboundAdapter
     {
-        IReceiveChannel ReceiveChannel { get; }
+        IReceiveChannel InboundChannel { get; }
         Task SendAsync();
     }
 }

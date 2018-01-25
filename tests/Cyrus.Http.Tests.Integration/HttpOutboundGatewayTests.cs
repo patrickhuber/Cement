@@ -4,30 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cyrus.Http.Tests.Integration.Adapters
 {
     [TestClass]
-    public class HttpProcessorTests
+    public class HttpOutboundGatewayTests
     {
         IConfiguration Configuration { get; set; }
         ConfigurationSecretStore SecretStore { get; set; }
 
-        public HttpProcessorTests()
+        public HttpOutboundGatewayTests()
         {
             var builder = new ConfigurationBuilder()
-                .AddUserSecrets<HttpProcessorTests>();
+                .AddUserSecrets<HttpOutboundGatewayTests>();
             Configuration = builder.Build();
             SecretStore = new ConfigurationSecretStore(Configuration);
         }
 
         [TestMethod]
-        public async Task HttpRequestReplySendShouldCreateNewMessageWithHttpResponse()
+        public async Task HttpOutboundGatewaySendShouldCreateNewMessageWithHttpResponse()
         {
-            var settings = new HttpRequestReplyAdapterSettings(
+            var settings = new HttpOutboundGatewaySettings(
                 "https://www.google.com",
                 HttpMethod.Get);         
 
@@ -38,12 +36,12 @@ namespace Cyrus.Http.Tests.Integration.Adapters
         }
 
         [TestMethod]
-        public async Task HttpRequestReplySendShouldWorkWithTokenAuthorization()
+        public async Task HttpOutboundGatewaySendShouldWorkWithTokenAuthorization()
         {
             var tokenPath = "/HttpRequestReplyAdapterTests/PivotalNetworkToken";
             var tokenCredentialStore = new TokenCredentialStore(SecretStore);
             var tokenAuthenticationProvider = new TokenAuthenticationProvider();
-            var settings = new HttpRequestReplyAdapterSettings(
+            var settings = new HttpOutboundGatewaySettings(
                     "https://network.pivotal.io/api/v2/authentication",
                     HttpMethod.Get,
                     "application/json",
@@ -57,14 +55,14 @@ namespace Cyrus.Http.Tests.Integration.Adapters
         }
 
         [TestMethod]
-        public async Task HttpRequestReplySendShouldWorkWithBasicAuthentication()
+        public async Task HttpOutboundGatewaySendShouldWorkWithBasicAuthentication()
         {
             var username = "username";
             var password = "password";
 
             var authenticationProvider = new BasicAuthenticationProvider();
 
-            var settings = new HttpRequestReplyAdapterSettings(
+            var settings = new HttpOutboundGatewaySettings(
                 $"http://httpbin.org/basic-auth/{username}/{password}",
                 HttpMethod.Get,
                 "text/xml",               
@@ -77,12 +75,12 @@ namespace Cyrus.Http.Tests.Integration.Adapters
             });
         }
 
-        private async Task TestAsync(HttpRequestReplyAdapterSettings settings, Action<IMessageReader> assert)
+        private async Task TestAsync(HttpOutboundGatewaySettings settings, Action<IMessageReader> assert)
         {
             var requestChannel = new InMemoryChannel();
             var replyChannel = new InMemoryChannel();
 
-            var httpRequestReplyAdapter = new HttpRequestReplyAdapter(
+            var httpOutboundGateway = new HttpOutboundGateway(
                 new HttpClient(),
                 settings,
                 requestChannel,
@@ -93,7 +91,7 @@ namespace Cyrus.Http.Tests.Integration.Adapters
             await requestChannel.SendAsync(emptyMessage);
 
             // send the message
-            await httpRequestReplyAdapter.SendAsync();
+            await httpOutboundGateway.SendAsync();
 
             // pull the message off of the reply channel
             using (var message = replyChannel.Receive())

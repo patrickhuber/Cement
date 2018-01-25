@@ -1,48 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Cyrus.Http
 {
-    public class HttpRequestReplyAdapter : IProcessor
+    public class HttpOutboundGateway : IOutboundGateway
     {
-        public IReceiveChannel RequestChannel { get; private set; }
+        public IReceiveChannel InboundChannel { get; private set; }
 
-        public ISendChannel ReplyChannel { get; private set; }
-        
-        public HttpRequestReplyAdapterSettings Settings { get; private set; }
-        
+        public ISendChannel OutboundChannel { get; private set; }
+
+        public HttpOutboundGatewaySettings Settings { get; private set; }
+
         private HttpClient _httpClient;
 
-        public HttpRequestReplyAdapter(
-            HttpClient client, 
-            HttpRequestReplyAdapterSettings settings,
-            IReceiveChannel requestChannel, 
-            ISendChannel replyChannel)
+        public HttpOutboundGateway(
+            HttpClient client,
+            HttpOutboundGatewaySettings settings,
+            IReceiveChannel inboundChannel,
+            ISendChannel outboundChannel)
         {
             _httpClient = client;
 
             Settings = settings;
 
-            RequestChannel = requestChannel;
-            ReplyChannel = replyChannel;
+            InboundChannel = inboundChannel;
+            OutboundChannel = outboundChannel;
         }
 
         public async Task SendAsync()
-        {            
+        {
             // get the message from the request channel
-            using (var message = RequestChannel.Receive())
+            using (var message = InboundChannel.Receive())
             {
                 var httpRequestMessage = new HttpRequestMessage(
-                    Settings.Method, 
+                    Settings.Method,
                     Settings.Endpoint);
 
                 if (Settings.Authentication != null)
                     httpRequestMessage.Headers.Authorization = Settings.Authentication;
-                
+
                 // get the settings from the adapter to apply to the request message
                 var httpResponseMessage = await _httpClient.SendAsync(httpRequestMessage);
 
@@ -51,7 +49,7 @@ namespace Cyrus.Http
                 var replyMessage = new Message(responseStream, GetMessageHeadersFromHttpResponseMessage(httpResponseMessage));
 
                 // and send the message
-                await ReplyChannel.SendAsync(replyMessage);
+                await OutboundChannel.SendAsync(replyMessage);
             }
         }
 
@@ -65,17 +63,6 @@ namespace Cyrus.Http
                 { HttpResponseProperties.HttpMethod, httpResponseMessage.RequestMessage.Method.Method }
             };
         }
-
-        public AuthenticationHeaderValue GetBasicAuthenticationHeader(
-            BasicAuthenticationCredential credential)
-        {
-            var credentialString = $"{credential.UserName}:{credential.Password}";
-            var credentialBytes = Encoding.ASCII.GetBytes(credentialString);
-            var credentialBase64 = Convert.ToBase64String(credentialBytes);
-            var authenticationHeaderValue = new AuthenticationHeaderValue("Basic", credentialBase64);
-            return authenticationHeaderValue;
-        }
-
 
     }
 }

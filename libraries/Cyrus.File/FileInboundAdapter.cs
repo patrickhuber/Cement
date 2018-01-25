@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace Cyrus.File
 {
-    public class FileSource : ISource
+    public class FileInboundAdapter : IInboundAdapter
     {
-        public ISendChannel SendChannel { get; private set; }
+        public ISendChannel OutboundChannel { get; private set; }
 
         public IFileSystem FileSystem { get; private set; }
 
@@ -14,7 +14,7 @@ namespace Cyrus.File
 
         public string Filter { get; private set; }
 
-        public FileSource(
+        public FileInboundAdapter(
             IFileSystem fileSystem, 
             string path, 
             string filter,
@@ -23,7 +23,7 @@ namespace Cyrus.File
             FileSystem = fileSystem;
             Path = path;
             Filter = filter;
-            SendChannel = sendChannel;
+            OutboundChannel = sendChannel;
         }
 
         private IDictionary<string, string> GetMessageHeaders(string file)
@@ -54,7 +54,7 @@ namespace Cyrus.File
             using (var fileStream = FileSystem.OpenFile(file, System.IO.FileMode.Open))
             {
                 var message = new Message(fileStream, GetMessageHeaders(file));
-                await SendChannel.SendAsync(message);
+                await OutboundChannel.SendAsync(message);
             }
         }
 

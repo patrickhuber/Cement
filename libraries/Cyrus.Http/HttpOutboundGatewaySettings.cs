@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 
 namespace Cyrus.Http
 {
-    public class HttpRequestReplyAdapterSettings
+    public class HttpOutboundGatewaySettings
     {
         public string Endpoint { get; private set; }
 
@@ -15,7 +15,7 @@ namespace Cyrus.Http
 
         public HttpRequestHeaders Headers { get; private set; }
 
-        public HttpRequestReplyAdapterSettings(
+        public HttpOutboundGatewaySettings(
             string endpoint,
             HttpMethod httpMethod,
             string contentType = "text/xml",

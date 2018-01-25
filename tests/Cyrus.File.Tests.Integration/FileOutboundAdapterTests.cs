@@ -8,7 +8,7 @@ using Moq;
 namespace Cyrus.File.Tests.Integration
 {
     [TestClass]
-    public class FileSendAdapterTests
+    public class FileOutboundAdapterTests
     {
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
@@ -28,7 +28,7 @@ namespace Cyrus.File.Tests.Integration
                         new Dictionary<string, string> { }));
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "send");
-            var fileSendAdapter = new FileSink(
+            var fileSendAdapter = new FileOutboundAdapter(
                 new FileSystem(),
                 path,
                 mockReceiveChannel.Object);

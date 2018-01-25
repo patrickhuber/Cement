@@ -3,19 +3,20 @@ using System.Threading.Tasks;
 
 namespace Cyrus.File
 {
-    public class FileSink : ISink
+    public class FileOutboundAdapter
+        : IOutboundAdapter
     {
-        public IReceiveChannel ReceiveChannel { get; private set; }
+        public IReceiveChannel InboundChannel { get; private set; }
 
         public IFileSystem FileSystem { get; private set; }
 
         public string Path { get; private set; }
 
-        public FileSink(IFileSystem fileSystem, string path, IReceiveChannel receiveChannel)
+        public FileOutboundAdapter(IFileSystem fileSystem, string path, IReceiveChannel receiveChannel)
         {
             FileSystem = fileSystem;
             Path = path;
-            ReceiveChannel = receiveChannel;
+            InboundChannel = receiveChannel;
         }
 
         public async Task SendAsync()
@@ -23,7 +24,7 @@ namespace Cyrus.File
             var fileName = Guid.NewGuid().ToString() + ".txt";
             var path = System.IO.Path.Combine(Path, fileName);
 
-            using (var message = ReceiveChannel.Receive())
+            using (var message = InboundChannel.Receive())
             {               
                 using (var fileStream = FileSystem.CreateFile(path))
                 {

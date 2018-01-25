@@ -6,18 +6,18 @@ namespace Cyrus
     /// <summary>
     /// Pulls a message from a receive channel, disposing of the message and reading its body.
     /// </summary>
-    public class NullSink : ISink
+    public class NullOutboundAdapter : IOutboundAdapter
     {
-        public IReceiveChannel ReceiveChannel { get; }
+        public IReceiveChannel InboundChannel { get; }
 
-        public NullSink(IReceiveChannel receiveChannel)
+        public NullOutboundAdapter(IReceiveChannel receiveChannel)
         {
-            ReceiveChannel = receiveChannel;
+            InboundChannel = receiveChannel;
         }
 
         public async Task SendAsync()
         {
-            using (var message = ReceiveChannel.Receive())
+            using (var message = InboundChannel.Receive())
             {
                 var buffer = new byte[1024];
                 var bytesRead = 0;

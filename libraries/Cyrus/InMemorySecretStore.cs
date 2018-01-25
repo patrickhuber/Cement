@@ -14,6 +14,11 @@ namespace Cyrus
             _secrets = new Dictionary<string, string>(secrets);
         }
 
+        public InMemorySecretStore()            
+        {
+            _secrets = new Dictionary<string, string>();
+        }
+
         public Task<string> ReadSecretAsync(string path)
         {
             return Task.FromResult(_secrets[path]);
