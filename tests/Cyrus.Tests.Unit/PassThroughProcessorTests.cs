@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Cyrus.Channels;
+using Cyrus.Messaging;
+using Cyrus;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -29,10 +32,10 @@ namespace Cyrus.Tests.Unit
             await receiveChannel.SendAsync(message);
 
             // run the processor
-            await passThroughProcessor.SendAsync();
+            await passThroughProcessor.ProcessAsync();
 
             // get the message from the send channel
-            var passedMessage = sendChannel.Receive();
+            var passedMessage = await sendChannel.ReceiveAsync();
 
             // verify the headers
             var header = passedMessage.MessageHeader;

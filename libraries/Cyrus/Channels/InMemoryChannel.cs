@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Cyrus.Messaging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Channels
 {
     /// <summary>
     /// Represents an in memory message channel
@@ -19,13 +20,29 @@ namespace Cyrus
 
         public int Count { get { return _queue.Count; } }
 
-        public IMessageReader Receive()
+        public Task<IMessageReader> ReceiveAsync()
         {
-            if(Count > 0)
-                return _queue.Dequeue();
+            if (Count > 0)
+            {
+                IMessageReader reader = _queue.Dequeue();
+                return Task.FromResult(reader);
+            }
             throw new InvalidOperationException("Queue is empty");
         }
-        
+
+        public async Task<IMessageReader> ReceiveAsync(TimeSpan timeSpan)
+        {
+            var start = DateTime.UtcNow;
+            do
+            {
+                if (Count > 0)                
+                    return _queue.Dequeue();                    
+                
+                await Task.Delay(100);
+            } while (DateTime.UtcNow - start >= timeSpan);
+            throw new TimeoutException("Timeout $timeSpan elapsed. No messages received.");
+        }
+
         public void Send(IMessageReader reader)
         {
             using (reader)

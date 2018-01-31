@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using Cyrus.Channels;
+using System.Threading.Tasks;
 
 namespace Cyrus
 {
@@ -12,6 +13,6 @@ namespace Cyrus
 
         ISendChannel ReplyChannel { get; }
 
-        Task SendAsync();
+        Task ProcessAsync();
     }
 }

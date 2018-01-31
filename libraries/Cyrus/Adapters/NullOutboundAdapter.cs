@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Cyrus.Channels;
+using System;
 using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Adapters
 {
     /// <summary>
     /// Pulls a message from a receive channel, disposing of the message and reading its body.
@@ -17,7 +18,7 @@ namespace Cyrus
 
         public async Task SendAsync()
         {
-            using (var message = InboundChannel.Receive())
+            using (var message = await InboundChannel.ReceiveAsync())
             {
                 var buffer = new byte[1024];
                 var bytesRead = 0;

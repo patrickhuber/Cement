@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Cyrus.Messaging;
+using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Channels
 {
     /// <summary>
     /// Defines a channel specificly for sending messages.

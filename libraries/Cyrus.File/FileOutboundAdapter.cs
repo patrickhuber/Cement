@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Cyrus.Adapters;
+using Cyrus.Channels;
+using Cyrus.Messaging;
+using System;
 using System.Threading.Tasks;
 
 namespace Cyrus.File
@@ -24,7 +27,7 @@ namespace Cyrus.File
             var fileName = Guid.NewGuid().ToString() + ".txt";
             var path = System.IO.Path.Combine(Path, fileName);
 
-            using (var message = InboundChannel.Receive())
+            using (var message = await InboundChannel.ReceiveAsync())
             {               
                 using (var fileStream = FileSystem.CreateFile(path))
                 {

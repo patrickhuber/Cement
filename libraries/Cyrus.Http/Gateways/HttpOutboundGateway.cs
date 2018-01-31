@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Cyrus.Channels;
+using Cyrus.Gateways;
+using Cyrus.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Cyrus.Http
+namespace Cyrus.Http.Gateways
 {
     public class HttpOutboundGateway : IOutboundGateway
     {
@@ -32,7 +35,7 @@ namespace Cyrus.Http
         public async Task SendAsync()
         {
             // get the message from the request channel
-            using (var message = InboundChannel.Receive())
+            using (var message = await InboundChannel.ReceiveAsync())
             {
                 var httpRequestMessage = new HttpRequestMessage(
                     Settings.Method,

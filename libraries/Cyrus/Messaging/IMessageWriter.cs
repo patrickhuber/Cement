@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Messaging
 {
     public interface IMessageWriter : IDisposable
     {

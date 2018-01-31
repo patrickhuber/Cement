@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Cyrus.Channels;
+using Cyrus.Messaging;
+using Cyrus.Gateways;
 
 namespace Cyrus.AspNetCore
 {

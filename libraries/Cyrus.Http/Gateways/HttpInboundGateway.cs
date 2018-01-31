@@ -1,7 +1,9 @@
-﻿using Microsoft.Net.Http.Server;
+﻿using Cyrus.Channels;
+using Cyrus.Gateways;
+using Microsoft.Net.Http.Server;
 using System.Threading.Tasks;
 
-namespace Cyrus.Http
+namespace Cyrus.Http.Gateways
 {
     public class HttpInboundGateway : IInboundGateway
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cyrus.Channels;
+using System;
 using System.Threading.Tasks;
 
 namespace Cyrus
@@ -7,7 +8,6 @@ namespace Cyrus
     {
         public IReceiveChannel RequestChannel { get; }
         public ISendChannel ReplyChannel { get; }
-        
 
         public PassThroughProcessor(IReceiveChannel requestChannel, ISendChannel replyChannel)
         {
@@ -15,9 +15,9 @@ namespace Cyrus
             ReplyChannel = replyChannel;
         }
 
-        public Task SendAsync()
+        public async Task ProcessAsync()
         {
-            return ReplyChannel.SendAsync(RequestChannel.Receive());
+            await ReplyChannel.SendAsync(await RequestChannel.ReceiveAsync());
         }        
     }
 }

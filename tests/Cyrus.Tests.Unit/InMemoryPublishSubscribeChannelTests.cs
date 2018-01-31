@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using System.Linq.Expressions;
+using Cyrus.Messaging;
+using Cyrus.Channels;
 
 namespace Cyrus.Tests.Unit
 {

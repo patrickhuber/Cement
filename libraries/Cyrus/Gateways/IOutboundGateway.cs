@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using Cyrus.Adapters;
+using Cyrus.Channels;
+using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Gateways
 {
     public interface IOutboundGateway 
         : IOutboundAdapter

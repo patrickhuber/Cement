@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Cyrus.Adapters;
+using Cyrus.Channels;
+using Cyrus.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

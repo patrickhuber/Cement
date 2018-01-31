@@ -4,6 +4,8 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using Cyrus.Messaging;
+using Cyrus.Channels;
 
 namespace Cyrus.File.Tests.Integration
 {
@@ -21,11 +23,14 @@ namespace Cyrus.File.Tests.Integration
         {
             var mockReceiveChannel = new Mock<IReceiveChannel>();
             mockReceiveChannel
-                .Setup(x => x.Receive()).
-                Returns(
-                    new Message(
+                .Setup(x => x.ReceiveAsync())
+                .Returns(() => 
+                {
+                    IMessageReader messageReader = new Message(
                         new MemoryStream(Encoding.ASCII.GetBytes("0123456789")),
-                        new Dictionary<string, string> { }));
+                        new Dictionary<string, string> { });
+                    return Task.FromResult(messageReader);
+                });
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "send");
             var fileSendAdapter = new FileOutboundAdapter(

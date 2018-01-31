@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Cyrus.Messaging;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Channels
 {
-    public class InMemoryPublishSubscribeChannel : ISendChannel, IEventChannel
+    public class InMemoryPublishSubscribeChannel : ISendChannel, ISubscribableChannel
     {
         private List<IMessageHandler> _observers;
 
@@ -62,32 +63,28 @@ namespace Cyrus
             return new Message(body, properties);
         }
 
-        public IDisposable Subscribe(IMessageHandler handler)
+        public bool Subscribe(IMessageHandler handler)
         {
-            if (!_observers.Contains(handler))
-                _observers.Add(handler);
-            return new Unsubscriber(_observers, handler);
+            if (_observers.Contains(handler))
+                return false;
+            
+            _observers.Add(handler);
+            return true;            
         }
 
-        /// <summary>
-        /// <see cref="https://msdn.microsoft.com/en-us/library/dd990377(v=vs.110).aspx"/>
-        /// </summary>
-        private class Unsubscriber : IDisposable
+        public bool Unsubscribe(IMessageHandler handler)
         {
-            private List<IMessageHandler> _handlers;
-            private IMessageHandler _handler;
+            return _observers.Remove(handler);
+        }
 
-            public Unsubscriber(List<IMessageHandler> handlers, IMessageHandler handler)
-            {
-                _handlers = handlers;
-                _handler = handler;
-            }
+        bool IChannel.Send(IMessageReader reader)
+        {
+            throw new NotImplementedException();
+        }
 
-            public void Dispose()
-            {
-                if (_handler != null && _handlers.Contains(_handler))
-                    _handlers.Remove(_handler);
-            }
+        public bool Send(IMessageReader reader, TimeSpan timeout)
+        {
+            throw new NotImplementedException();
         }
     }
 }

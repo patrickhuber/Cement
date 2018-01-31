@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Cyrus.Channels;
+using Cyrus.Http.Gateways;
+using Cyrus.Messaging;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -94,7 +97,7 @@ namespace Cyrus.Http.Tests.Integration.Adapters
             await httpOutboundGateway.SendAsync();
 
             // pull the message off of the reply channel
-            using (var message = replyChannel.Receive())
+            using (var message = await replyChannel.ReceiveAsync())
             {
                 assert(message);
             }

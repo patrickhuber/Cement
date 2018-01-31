@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using Cyrus.Channels;
+using System.Threading.Tasks;
 
-namespace Cyrus
+namespace Cyrus.Adapters
 {
     /// <summary>
     /// Receives a message from the source and writes it to a channel.

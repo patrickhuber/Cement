@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Cyrus.Adapters;
+using Cyrus.Channels;
 
-namespace Cyrus
+namespace Cyrus.Gateways
 {
     public interface IInboundGateway : IInboundAdapter
     {
