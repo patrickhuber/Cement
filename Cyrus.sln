@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus", "libraries\Cyrus\Cyrus.csproj", "{972AAB91-CF69-43DF-9A6D-1CB0D703F466}"
 EndProject
@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.AspNetCore.Tests.Unit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hosts", "hosts", "{7B5AEB4C-039C-4D7E-89C9-F03D28FEA96D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.AzureKeyVault.Tests.Integration", "tests\Cyrus.AzureKeyVault.Tests.Integration\Cyrus.AzureKeyVault.Tests.Integration.csproj", "{7697B884-988A-4A78-9EAE-AECBA71E1553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyrus.AzureKeyVault.Tests.Integration", "tests\Cyrus.AzureKeyVault.Tests.Integration\Cyrus.AzureKeyVault.Tests.Integration.csproj", "{7697B884-988A-4A78-9EAE-AECBA71E1553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.Vault", "libraries\Cyrus.Vault\Cyrus.Vault.csproj", "{9197508F-15C2-4AC5-B6EA-6D898A8C1A63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyrus.CredHub", "libraries\Cyrus.CredHub\Cyrus.CredHub.csproj", "{42592AA3-9414-4BFA-BB6B-F484B3581141}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +91,14 @@ Global
 		{7697B884-988A-4A78-9EAE-AECBA71E1553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7697B884-988A-4A78-9EAE-AECBA71E1553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7697B884-988A-4A78-9EAE-AECBA71E1553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9197508F-15C2-4AC5-B6EA-6D898A8C1A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9197508F-15C2-4AC5-B6EA-6D898A8C1A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9197508F-15C2-4AC5-B6EA-6D898A8C1A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9197508F-15C2-4AC5-B6EA-6D898A8C1A63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42592AA3-9414-4BFA-BB6B-F484B3581141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42592AA3-9414-4BFA-BB6B-F484B3581141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42592AA3-9414-4BFA-BB6B-F484B3581141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42592AA3-9414-4BFA-BB6B-F484B3581141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +116,8 @@ Global
 		{31308C32-AE6A-4C44-8C96-664BCC1FD6BC} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
 		{6DB4B903-7B58-48FA-9487-AE2B56E8DECE} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
 		{7697B884-988A-4A78-9EAE-AECBA71E1553} = {039D58A7-00A3-4B1E-B491-ABDD9EA72A21}
+		{9197508F-15C2-4AC5-B6EA-6D898A8C1A63} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
+		{42592AA3-9414-4BFA-BB6B-F484B3581141} = {04EAED0F-6966-42BE-9BC7-A2FC0E9F23B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7559BDB7-3092-49D4-87AC-9A2075F98707}
